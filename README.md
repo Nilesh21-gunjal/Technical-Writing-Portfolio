@@ -88,4 +88,8 @@ Experienced **Technical Writer** with **6+ years** of expertise in creating high
 ✅ Strong collaboration skills with **global teams & SMEs**.  
 ✅ Ability to simplify complex technical concepts for diverse audiences.  
 
+1.
+4.
+5.
+![onedrive]("C:\Users\Nilesh Gunjal\OneDrive - Cuculus India\Documents\GitHub\Technical-Writing-Portfolio\save the file to onedrive .jpg"save the file to onedrive .jpg)
 ---
