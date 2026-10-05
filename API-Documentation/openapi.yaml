@@ -1,0 +1,716 @@
+openapi: 3.0.3
+info:
+  title: Device Operations API
+  version: 2.1.0
+  description: |
+    A fictional API sample for connected-device operations. This specification
+    demonstrates the documentation patterns a senior technical writer uses for
+    developer audiences: authentication, resource lifecycle, filtering,
+    pagination, validation, consistent errors, and actionable examples.
+
+    The identifiers, URLs, timestamps, device details, and operational values
+    in this document are invented for portfolio use. This API is not connected
+    to a production service.
+  contact:
+    name: API Documentation Team
+    url: https://example.com/docs
+    email: api-docs@example.com
+  license:
+    name: Portfolio sample
+externalDocs:
+  description: OpenAPI Specification
+  url: https://spec.openapis.org/oas/v3.0.3
+servers:
+  - url: https://api.example.com/v2
+    description: Example environment for documentation and testing
+tags:
+  - name: Authentication
+    description: Obtain access tokens for API requests.
+  - name: Devices
+    description: Register and manage connected devices.
+  - name: Telemetry
+    description: Retrieve time-series measurements reported by a device.
+  - name: Alerts
+    description: Configure and resolve device-operation alerts.
+  - name: Usage
+    description: Retrieve an aggregated usage summary.
+paths:
+  /auth/token:
+    post:
+      tags: [Authentication]
+      summary: Create an access token
+      description: Exchanges client credentials for a short-lived bearer token.
+      operationId: createAccessToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRequest'
+            example:
+              client_id: demo-client
+              client_secret: demo-secret
+      responses:
+        '200':
+          description: Token created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+              example:
+                access_token: eyJhbGciOiJIUzI1NiJ9.demo-token
+                token_type: Bearer
+                expires_in: 3600
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /devices:
+    get:
+      tags: [Devices]
+      summary: List devices
+      description: Returns a paginated list of devices available to the caller.
+      operationId: listDevices
+      security:
+        - BearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+        - name: status
+          in: query
+          description: Filter by operational status.
+          schema:
+            type: string
+            enum: [active, inactive, maintenance]
+        - name: site_code
+          in: query
+          description: Filter by the site identifier assigned by the customer.
+          schema:
+            type: string
+            example: SITE-001
+      responses:
+        '200':
+          description: A page of devices.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DevicePage'
+              example:
+                data:
+                  - id: DEV-2024-001842
+                    name: Loading dock sensor
+                    device_type: sensor
+                    status: active
+                    site:
+                      site_code: SITE-001
+                      timezone: UTC
+                    manufacturer: Example Devices
+                    model: Edge-100
+                    communication_protocol: MQTT
+                    created_at: '2026-09-14T09:30:00Z'
+                    updated_at: '2026-10-05T09:30:00Z'
+                pagination:
+                  page: 1
+                  per_page: 20
+                  total_items: 1
+                  total_pages: 1
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      tags: [Devices]
+      summary: Register a device
+      description: Creates a device record after validating its unique identifier.
+      operationId: registerDevice
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceRegistrationRequest'
+            example:
+              name: Loading dock sensor
+              device_type: sensor
+              site:
+                site_code: SITE-001
+                timezone: UTC
+              manufacturer: Example Devices
+              model: Edge-100
+              communication_protocol: MQTT
+      responses:
+        '201':
+          description: Device registered.
+          headers:
+            Location:
+              description: URL of the newly created device.
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          description: A device with the same natural key already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+
+  /devices/{device_id}:
+    parameters:
+      - $ref: '#/components/parameters/DeviceId'
+    get:
+      tags: [Devices]
+      summary: Get a device
+      description: Returns the current configuration and operational status.
+      operationId: getDevice
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Device details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags: [Devices]
+      summary: Update a device
+      description: Updates fields that can change after registration.
+      operationId: updateDevice
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUpdateRequest'
+            example:
+              name: Loading dock temperature sensor
+              status: maintenance
+      responses:
+        '200':
+          description: Device updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+    delete:
+      tags: [Devices]
+      summary: Deactivate a device
+      description: Deactivates a device without deleting its audit history.
+      operationId: deactivateDevice
+      security:
+        - BearerAuth: []
+      responses:
+        '204':
+          description: Device deactivated successfully.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /devices/{device_id}/telemetry:
+    parameters:
+      - $ref: '#/components/parameters/DeviceId'
+    get:
+      tags: [Telemetry]
+      summary: List telemetry points
+      description: |
+        Returns measurements for a device in ascending timestamp order. Use the
+        time range and page parameters together for predictable result sizes.
+      operationId: listTelemetry
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: from
+          in: query
+          required: true
+          description: Inclusive start of the UTC time range.
+          schema:
+            type: string
+            format: date-time
+          example: '2026-10-01T00:00:00Z'
+        - name: to
+          in: query
+          required: true
+          description: Exclusive end of the UTC time range.
+          schema:
+            type: string
+            format: date-time
+          example: '2026-10-02T00:00:00Z'
+        - name: metric
+          in: query
+          description: Return only one metric name when supplied.
+          schema:
+            type: string
+            example: temperature
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Telemetry points for the requested range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TelemetryPage'
+              example:
+                data:
+                  - timestamp: '2026-10-01T09:00:00Z'
+                    metric: temperature
+                    value: 21.4
+                    unit: celsius
+                pagination:
+                  page: 1
+                  per_page: 20
+                  total_items: 1
+                  total_pages: 1
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /devices/{device_id}/alerts:
+    parameters:
+      - $ref: '#/components/parameters/DeviceId'
+    get:
+      tags: [Alerts]
+      summary: List device alerts
+      description: Returns alerts ordered from newest to oldest.
+      operationId: listAlerts
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          description: Filter by alert status.
+          schema:
+            type: string
+            enum: [open, acknowledged, resolved]
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: A page of alerts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertPage'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /devices/{device_id}/alerts/{alert_id}/resolve:
+    parameters:
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/AlertId'
+    post:
+      tags: [Alerts]
+      summary: Resolve an alert
+      description: Marks an open or acknowledged alert as resolved.
+      operationId: resolveAlert
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resolution_note:
+                  type: string
+                  maxLength: 500
+                  example: Reviewed by the operations team.
+      responses:
+        '200':
+          description: Alert resolved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alert'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: The alert is already resolved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /devices/{device_id}/usage-summary:
+    parameters:
+      - $ref: '#/components/parameters/DeviceId'
+    get:
+      tags: [Usage]
+      summary: Get a usage summary
+      description: Returns an aggregate for a selected metric and time range.
+      operationId: getUsageSummary
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: metric
+          in: query
+          required: true
+          description: Metric to aggregate.
+          schema:
+            type: string
+            example: energy
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+          example: '2026-10-01T00:00:00Z'
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+          example: '2026-10-08T00:00:00Z'
+      responses:
+        '200':
+          description: Usage summary.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageSummary'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Obtain a token from `/auth/token` and send it in the `Authorization` header.
+  parameters:
+    DeviceId:
+      name: device_id
+      in: path
+      required: true
+      description: Stable identifier assigned to the device.
+      schema:
+        type: string
+        pattern: '^DEV-[0-9]{4}-[0-9]{6}$'
+      example: DEV-2024-001842
+    AlertId:
+      name: alert_id
+      in: path
+      required: true
+      description: Identifier assigned to the alert.
+      schema:
+        type: string
+      example: ALT-2026-000041
+    Page:
+      name: page
+      in: query
+      description: Page number, starting at 1.
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      description: Number of records per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+  responses:
+    BadRequest:
+      description: The request is malformed or contains invalid query parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: invalid_request
+              message: The value of per_page must be between 1 and 100.
+              request_id: req_01HXYZ123ABC
+    Unauthorized:
+      description: The request is missing a valid bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: The requested resource does not exist or is not available to the caller.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UnprocessableEntity:
+      description: The request is syntactically valid but fails a business validation rule.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    TooManyRequests:
+      description: The client has exceeded the request rate.
+      headers:
+        Retry-After:
+          description: Number of seconds to wait before retrying.
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    TokenRequest:
+      type: object
+      required: [client_id, client_secret]
+      properties:
+        client_id:
+          type: string
+          minLength: 1
+          example: demo-client
+        client_secret:
+          type: string
+          format: password
+          minLength: 1
+          example: demo-secret
+    TokenResponse:
+      type: object
+      required: [access_token, token_type, expires_in]
+      properties:
+        access_token:
+          type: string
+          description: Short-lived token used for authenticated requests.
+        token_type:
+          type: string
+          enum: [Bearer]
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds.
+          example: 3600
+    Site:
+      type: object
+      required: [site_code, timezone]
+      properties:
+        site_code:
+          type: string
+          pattern: '^SITE-[0-9]{3}$'
+          example: SITE-001
+        timezone:
+          type: string
+          example: UTC
+    Device:
+      type: object
+      required: [id, name, device_type, status, site, manufacturer, model, communication_protocol, created_at, updated_at]
+      properties:
+        id:
+          type: string
+          example: DEV-2024-001842
+        name:
+          type: string
+          example: Loading dock sensor
+        device_type:
+          type: string
+          enum: [sensor, controller, gateway]
+        status:
+          type: string
+          enum: [active, inactive, maintenance]
+        site:
+          $ref: '#/components/schemas/Site'
+        manufacturer:
+          type: string
+          example: Example Devices
+        model:
+          type: string
+          example: Edge-100
+        communication_protocol:
+          type: string
+          enum: [HTTPS, MQTT, OPC_UA]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    DeviceRegistrationRequest:
+      type: object
+      required: [name, device_type, site, manufacturer, model, communication_protocol]
+      allOf:
+        - $ref: '#/components/schemas/DeviceUpdateRequest'
+        - type: object
+          properties:
+            device_type:
+              type: string
+              enum: [sensor, controller, gateway]
+            site:
+              $ref: '#/components/schemas/Site'
+            manufacturer:
+              type: string
+            model:
+              type: string
+            communication_protocol:
+              type: string
+              enum: [HTTPS, MQTT, OPC_UA]
+    DeviceUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        status:
+          type: string
+          enum: [active, inactive, maintenance]
+    TelemetryPoint:
+      type: object
+      required: [timestamp, metric, value, unit]
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        metric:
+          type: string
+          example: temperature
+        value:
+          type: number
+          format: double
+          example: 21.4
+        unit:
+          type: string
+          example: celsius
+    Alert:
+      type: object
+      required: [id, device_id, status, severity, message, created_at]
+      properties:
+        id:
+          type: string
+          example: ALT-2026-000041
+        device_id:
+          type: string
+          example: DEV-2024-001842
+        status:
+          type: string
+          enum: [open, acknowledged, resolved]
+        severity:
+          type: string
+          enum: [info, warning, critical]
+        message:
+          type: string
+          example: No telemetry received during the expected interval.
+        created_at:
+          type: string
+          format: date-time
+        resolved_at:
+          type: string
+          format: date-time
+          nullable: true
+    UsageSummary:
+      type: object
+      required: [device_id, metric, from, to, total, unit]
+      properties:
+        device_id:
+          type: string
+          example: DEV-2024-001842
+        metric:
+          type: string
+          example: energy
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        total:
+          type: number
+          format: double
+          example: 148.6
+        unit:
+          type: string
+          example: kilowatt_hour
+    Pagination:
+      type: object
+      required: [page, per_page, total_items, total_pages]
+      properties:
+        page:
+          type: integer
+          example: 1
+        per_page:
+          type: integer
+          example: 20
+        total_items:
+          type: integer
+          example: 1
+        total_pages:
+          type: integer
+          example: 1
+    DevicePage:
+      type: object
+      required: [data, pagination]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    TelemetryPage:
+      type: object
+      required: [data, pagination]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TelemetryPoint'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    AlertPage:
+      type: object
+      required: [data, pagination]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, request_id]
+          properties:
+            code:
+              type: string
+              example: resource_not_found
+            message:
+              type: string
+              example: The requested device was not found.
+            request_id:
+              type: string
+              example: req_01HXYZ123ABC

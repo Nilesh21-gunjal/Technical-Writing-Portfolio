@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Device Operations API — Documentation</title>
+  <meta name="description" content="Fictional API reference for connected-device registration, telemetry, alerts, and usage operations." />
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css" />
+  <style>
+    /* ── Brand header ───────────────────────────────────────────────── */
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+    #portfolio-header {
+      background: #1B3A5C;
+      color: #fff;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    #portfolio-header .brand { display: flex; align-items: center; gap: 14px; }
+    #portfolio-header .logo {
+      width: 42px; height: 42px; border-radius: 8px;
+      background: #2E6DA4; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; font-weight: 700; color: #fff;
+    }
+    #portfolio-header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+    #portfolio-header p  { margin: 2px 0 0; font-size: 13px; color: #a8c4de; }
+    #portfolio-header .meta { text-align: right; font-size: 12px; color: #a8c4de; line-height: 1.6; }
+    #portfolio-header .meta a { color: #7ec8f5; text-decoration: none; }
+    #portfolio-header .meta a:hover { text-decoration: underline; }
+
+    /* ── Banner strip ───────────────────────────────────────────────── */
+    #portfolio-banner {
+      background: #EAF3FB;
+      border-bottom: 1px solid #b5d4f4;
+      padding: 10px 32px;
+      font-size: 13px;
+      color: #0C447C;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #portfolio-banner .badge {
+      background: #185FA5; color: #fff;
+      padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;
+    }
+
+    /* ── Swagger UI overrides ───────────────────────────────────────── */
+    .swagger-ui .topbar { display: none !important; }
+    .swagger-ui .info    { padding: 20px 0 10px; }
+    .swagger-ui .wrapper { max-width: 1200px; }
+
+    .swagger-ui .opblock-tag { font-size: 16px !important; }
+
+    .swagger-ui .opblock.opblock-get    { border-color: #185FA5; background: #EAF3FB; }
+    .swagger-ui .opblock.opblock-post   { border-color: #0F6E56; background: #E1F5EE; }
+    .swagger-ui .opblock.opblock-patch  { border-color: #854F0B; background: #FAEEDA; }
+    .swagger-ui .opblock.opblock-delete { border-color: #A32D2D; background: #FCEBEB; }
+
+    .swagger-ui .opblock.opblock-get    .opblock-summary-method { background: #185FA5 !important; }
+    .swagger-ui .opblock.opblock-post   .opblock-summary-method { background: #0F6E56 !important; }
+    .swagger-ui .opblock.opblock-patch  .opblock-summary-method { background: #854F0B !important; }
+    .swagger-ui .opblock.opblock-delete .opblock-summary-method { background: #A32D2D !important; }
+
+    .swagger-ui .btn.execute { background: #1B3A5C !important; border-color: #1B3A5C !important; }
+    .swagger-ui .btn.execute:hover { background: #2E6DA4 !important; }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+    #portfolio-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #eee;
+      margin-top: 32px;
+    }
+    #portfolio-footer a { color: #185FA5; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- Portfolio header -->
+<div id="portfolio-header">
+  <div class="brand">
+    <div class="logo">DO</div>
+    <div>
+      <h1>Device Operations API</h1>
+      <p>API Reference Documentation &mdash; v2.1.0</p>
+    </div>
+  </div>
+  <div class="meta">
+    Authored by <strong>Nilesh Gunjal</strong> &mdash; Senior Technical Writer<br/>
+    <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">&#x1F4C1; GitHub Portfolio</a>
+    &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/nilesh-gunjal-39b8a376" target="_blank">&#x1F517; LinkedIn</a>
+  </div>
+</div>
+
+<!-- Context banner -->
+<div id="portfolio-banner">
+  <span class="badge">Portfolio Sample</span>
+  <span>
+    This API documentation was authored as a portfolio piece demonstrating OpenAPI 3.0 spec writing,
+    Swagger UI integration, and Docs-as-Code workflow. The API models a fictional connected-device platform.
+  </span>
+</div>
+
+<!-- Swagger UI mount point -->
+<div id="swagger-ui"></div>
+
+<!-- Footer -->
+<div id="portfolio-footer">
+  Written using <a href="https://swagger.io/specification/" target="_blank">OpenAPI 3.0</a>
+  &nbsp;&bull;&nbsp;
+  Rendered with <a href="https://swagger.io/tools/swagger-ui/" target="_blank">Swagger UI 5</a>
+  &nbsp;&bull;&nbsp;
+  Prepared for <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+  &nbsp;&bull;&nbsp;
+  Source on <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+</div>
+
+<script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
+<script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-standalone-preset.js"></script>
+<script>
+  window.onload = () => {
+    SwaggerUIBundle({
+      url: "./openapi.yaml",
+      dom_id: "#swagger-ui",
+      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      layout: "StandaloneLayout",
+      deepLinking: true,
+      displayRequestDuration: true,
+      defaultModelsExpandDepth: 2,
+      defaultModelExpandDepth: 2,
+      tryItOutEnabled: false,
+      filter: true,
+      syntaxHighlight: { activate: true, theme: "agate" },
+      tagsSorter: "alpha",
+    });
+  };
+</script>
+</body>
+</html>
