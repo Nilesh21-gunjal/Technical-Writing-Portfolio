@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nilesh Gunjal portfolio case study: a public-safe Device Operations API documentation sample.">
+  <link rel="canonical" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/work/device-operations-api/">
+  <link rel="stylesheet" href="../../assets/portfolio.css">
+  <title>Device Operations API | Nilesh Gunjal</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap nav-bar">
+      <a class="brand" href="../../" aria-label="Nilesh Gunjal home">Nilesh Gunjal <span>· Technical Writer</span></a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../#capabilities">Capabilities</a></li>
+          <li><a href="../../#workflow">How I work</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+          <li><a class="nav-cta" href="../../output/pdf/Nilesh_Gunjal_Public_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <header class="sample-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../../">Portfolio</a> / Featured work / API documentation</p>
+      <p class="section-kicker">Developer documentation · Public-safe sample</p>
+      <h1>Device Operations API</h1>
+      <p class="sample-dek">A developer-facing API documentation sample that demonstrates how I organize onboarding, reference, examples, validation, and troubleshooting content for an integration team.</p>
+      <div class="sample-actions">
+        <a class="button secondary" href="../../API-Documentation/">Open API documentation</a>
+        <a class="button" href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/tree/Main/API-Documentation" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="wrap" style="padding-top: 58px;">
+    <div class="sample-layout">
+      <article class="sample-content">
+        <h2>What I designed</h2>
+        <p>This sample presents a fictional device operations service through a consistent developer documentation experience. It combines an OpenAPI 3.0.3 specification with human-readable guidance so that a reader can understand the service before choosing an endpoint.</p>
+        <ul>
+          <li>Organized content around developer goals: understand the service, authenticate, perform an operation, interpret a response, and recover from an error.</li>
+          <li>Documented 7 resource paths and 10 operations with descriptions, parameters, request bodies, responses, reusable schemas, and error behavior.</li>
+          <li>Included device lifecycle, telemetry, alerts, pagination, validation, and troubleshooting concepts without exposing real product or customer data.</li>
+        </ul>
+
+        <h2>Documentation decisions</h2>
+        <table class="case-table">
+          <tbody>
+            <tr><th scope="row">Audience</th><td>Developers and integration teams who need to connect a client application to a device operations service.</td></tr>
+            <tr><th scope="row">Information architecture</th><td>Overview and authentication first, followed by resource reference, request and response examples, reusable errors, and operational guidance.</td></tr>
+            <tr><th scope="row">Reference model</th><td>Consistent endpoint structure: purpose, authentication, parameters, example request, success response, error response, and related operations.</td></tr>
+            <tr><th scope="row">Public-safe approach</th><td>Generic resource names, example values, placeholder credentials, and fictional URLs keep the sample useful without reproducing employer-owned information.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Example developer entry point</h2>
+        <p>The sample uses an explicit placeholder base URL and environment-variable style credentials so readers can understand the request without treating it as a production integration.</p>
+        <pre><code>curl -X GET "https://api.example.com/v1/devices" \
+  -H "Authorization: Bearer &lt;token&gt;" \
+  -H "Accept: application/json"</code></pre>
+
+        <h2>What this demonstrates</h2>
+        <ul>
+          <li>API reference information that is consistent, scannable, and connected to developer tasks.</li>
+          <li>OpenAPI-first thinking without relying on generated reference text alone.</li>
+          <li>Clear handling of authentication, pagination, validation, errors, and expected responses.</li>
+          <li>Awareness of data security and public-portfolio constraints.</li>
+        </ul>
+
+        <div class="callout"><strong>Public-safe note:</strong> This is an independent demonstration. It contains no internal URLs, credentials, customer data, production identifiers, proprietary architecture, or employer-owned source content.</div>
+      </article>
+
+      <aside class="sample-aside" aria-label="API case study details">
+        <div class="detail-card">
+          <h2>At a glance</h2>
+          <ul class="detail-list">
+            <li><strong>Audience</strong>Developers and integration teams</li>
+            <li><strong>Role</strong>Information architecture, API reference, examples, and validation</li>
+            <li><strong>Tools</strong>OpenAPI 3.0.3, YAML, Swagger UI, Markdown</li>
+            <li><strong>Scope</strong>7 paths · 10 operations · reusable schemas and errors</li>
+          </ul>
+        </div>
+        <div class="detail-card">
+          <h2>Related evidence</h2>
+          <ul class="detail-list">
+            <li><a href="../../#capabilities">API documentation capability</a></li>
+            <li><a href="../docs-as-code/">Docs-as-Code workflow</a></li>
+            <li><a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/samples/responsible-ai-documentation-workflow.md" target="_blank" rel="noopener noreferrer">Responsible AI workflow</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer><div class="wrap">© Nilesh Gunjal · <a href="../../">Back to portfolio</a> · Public-safe sample</div></footer>
+</body>
+</html>

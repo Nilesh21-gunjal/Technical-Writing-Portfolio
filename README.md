@@ -2,8 +2,10 @@
 
 **API Documentation · Developer Documentation · Docs-as-Code · DITA and Structured Authoring**
 
-Bengaluru, India · Open to relocation to Pune
+Bengaluru, India · Open to remote opportunities and relocation to Pune/Mumbai
 [LinkedIn](https://linkedin.com/in/nilesh-gunjal-39b8a376) · [GitHub](https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio) · [Email](mailto:nileshgunjal92@gmail.com)
+
+[Open the portfolio website](https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/)
 
 [Download public resume (PDF)](./output/pdf/Nilesh_Gunjal_Public_Resume.pdf)
 
