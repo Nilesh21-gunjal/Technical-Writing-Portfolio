@@ -1,0 +1,49 @@
+name: Documentation quality
+
+on:
+  push:
+    branches:
+      - Main
+  pull_request:
+    branches:
+      - Main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Check Markdown and HTML links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude-mail
+            --root-dir .
+            './**/*.md'
+            './**/*.html'
+          fail: true
+          jobSummary: true
+
+  openapi:
+    name: Validate OpenAPI specification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Lint OpenAPI specification
+        run: npx --yes @redocly/cli@latest lint --extends minimal --format=github-actions API-Documentation/openapi.yaml

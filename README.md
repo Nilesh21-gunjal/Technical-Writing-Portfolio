@@ -5,6 +5,8 @@
 Bengaluru, India · Open to relocation to Pune
 [LinkedIn](https://linkedin.com/in/nilesh-gunjal-39b8a376) · [GitHub](https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio) · [Email](mailto:nileshgunjal92@gmail.com)
 
+[![Documentation quality](https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/actions/workflows/documentation-quality.yml/badge.svg)](https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/actions/workflows/documentation-quality.yml)
+
 ## Profile
 
 Senior Technical Writer with **7+ years of experience** creating clear, structured, and maintainable documentation for enterprise software, connected-device platforms, industrial systems, and engineering products.

@@ -1,0 +1,5 @@
+# Local server used only for the Swagger UI preview instructions.
+^http://localhost:8080/?$
+
+# Fictional host used only in the independent API writing sample.
+^https://api\.example\.com/
