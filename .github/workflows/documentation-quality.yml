@@ -26,8 +26,8 @@ jobs:
           args: >-
             --verbose
             --no-progress
-            --exclude-mail
-            --root-dir .
+            --exclude-loopback
+            --root-dir "$(pwd)"
             './**/*.md'
             './**/*.html'
           fail: true

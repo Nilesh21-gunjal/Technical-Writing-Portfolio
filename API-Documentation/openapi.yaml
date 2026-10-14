@@ -21,7 +21,7 @@ externalDocs:
   description: OpenAPI Specification
   url: https://spec.openapis.org/oas/v3.0.3
 servers:
-  - url: https://api.example.com/v2
+  - url: https://api.portfolio-example.invalid/v2
     description: Example environment for documentation and testing
 tags:
   - name: Authentication
@@ -41,6 +41,7 @@ paths:
       summary: Create an access token
       description: Exchanges client credentials for a short-lived bearer token.
       operationId: createAccessToken
+      security: []
       requestBody:
         required: true
         content:
