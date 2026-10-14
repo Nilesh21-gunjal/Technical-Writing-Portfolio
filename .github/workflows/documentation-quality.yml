@@ -14,19 +14,19 @@ permissions:
 
 jobs:
   links:
-    name: Check Markdown and HTML links
+    name: Check repository links
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
 
-      - name: Check links
+      - name: Check local links
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
+            --offline
             --verbose
             --no-progress
-            --exclude-loopback
             --root-dir "$(pwd)"
             './**/*.md'
             './**/*.html'
