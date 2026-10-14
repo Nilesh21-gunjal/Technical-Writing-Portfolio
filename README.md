@@ -47,6 +47,10 @@ User guides, installation guides, administrator guides, maintenance manuals, ser
 
 Requirements analysis, documentation planning, impact analysis, SME interviews, technical reviews, peer review, release coordination, mentoring, and documentation-process improvement.
 
+### Responsible AI documentation
+
+Human-in-the-loop AI assistance, source verification, data minimization, AI-use disclosure, security review, accessibility checks, provenance, and correction workflows.
+
 ## Selected work
 
 | Project | Audience | What it demonstrates |
@@ -57,6 +61,7 @@ Requirements analysis, documentation planning, impact analysis, SME interviews, 
 | [Release notes sample](./samples/release-notes/Device%20Operations%20API%20v2.1.0%20Release%20Notes.md) | Administrators and developers | Feature impact, compatibility, upgrade guidance, structured errors, known issues, and action-oriented release communication |
 | [Administrator guide sample](./samples/admin-guide/Device%20Operations%20Platform%20Administrator%20Guide.md) | Platform administrators | Prerequisites, configuration procedures, verification steps, permissions, and troubleshooting |
 | [Aviation and industrial case study](./case-studies/aviation-and-industrial-documentation.md) | Technicians, service engineers, and reviewers | NDA-safe documentation planning, engineering-change impact analysis, structured content, illustrations, SME collaboration, and evidence-led quality outcomes |
+| [Responsible AI documentation workflow](./samples/responsible-ai-documentation-workflow.md) | Technical writers, engineering, product, and governance teams | Human review, source traceability, data classification, AI-use disclosure, security, accessibility, and release controls |
 
 ## How I work
 
