@@ -80,52 +80,45 @@
     }
     #portfolio-footer a { color: #185FA5; text-decoration: none; }
   </style>
+  <link rel="stylesheet" href="../assets/portfolio.css" />
 </head>
 <body>
 
-<!-- Portfolio header -->
-<div id="portfolio-header">
-  <div class="brand">
-    <div class="logo">DO</div>
-    <div>
-      <h1>Device Operations API</h1>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a class="brand" href="../" aria-label="Nilesh Gunjal home">Nilesh Gunjal</a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../">Portfolio home</a></li>
+        <li><a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/nilesh-gunjal-39b8a376" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="api-intro" aria-labelledby="api-title">
+    <div class="wrap">
+      <p class="back-link"><a href="../">Back to portfolio</a></p>
+      <h1 id="api-title">Device Operations API</h1>
       <p>API Reference Documentation &mdash; v2.1.0</p>
+      <p>This API documentation was authored as a portfolio piece demonstrating OpenAPI 3.0 spec writing, Swagger UI integration, and Docs-as-Code workflow. The API models a fictional connected-device platform.</p>
     </div>
+  </section>
+
+  <div id="swagger-ui"></div>
+  <noscript><p class="noscript-message">This API reference requires JavaScript. <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/API-Documentation/openapi.yaml" target="_blank" rel="noopener noreferrer">View the OpenAPI YAML on GitHub</a>.</p></noscript>
+  <p class="api-meta">Written using <a href="https://swagger.io/specification/" target="_blank" rel="noopener noreferrer">OpenAPI 3.0</a> · Rendered with <a href="https://swagger.io/tools/swagger-ui/" target="_blank" rel="noopener noreferrer">Swagger UI 5</a> · <a href="../">Portfolio home</a> · Prepared for <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a> · Source on <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Nilesh Gunjal · Last updated October 2026</p>
+    <p>Portfolio samples use fictional or generalized information and exclude confidential product details.</p>
   </div>
-  <div class="meta">
-    Authored by <strong>Nilesh Gunjal</strong> &mdash; Senior Technical Writer<br/>
-    <a href="../">&#x2190; Portfolio home</a>
-    &nbsp;&bull;&nbsp;
-    <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">&#x1F4C1; GitHub Portfolio</a>
-    &nbsp;&bull;&nbsp;
-    <a href="https://linkedin.com/in/nilesh-gunjal-39b8a376" target="_blank">&#x1F517; LinkedIn</a>
-  </div>
-</div>
-
-<!-- Context banner -->
-<div id="portfolio-banner">
-  <span class="badge">Portfolio Sample</span>
-  <span>
-    This API documentation was authored as a portfolio piece demonstrating OpenAPI 3.0 spec writing,
-    Swagger UI integration, and Docs-as-Code workflow. The API models a fictional connected-device platform.
-  </span>
-</div>
-
-<!-- Swagger UI mount point -->
-<div id="swagger-ui"></div>
-
-<!-- Footer -->
-<div id="portfolio-footer">
-  Written using <a href="https://swagger.io/specification/" target="_blank">OpenAPI 3.0</a>
-  &nbsp;&bull;&nbsp;
-  Rendered with <a href="https://swagger.io/tools/swagger-ui/" target="_blank">Swagger UI 5</a>
-  &nbsp;&bull;&nbsp;
-  <a href="../">Portfolio home</a>
-  &nbsp;&bull;&nbsp;
-  Prepared for <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
-  &nbsp;&bull;&nbsp;
-  Source on <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
-</div>
+</footer>
 
 <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
 <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-standalone-preset.js"></script>
