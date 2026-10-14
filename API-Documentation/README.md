@@ -20,6 +20,20 @@ This independent, fictional portfolio sample demonstrates how a senior technical
 - Interactive Swagger UI rendering
 - Docs-as-Code organization suitable for review and maintenance
 
+## Verifiable sample scope
+
+The following measures describe this independent portfolio artifact, not a production API or employer result:
+
+| Measure | Published evidence |
+|---|---|
+| API resource paths | 7 paths in [`openapi.yaml`](./openapi.yaml) |
+| Documented operations | 10 operations covering authentication, device management, telemetry, alerts, and usage |
+| API topic areas | 5 tagged areas: Authentication, Devices, Telemetry, Alerts, and Usage |
+| Reusable schemas | 14 schemas for requests, resources, pagination, pages, and errors |
+| Rendering method | Swagger UI entry point generated from the OpenAPI 3.0.3 specification |
+
+These measures make the sample's scope reviewable in the repository. They are not claims about API adoption, performance, customer usage, or business impact.
+
 ## Files
 
 | File | Purpose |

@@ -1,42 +1,55 @@
 # Case Study: Aviation and Industrial Documentation
 
-> This case study is intentionally NDA-safe. It describes the type of work, workflow, and documentation decisions without reproducing customer data or proprietary manuals.
+> This case study is intentionally NDA-safe. It describes the documentation challenge, approach, and outcome without reproducing customer data, proprietary manuals, or employer performance metrics.
 
-## Context
+## At a glance
 
-I have created and revised maintenance, service, installation, and illustrated-parts documentation for aviation and industrial equipment programs.
+| Area | Detail |
+|---|---|
+| **Documentation challenge** | Convert approved engineering changes and source data into maintenance and service content that technicians can use safely and reviewers can trace. |
+| **Primary audiences** | Maintenance technicians, service engineers, installation teams, engineering reviewers, and quality reviewers. |
+| **My role** | Analyze change impact, author and revise procedures, coordinate technical queries, support illustrations, and prepare deliverables for review. |
+| **Content types** | Maintenance manuals, service instructions, installation and operation manuals, service bulletins, technical reports, and illustrated parts catalogues. |
+| **Working model** | Structured authoring, controlled language, engineering-source traceability, and SME review. |
 
-## Audience
+## Context and challenge
 
-- Maintenance technicians
-- Service engineers
-- Installation teams
-- Engineering and quality reviewers
+I created and revised maintenance, service, installation, and illustrated-parts documentation for aviation and industrial equipment programs. A single engineering change can affect a procedure, safety information, illustrations, part references, and cross-references in more than one deliverable.
+
+The documentation challenge was to make each affected task accurate, scannable, and repeatable for field use while retaining a clear link to approved engineering source data.
 
 ## My contribution
 
-- Converted engineering changes and source data into clear, task-oriented procedures.
-- Performed impact analysis to identify affected manuals, tasks, figures, and references.
-- Collaborated with engineers and subject-matter experts to resolve technical queries.
-- Applied structured-authoring and controlled-language principles for consistency and translation readiness.
-- Used technical drawings and CAD data to support illustrations and parts documentation.
+- Performed change-impact analysis to identify affected manuals, tasks, figures, part references, and cross-references before drafting began.
+- Converted engineering changes and source data into task-oriented procedures with prerequisites, safety information, ordered actions, and verification points.
+- Collaborated with engineers and subject-matter experts to resolve technical queries and confirm interpretation before final review.
+- Applied structured-authoring and controlled-language principles to improve consistency, reuse potential, and translation readiness.
+- Used technical drawings and CAD data to support accurate illustrations and parts documentation.
 
-## Documentation produced
+## Quality and review workflow
 
-- Maintenance manuals
-- Service instructions
-- Installation and operation manuals
-- Service bulletins and technical reports
-- Illustrated parts catalogues
+1. Identify the technician's task, required prerequisites, and applicable safety information.
+2. Trace the proposed content to approved engineering source data and assess the documentation impact.
+3. Draft structured, task-oriented content that supports scanning and repeatable execution.
+4. Review terminology, warnings, references, figures, and revision impact for completeness and consistency.
+5. Resolve SME feedback, record final decisions, and verify the deliverable against the approved change request.
 
-## Quality approach
+## Outcomes and evidence
 
-1. Identify the user task and required safety or prerequisite information.
-2. Trace the procedure to approved engineering source data.
-3. Write and structure the content for scanning and repeatable execution.
-4. Review terminology, warnings, references, figures, and revision impact.
-5. Resolve SME feedback and verify the final deliverable against the change request.
+### Documentation outcome
 
-## Outcome
+The workflow produced maintainable, review-ready documentation that connected engineering changes to the affected maintenance content. It helped technicians find the required conditions, actions, illustrations, and verification information in the order needed to complete a task.
 
-This workflow produces documentation that is easier to review, maintain, and use in field and maintenance environments while preserving traceability to engineering changes.
+### Evidence of impact
+
+| Outcome area | Evidence in the work |
+|---|---|
+| **Change control** | Impact analysis identified affected manuals, tasks, figures, and references before content was finalized. |
+| **Task usability** | Procedures were structured around prerequisites, safety information, ordered steps, and verification points. |
+| **Technical accuracy** | Content decisions were traced to approved engineering source data and technical queries were resolved with SMEs. |
+| **Review readiness** | Terminology, warnings, figures, references, and revision impact were checked before delivery. |
+| **Maintainability** | Structured authoring and controlled language supported consistent updates, reuse, and translation preparation. |
+
+## How I would quantify impact with approved data
+
+I do not publish employer or customer metrics without permission. When approved, I can supplement this case study with metrics such as documentation-change coverage, review-cycle time, technical-query closure rate, first-pass review acceptance, reuse coverage, or support-content effectiveness. These measures would be presented with the reporting period, baseline, and source so that the claim is meaningful and verifiable.

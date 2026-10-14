@@ -49,12 +49,12 @@ Requirements analysis, documentation planning, impact analysis, SME interviews, 
 
 | Project | Audience | What it demonstrates |
 |---|---|---|
-| [Device Operations API](./API-Documentation/README.md) | Developers and integration teams | OpenAPI 3.0.3, authentication, device lifecycle, telemetry, alerts, pagination, validation, reusable schemas, errors, and Swagger UI |
+| [Device Operations API](./API-Documentation/README.md) | Developers and integration teams | OpenAPI 3.0.3, authentication, device lifecycle, telemetry, alerts, pagination, validation, reusable schemas, errors, Swagger UI, and transparent sample-scope measures |
 | [Docs-as-Code guide](./GitHub%20for%20Technical%20Writers%20-%20A%20Beginner%E2%80%99s%20Guide%20to%20Docs-as-Code/README.md) | Technical writers and documentation contributors | Information architecture, task/concept/reference organization, Git workflows, pull requests, review, and publishing |
 | [Word transition guide](./Microsoft%20Word%202010%20to%20Microsoft%20365%20Transition%20Guide/Transition%20Guide%20-%20Microsoft%20Word%202010%20to%20Microsoft%20365.md) | Business users and support teams | Audience definition, task-based procedures, screenshots, expected results, and user-focused information design |
 | [Release notes sample](./samples/release-notes/Device%20Operations%20API%20v2.1.0%20Release%20Notes.md) | Administrators and developers | Feature impact, compatibility, upgrade guidance, structured errors, known issues, and action-oriented release communication |
 | [Administrator guide sample](./samples/admin-guide/Device%20Operations%20Platform%20Administrator%20Guide.md) | Platform administrators | Prerequisites, configuration procedures, verification steps, permissions, and troubleshooting |
-| [Aviation and industrial case study](./case-studies/aviation-and-industrial-documentation.md) | Technicians, service engineers, and reviewers | NDA-safe documentation planning, engineering-change impact analysis, structured content, illustrations, and SME collaboration |
+| [Aviation and industrial case study](./case-studies/aviation-and-industrial-documentation.md) | Technicians, service engineers, and reviewers | NDA-safe documentation planning, engineering-change impact analysis, structured content, illustrations, SME collaboration, and evidence-led quality outcomes |
 
 ## How I work
 
