@@ -47,3 +47,18 @@ jobs:
 
       - name: Lint OpenAPI specification
         run: npx --yes @redocly/cli@latest lint --extends minimal --format=github-actions API-Documentation/openapi.yaml
+
+  accessibility:
+    name: Check HTML accessibility essentials
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Check HTML accessibility essentials
+        run: node .github/scripts/check-accessibility.mjs
