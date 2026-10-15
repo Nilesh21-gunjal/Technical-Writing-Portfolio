@@ -1,5 +1,6 @@
 node_modules/
 site/
+site-api/
 .venv/
 __pycache__/
 *.pyc
