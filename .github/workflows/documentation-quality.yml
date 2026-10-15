@@ -91,7 +91,6 @@ jobs:
             './README.md'
             './API-Documentation/**/*.md'
             './samples/**/*.md'
-            './index.html'
             './work/**/*.html'
             './site/**/*.html'
           fail: true
