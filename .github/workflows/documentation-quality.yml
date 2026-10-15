@@ -13,12 +13,72 @@ permissions:
   contents: read
 
 jobs:
-  links:
-    name: Check repository links
+  validate:
+    name: Validate API documentation
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.25.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Node.js dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Python dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-docs.txt
+
+      - name: Validate OpenAPI schema
+        run: pnpm validate:openapi
+
+      - name: Lint OpenAPI with Redocly
+        run: pnpm lint:openapi
+
+      - name: Lint OpenAPI with Spectral
+        run: pnpm lint:spectral
+
+      - name: Build API documentation portal
+        run: pnpm build:api-docs
+
+      - name: Test API contract and code examples
+        run: pnpm test:api
+
+      - name: Build GitHub Pages output
+        run: pnpm build:site
+
+      - name: Check source HTML accessibility essentials
+        run: node .github/scripts/check-accessibility.mjs
+
+      - name: Check generated-site accessibility essentials
+        run: node .github/scripts/check-accessibility.mjs site
+
+      - name: Start generated-site preview
+        run: python -m http.server 4173 --directory site > /tmp/portfolio-http.log 2>&1 &
+
+      - name: Check responsive layouts
+        run: pnpm test:responsive
+
+      - name: Lint API prose with Vale
+        uses: vale-cli/vale-action@v3
+        with:
+          config: .vale.ini
+          files: '["API-Documentation/docs", "API-Documentation/README.md", "work/device-operations-api/index.html"]'
+          fail_level: error
+          sync: false
 
       - name: Check local links
         uses: lycheeverse/lychee-action@v2
@@ -28,37 +88,11 @@ jobs:
             --verbose
             --no-progress
             --root-dir "$(pwd)"
-            './**/*.md'
-            './**/*.html'
+            './README.md'
+            './API-Documentation/**/*.md'
+            './samples/**/*.md'
+            './index.html'
+            './work/**/*.html'
+            './site/**/*.html'
           fail: true
           jobSummary: true
-
-  openapi:
-    name: Validate OpenAPI specification
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
-
-      - name: Lint OpenAPI specification
-        run: npx --yes @redocly/cli@latest lint --extends minimal --format=github-actions API-Documentation/openapi.yaml
-
-  accessibility:
-    name: Check HTML accessibility essentials
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
-
-      - name: Check HTML accessibility essentials
-        run: node .github/scripts/check-accessibility.mjs

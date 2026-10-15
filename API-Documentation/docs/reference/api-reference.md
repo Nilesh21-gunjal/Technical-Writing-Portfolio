@@ -8,7 +8,12 @@ Use this reference for endpoint parameters, schemas, request bodies, response ex
 
 </div>
 
-<div id="swagger-ui" aria-label="Interactive Device Operations API reference"></div>
+<div class="portfolio-note" id="reference-loader">
+  <p>The interactive reference is loaded on demand so the guidance remains fast on slower connections. Loading it does not send a request to the fictional API.</p>
+  <button class="md-button md-button--primary" id="load-api-reference" type="button">Load interactive reference</button>
+</div>
+
+<div id="swagger-ui" aria-label="Interactive Device Operations API reference" hidden></div>
 
 <noscript>
   <p>This reference uses JavaScript to render the OpenAPI contract. <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/API-Documentation/openapi.yaml">View the OpenAPI YAML on GitHub</a>.</p>

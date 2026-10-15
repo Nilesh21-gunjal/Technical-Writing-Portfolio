@@ -14,13 +14,17 @@
     "test:examples": "node scripts/test-api-examples.mjs",
     "test:postman": "newman run API-Documentation/postman/device-operations.postman_collection.json --environment API-Documentation/postman/device-operations.postman_environment.json",
     "test:api": "node scripts/run-api-contract-tests.mjs",
-    "build:api-docs": "python -m mkdocs build --strict --config-file API-Documentation/mkdocs.yml",
+    "test:responsive": "node scripts/check-responsive.mjs",
+    "build:api-docs": "node scripts/build-api-docs.mjs",
     "build:site": "node scripts/build-pages.mjs"
   },
   "devDependencies": {
     "@redocly/cli": "2.64.0",
     "@stoplight/prism-cli": "5.16.0",
     "@stoplight/spectral-cli": "6.17.0",
-    "newman": "6.2.3"
+    "lighthouse": "13.5.0",
+    "newman": "6.2.3",
+    "puppeteer-core": "25.14.0",
+    "swagger-ui-dist": "5.17.14"
   }
 }

@@ -76,6 +76,14 @@ body,
   color: #2563a8;
 }
 
+.md-typeset p a,
+.md-typeset li a,
+.md-typeset td a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

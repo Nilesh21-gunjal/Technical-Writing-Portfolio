@@ -1,17 +1,28 @@
 import { spawn, spawnSync } from "node:child_process";
+import fs from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const baseUrl = "http://127.0.0.1:4010";
-const isWindows = process.platform === "win32";
-const binary = (name) => path.join(repositoryRoot, "node_modules", ".bin", isWindows ? `${name}.cmd` : name);
+const require = createRequire(import.meta.url);
+
+function packageBin(packageName) {
+  const packagePath = require.resolve(`${packageName}/package.json`);
+  const packageDirectory = path.dirname(packagePath);
+  const packageJson = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+  const bin = typeof packageJson.bin === "string"
+    ? packageJson.bin
+    : packageJson.bin[Object.keys(packageJson.bin)[0]];
+  return path.join(packageDirectory, bin);
+}
 
 function run(command, args) {
   const result = spawnSync(command, args, {
     cwd: repositoryRoot,
     encoding: "utf8",
-    shell: isWindows,
+    shell: false,
     env: { ...process.env, BASE_URL: baseUrl },
   });
   if (result.status !== 0) {
@@ -33,9 +44,9 @@ async function waitForMock() {
   throw new Error("Prism did not start within 30 seconds.");
 }
 
-const prism = spawn(binary("prism"), ["mock", "API-Documentation/openapi.yaml", "-h", "127.0.0.1", "-p", "4010", "--errors=false"], {
+const prism = spawn(process.execPath, [packageBin("@stoplight/prism-cli"), "mock", "API-Documentation/openapi.yaml", "-h", "127.0.0.1", "-p", "4010", "--errors=false"], {
   cwd: repositoryRoot,
-  shell: isWindows,
+  shell: false,
   env: process.env,
   stdio: ["ignore", "pipe", "pipe"],
 });
@@ -44,7 +55,7 @@ try {
   await waitForMock();
   run(process.execPath, ["scripts/verify-api-contract.mjs"]);
   run(process.execPath, ["scripts/test-api-examples.mjs"]);
-  run(binary("newman"), [
+  run(process.execPath, [packageBin("newman"),
     "run",
     "API-Documentation/postman/device-operations.postman_collection.json",
     "--environment",

@@ -16,22 +16,17 @@ theme:
     - navigation.footer
     - navigation.top
     - content.code.copy
-    - content.code.select
-    - search.highlight
-    - search.suggest
 
-plugins:
-  - search
+plugins: []
 
 extra:
   generator: false
 
 extra_css:
   - stylesheets/portfolio-api.css
-  - https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css
 
 extra_javascript:
-  - https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js
+  - javascripts/accessibility.js
   - javascripts/swagger-reference.js
 
 markdown_extensions:

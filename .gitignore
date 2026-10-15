@@ -1,6 +1,7 @@
 node_modules/
 site/
 site-api/
+API-Documentation/docs/assets/swagger-ui/
 .venv/
 __pycache__/
 *.pyc

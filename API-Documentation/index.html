@@ -1,74 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Device Operations API — Documentation</title>
-  <meta name="description" content="Fictional API reference for connected-device registration, telemetry, alerts, and usage operations." />
-  <meta name="author" content="Nilesh Gunjal" />
-  <meta name="theme-color" content="#102f4e" />
-  <link rel="canonical" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/API-Documentation/" />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css" />
-  <link rel="stylesheet" href="../assets/portfolio.css?v=20261015-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Source entry point for the fictional Device Operations API documentation portfolio sample.">
+  <meta name="author" content="Nilesh Gunjal">
+  <meta name="theme-color" content="#102f4e">
+  <link rel="canonical" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/API-Documentation/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/portfolio.css?v=20261015-8">
+  <title>Device Operations API documentation source | Nilesh Gunjal</title>
 </head>
 <body>
-
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header">
-  <div class="wrap nav-bar">
-    <a class="brand" href="../" aria-label="Nilesh Gunjal home">Nilesh Gunjal</a>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <ul class="nav-links">
-        <li><a href="../">Portfolio home</a></li>
-        <li><a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/nilesh-gunjal-39b8a376" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main-content">
-  <section class="api-intro" aria-labelledby="api-title">
-    <div class="wrap">
-      <p class="back-link"><a href="../">← Back to portfolio</a></p>
-      <h1 id="api-title">Device Operations API</h1>
-      <p>API Reference Documentation &mdash; v2.1.0</p>
-      <p>This API documentation was authored as a portfolio piece demonstrating OpenAPI 3.0 spec writing, Swagger UI integration, and Docs-as-Code workflow. The API models a fictional connected-device platform.</p>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap nav-bar">
+      <a class="brand" href="../" aria-label="Nilesh Gunjal home">Nilesh Gunjal</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="../">Portfolio home</a></li>
+          <li><a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/nilesh-gunjal-39b8a376" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <div id="swagger-ui"></div>
-  <noscript><p class="noscript-message">This API reference requires JavaScript. <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/API-Documentation/openapi.yaml" target="_blank" rel="noopener noreferrer">View the OpenAPI YAML on GitHub</a>.</p></noscript>
-  <p class="api-meta">Written using <a href="https://swagger.io/specification/" target="_blank" rel="noopener noreferrer">OpenAPI 3.0</a> · Rendered with <a href="https://swagger.io/tools/swagger-ui/" target="_blank" rel="noopener noreferrer">Swagger UI 5</a> · <a href="../">Portfolio home</a> · Prepared for <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a> · Source on <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-</main>
+  <main id="main-content">
+    <section class="api-intro" aria-labelledby="api-title">
+      <div class="wrap">
+        <p class="back-link"><a href="../">← Back to portfolio</a></p>
+        <h1 id="api-title">Device Operations API documentation source</h1>
+        <p>This directory contains the public-safe source for the fictional Device Operations API sample. The GitHub Pages workflow builds the task-based documentation portal, including the local Swagger UI reference.</p>
+        <div class="sample-actions">
+          <a class="button button-primary" href="../work/device-operations-api/">View case study</a>
+          <a class="button button-secondary" href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/API-Documentation/openapi.yaml" target="_blank" rel="noopener noreferrer">View OpenAPI source</a>
+        </div>
+        <p class="api-meta">To build the portal locally, install the documented dependencies and run <code>pnpm build:api-docs</code>. Then serve the generated <code>site</code> directory.</p>
+      </div>
+    </section>
+  </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>© 2026 Nilesh Gunjal · Last updated October 2026 · <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/README.md" target="_blank" rel="noopener noreferrer">Portfolio overview</a></p>
-    <p>Portfolio samples are fictional or sanitized demonstrations.</p>
-  </div>
-</footer>
-
-<script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
-<script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-standalone-preset.js"></script>
-<script>
-  window.onload = () => {
-    SwaggerUIBundle({
-      url: "./openapi.yaml",
-      dom_id: "#swagger-ui",
-      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-      layout: "StandaloneLayout",
-      deepLinking: true,
-      displayRequestDuration: true,
-      defaultModelsExpandDepth: 2,
-      defaultModelExpandDepth: 2,
-      tryItOutEnabled: false,
-      filter: true,
-      syntaxHighlight: { activate: true, theme: "agate" },
-      tagsSorter: "alpha",
-    });
-  };
-</script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Nilesh Gunjal · Last updated October 2026 · <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/README.md" target="_blank" rel="noopener noreferrer">Portfolio overview</a></p>
+      <p>Portfolio samples are fictional or sanitized demonstrations.</p>
+    </div>
+  </footer>
 </body>
 </html>

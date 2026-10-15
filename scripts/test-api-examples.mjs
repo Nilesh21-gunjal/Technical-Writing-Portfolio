@@ -34,7 +34,7 @@ for (const language of Object.keys(executableFor)) {
       cwd: repositoryRoot,
       env: environment,
       encoding: "utf8",
-      shell: process.platform === "win32" && language === "curl",
+      shell: false,
     });
     if (result.status !== 0) {
       throw new Error(`${language}/${file} failed.\n${result.stdout}\n${result.stderr}`);
