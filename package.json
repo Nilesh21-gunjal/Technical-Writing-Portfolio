@@ -1,0 +1,26 @@
+{
+  "name": "technical-writing-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lint:openapi": "redocly lint --config API-Documentation/.redocly.yaml API-Documentation/openapi.yaml",
+    "lint:spectral": "spectral lint --ruleset API-Documentation/.spectral.yaml API-Documentation/openapi.yaml",
+    "validate:openapi": "python -m openapi_spec_validator API-Documentation/openapi.yaml",
+    "mock": "prism mock API-Documentation/openapi.yaml -h 127.0.0.1 -p 4010 --errors=false",
+    "test:examples": "node scripts/test-api-examples.mjs",
+    "test:postman": "newman run API-Documentation/postman/device-operations.postman_collection.json --environment API-Documentation/postman/device-operations.postman_environment.json",
+    "test:api": "node scripts/run-api-contract-tests.mjs",
+    "build:api-docs": "python -m mkdocs build --strict --config-file API-Documentation/mkdocs.yml",
+    "build:site": "node scripts/build-pages.mjs"
+  },
+  "devDependencies": {
+    "@redocly/cli": "2.64.0",
+    "@stoplight/prism-cli": "5.16.0",
+    "@stoplight/spectral-cli": "6.17.0",
+    "newman": "6.2.3"
+  }
+}

@@ -1,0 +1,9 @@
+extends:
+  - recommended
+
+rules:
+  info-license-strict: error
+  operation-description: error
+  operation-operationId: error
+  operation-summary: error
+  tag-description: error

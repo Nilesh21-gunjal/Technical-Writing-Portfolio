@@ -1,0 +1,8 @@
+extends: existence
+message: "Remove filler word '%s' or replace it with a precise statement."
+level: suggestion
+ignorecase: true
+tokens:
+  - simply
+  - obviously
+  - just

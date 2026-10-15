@@ -12,17 +12,19 @@ info:
     in this document are invented for portfolio use. This API is not connected
     to a production service.
   contact:
-    name: API Documentation Team
-    url: https://example.com/docs
-    email: api-docs@example.com
+    name: Nilesh Gunjal
+    url: https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/#contact
   license:
-    name: Portfolio sample
+    name: Portfolio sample terms
+    url: https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio/blob/Main/API-Documentation/README.md#portfolio-use
 externalDocs:
-  description: OpenAPI Specification
-  url: https://spec.openapis.org/oas/v3.0.3
+  description: Open the Device Operations API documentation portal.
+  url: https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/API-Documentation/
 servers:
   - url: https://api.portfolio-example.invalid/v2
-    description: Example environment for documentation and testing
+    description: Fictional production-style URL. It is shown only to document the API shape and does not accept requests.
+  - url: http://127.0.0.1:4010
+    description: Local Prism contract mock. It returns documented examples and does not persist data, validate credentials, or simulate production behavior.
 tags:
   - name: Authentication
     description: Obtain access tokens for API requests.
@@ -31,19 +33,22 @@ tags:
   - name: Telemetry
     description: Retrieve time-series measurements reported by a device.
   - name: Alerts
-    description: Configure and resolve device-operation alerts.
+    description: Retrieve device alerts and resolve an open or acknowledged alert.
   - name: Usage
     description: Retrieve an aggregated usage summary.
+security:
+  - BearerAuth: []
 paths:
   /auth/token:
     post:
       tags: [Authentication]
       summary: Create an access token
-      description: Exchanges client credentials for a short-lived bearer token.
+      description: Exchanges a client ID and client secret for a short-lived bearer token.
       operationId: createAccessToken
       security: []
       requestBody:
         required: true
+        description: Client credentials for the portfolio API sample.
         content:
           application/json:
             schema:
@@ -65,13 +70,13 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
-          $ref: '#/components/responses/Unauthorized'
+          $ref: '#/components/responses/InvalidClient'
 
   /devices:
     get:
       tags: [Devices]
       summary: List devices
-      description: Returns a paginated list of devices available to the caller.
+      description: Returns devices available to the caller in ascending `created_at` order, using the device ID as a tie-breaker.
       operationId: listDevices
       security:
         - BearerAuth: []
@@ -100,6 +105,7 @@ paths:
               example:
                 data:
                   - id: DEV-2024-001842
+                    external_id: LD-SENSOR-042
                     name: Loading dock sensor
                     device_type: sensor
                     status: active
@@ -123,7 +129,7 @@ paths:
     post:
       tags: [Devices]
       summary: Register a device
-      description: Creates a device record after validating its unique identifier.
+      description: Creates a device record. The caller-supplied `external_id` is the natural key and must be unique within this fictional API sample.
       operationId: registerDevice
       security:
         - BearerAuth: []
@@ -134,6 +140,7 @@ paths:
             schema:
               $ref: '#/components/schemas/DeviceRegistrationRequest'
             example:
+              external_id: LD-SENSOR-042
               name: Loading dock sensor
               device_type: sensor
               site:
@@ -155,16 +162,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
+              example:
+                id: DEV-2024-001842
+                external_id: LD-SENSOR-042
+                name: Loading dock sensor
+                device_type: sensor
+                status: inactive
+                site:
+                  site_code: SITE-001
+                  timezone: UTC
+                manufacturer: Example Devices
+                model: Edge-100
+                communication_protocol: MQTT
+                created_at: '2026-09-14T09:30:00Z'
+                updated_at: '2026-10-05T09:30:00Z'
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '409':
           description: A device with the same natural key already exists.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  code: duplicate_external_id
+                  message: A device with external_id LD-SENSOR-042 already exists.
+                  request_id: req_01HXYZ123ABC
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
   /devices/{device_id}:
     parameters:
@@ -183,14 +213,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
+              example:
+                id: DEV-2024-001842
+                external_id: LD-SENSOR-042
+                name: Loading dock sensor
+                device_type: sensor
+                status: active
+                site:
+                  site_code: SITE-001
+                  timezone: UTC
+                manufacturer: Example Devices
+                model: Edge-100
+                communication_protocol: MQTT
+                created_at: '2026-09-14T09:30:00Z'
+                updated_at: '2026-10-05T09:30:00Z'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags: [Devices]
       summary: Update a device
-      description: Updates fields that can change after registration.
+      description: Updates the device name or operational status. The external ID, device type, site, manufacturer, model, and communication protocol cannot change after registration.
       operationId: updateDevice
       security:
         - BearerAuth: []
@@ -210,16 +256,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
+              example:
+                id: DEV-2024-001842
+                external_id: LD-SENSOR-042
+                name: Loading dock temperature sensor
+                device_type: sensor
+                status: maintenance
+                site:
+                  site_code: SITE-001
+                  timezone: UTC
+                manufacturer: Example Devices
+                model: Edge-100
+                communication_protocol: MQTT
+                created_at: '2026-09-14T09:30:00Z'
+                updated_at: '2026-10-05T10:00:00Z'
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags: [Devices]
       summary: Deactivate a device
-      description: Deactivates a device without deleting its audit history.
+      description: Sets the device status to `inactive` without deleting its audit history.
       operationId: deactivateDevice
       security:
         - BearerAuth: []
@@ -230,6 +294,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
   /devices/{device_id}/telemetry:
     parameters:
@@ -237,9 +303,7 @@ paths:
     get:
       tags: [Telemetry]
       summary: List telemetry points
-      description: |
-        Returns measurements for a device in ascending timestamp order. Use the
-        time range and page parameters together for predictable result sizes.
+      description: Returns measurements in ascending timestamp order. The `from` boundary is inclusive and the `to` boundary is exclusive.
       operationId: listTelemetry
       security:
         - BearerAuth: []
@@ -288,8 +352,12 @@ paths:
                   total_pages: 1
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
   /devices/{device_id}/alerts:
     parameters:
@@ -297,7 +365,7 @@ paths:
     get:
       tags: [Alerts]
       summary: List device alerts
-      description: Returns alerts ordered from newest to oldest.
+      description: Returns alerts in descending `created_at` order, from newest to oldest.
       operationId: listAlerts
       security:
         - BearerAuth: []
@@ -317,8 +385,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertPage'
+              example:
+                data:
+                  - id: ALT-2026-000041
+                    device_id: DEV-2024-001842
+                    status: open
+                    severity: warning
+                    message: No telemetry received during the expected interval.
+                    created_at: '2026-10-01T10:00:00Z'
+                    resolved_at: null
+                pagination:
+                  page: 1
+                  per_page: 20
+                  total_items: 1
+                  total_pages: 1
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
   /devices/{device_id}/alerts/{alert_id}/resolve:
     parameters:
@@ -327,7 +415,7 @@ paths:
     post:
       tags: [Alerts]
       summary: Resolve an alert
-      description: Marks an open or acknowledged alert as resolved.
+      description: Marks an open or acknowledged alert as resolved. A resolved alert cannot be resolved again.
       operationId: resolveAlert
       security:
         - BearerAuth: []
@@ -336,12 +424,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                resolution_note:
-                  type: string
-                  maxLength: 500
-                  example: Reviewed by the operations team.
+              $ref: '#/components/schemas/AlertResolutionRequest'
+            example:
+              resolution_note: Reviewed by the operations team.
       responses:
         '200':
           description: Alert resolved.
@@ -349,6 +434,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Alert'
+              example:
+                id: ALT-2026-000041
+                device_id: DEV-2024-001842
+                status: resolved
+                severity: warning
+                message: No telemetry received during the expected interval.
+                created_at: '2026-10-01T10:00:00Z'
+                resolved_at: '2026-10-01T10:15:00Z'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -357,6 +454,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  code: alert_already_resolved
+                  message: The alert is already resolved.
+                  request_id: req_01HXYZ123ABC
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
   /devices/{device_id}/usage-summary:
     parameters:
@@ -364,7 +470,7 @@ paths:
     get:
       tags: [Usage]
       summary: Get a usage summary
-      description: Returns an aggregate for a selected metric and time range.
+      description: Returns an aggregate for one metric over the requested time range. The `from` boundary is inclusive and the `to` boundary is exclusive.
       operationId: getUsageSummary
       security:
         - BearerAuth: []
@@ -379,6 +485,7 @@ paths:
         - name: from
           in: query
           required: true
+          description: Inclusive UTC start timestamp used for the aggregate.
           schema:
             type: string
             format: date-time
@@ -386,6 +493,7 @@ paths:
         - name: to
           in: query
           required: true
+          description: Exclusive UTC end timestamp used for the aggregate. The value must be later than `from`.
           schema:
             type: string
             format: date-time
@@ -397,10 +505,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UsageSummary'
+              example:
+                device_id: DEV-2024-001842
+                metric: energy
+                from: '2026-10-01T00:00:00Z'
+                to: '2026-10-08T00:00:00Z'
+                total: 148.6
+                unit: kilowatt_hour
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
 components:
   securitySchemes:
@@ -426,6 +545,7 @@ components:
       description: Identifier assigned to the alert.
       schema:
         type: string
+        pattern: '^ALT-[0-9]{4}-[0-9]{6}$'
       example: ALT-2026-000041
     Page:
       name: page
@@ -438,7 +558,7 @@ components:
     PerPage:
       name: per_page
       in: query
-      description: Number of records per page.
+      description: Number of records to return in one page. Values must be from 1 through 100; the default is 20.
       schema:
         type: integer
         minimum: 1
@@ -462,18 +582,44 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: invalid_token
+              message: The bearer token is missing, expired, or invalid.
+              request_id: req_01HXYZ123ABC
+    InvalidClient:
+      description: The supplied client credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: invalid_client
+              message: The supplied client credentials are invalid.
+              request_id: req_01HXYZ123ABC
     NotFound:
       description: The requested resource does not exist or is not available to the caller.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: resource_not_found
+              message: The requested device was not found.
+              request_id: req_01HXYZ123ABC
     UnprocessableEntity:
       description: The request is syntactically valid but fails a business validation rule.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: validation_failed
+              message: The value of external_id does not match the required format.
+              request_id: req_01HXYZ123ABC
     TooManyRequests:
       description: The client has exceeded the request rate.
       headers:
@@ -481,237 +627,374 @@ components:
           description: Number of seconds to wait before retrying.
           schema:
             type: integer
+            minimum: 1
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: rate_limit_exceeded
+              message: Too many requests were received. Wait for Retry-After before retrying.
+              request_id: req_01HXYZ123ABC
   schemas:
     TokenRequest:
       type: object
+      description: Client credentials used to request an access token.
       required: [client_id, client_secret]
       properties:
         client_id:
           type: string
           minLength: 1
+          description: Public identifier assigned to the calling client in this fictional sample.
           example: demo-client
         client_secret:
           type: string
           format: password
           minLength: 1
+          writeOnly: true
+          description: Secret paired with client_id. Do not store this value in source code or commit it to a repository.
           example: demo-secret
     TokenResponse:
       type: object
+      description: Bearer token returned after successful client authentication.
       required: [access_token, token_type, expires_in]
       properties:
         access_token:
           type: string
-          description: Short-lived token used for authenticated requests.
+          description: Short-lived token used in the Authorization header for protected requests.
+          example: eyJhbGciOiJIUzI1NiJ9.demo-token
         token_type:
           type: string
           enum: [Bearer]
+          description: Authentication scheme required in the Authorization header.
+          example: Bearer
         expires_in:
           type: integer
-          description: Token lifetime in seconds.
+          minimum: 1
+          description: Token lifetime in seconds. The portfolio sample returns 3600 seconds.
           example: 3600
     Site:
       type: object
+      description: Location assignment for a registered device.
       required: [site_code, timezone]
       properties:
         site_code:
           type: string
           pattern: '^SITE-[0-9]{3}$'
+          description: Stable site code assigned to the device location.
           example: SITE-001
         timezone:
           type: string
+          description: IANA time-zone identifier used by the site. Use UTC when no local time zone is required.
           example: UTC
     Device:
       type: object
-      required: [id, name, device_type, status, site, manufacturer, model, communication_protocol, created_at, updated_at]
+      description: Registered connected-device record.
+      required: [id, external_id, name, device_type, status, site, manufacturer, model, communication_protocol, created_at, updated_at]
       properties:
         id:
           type: string
+          pattern: '^DEV-[0-9]{4}-[0-9]{6}$'
+          readOnly: true
+          description: Stable API-assigned device identifier.
           example: DEV-2024-001842
+        external_id:
+          type: string
+          pattern: '^[A-Za-z0-9][A-Za-z0-9_-]{2,63}$'
+          description: Caller-supplied natural key that uniquely identifies the device within this fictional API sample.
+          example: LD-SENSOR-042
         name:
           type: string
+          minLength: 1
+          maxLength: 120
+          description: Human-readable device name.
           example: Loading dock sensor
         device_type:
           type: string
           enum: [sensor, controller, gateway]
+          description: Category of connected device.
         status:
           type: string
           enum: [active, inactive, maintenance]
+          description: Operational status. Registration creates an inactive device; clients can update the status to active, inactive, or maintenance.
         site:
           $ref: '#/components/schemas/Site'
         manufacturer:
           type: string
+          minLength: 1
+          maxLength: 120
+          description: Manufacturer name supplied during registration.
           example: Example Devices
         model:
           type: string
+          minLength: 1
+          maxLength: 120
+          description: Manufacturer model name or number supplied during registration.
           example: Edge-100
         communication_protocol:
           type: string
           enum: [HTTPS, MQTT, OPC_UA]
+          description: Protocol the device uses to communicate with its client or platform.
         created_at:
           type: string
           format: date-time
+          readOnly: true
+          description: UTC timestamp when the API created the device record.
+          example: '2026-09-14T09:30:00Z'
         updated_at:
           type: string
           format: date-time
+          readOnly: true
+          description: UTC timestamp when the API most recently updated the device record.
+          example: '2026-10-05T09:30:00Z'
     DeviceRegistrationRequest:
       type: object
-      required: [name, device_type, site, manufacturer, model, communication_protocol]
-      allOf:
-        - $ref: '#/components/schemas/DeviceUpdateRequest'
-        - type: object
-          properties:
-            device_type:
-              type: string
-              enum: [sensor, controller, gateway]
-            site:
-              $ref: '#/components/schemas/Site'
-            manufacturer:
-              type: string
-            model:
-              type: string
-            communication_protocol:
-              type: string
-              enum: [HTTPS, MQTT, OPC_UA]
+      description: Device details required to register a new device.
+      required: [external_id, name, device_type, site, manufacturer, model, communication_protocol]
+      properties:
+        external_id:
+          type: string
+          pattern: '^[A-Za-z0-9][A-Za-z0-9_-]{2,63}$'
+          description: Caller-supplied natural key. A second registration with the same value returns 409 duplicate_external_id.
+          example: LD-SENSOR-042
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Human-readable name for the device.
+          example: Loading dock sensor
+        device_type:
+          type: string
+          enum: [sensor, controller, gateway]
+          description: Category of connected device.
+        site:
+          $ref: '#/components/schemas/Site'
+        manufacturer:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Manufacturer name for the device.
+          example: Example Devices
+        model:
+          type: string
+          minLength: 1
+          maxLength: 120
+          description: Manufacturer model name or number for the device.
+          example: Edge-100
+        communication_protocol:
+          type: string
+          enum: [HTTPS, MQTT, OPC_UA]
+          description: Protocol the device uses to communicate with its client or platform.
     DeviceUpdateRequest:
       type: object
+      description: Mutable fields for an existing device. Include at least one property.
+      minProperties: 1
       properties:
         name:
           type: string
           minLength: 1
           maxLength: 120
+          description: Replacement human-readable device name.
+          example: Loading dock temperature sensor
         status:
           type: string
           enum: [active, inactive, maintenance]
+          description: Replacement operational status for the device.
+          example: maintenance
     TelemetryPoint:
       type: object
+      description: One time-stamped measurement reported by a device.
       required: [timestamp, metric, value, unit]
       properties:
         timestamp:
           type: string
           format: date-time
+          description: UTC timestamp when the device reported the measurement.
+          example: '2026-10-01T09:00:00Z'
         metric:
           type: string
+          minLength: 1
+          description: Name of the measured quantity.
           example: temperature
         value:
           type: number
           format: double
+          description: Numeric measurement value in the unit named by unit.
           example: 21.4
         unit:
           type: string
+          minLength: 1
+          description: Unit associated with value.
           example: celsius
     Alert:
       type: object
+      description: Condition associated with a device that requires review or has been resolved.
       required: [id, device_id, status, severity, message, created_at]
       properties:
         id:
           type: string
+          pattern: '^ALT-[0-9]{4}-[0-9]{6}$'
+          readOnly: true
+          description: Stable API-assigned alert identifier.
           example: ALT-2026-000041
         device_id:
           type: string
+          pattern: '^DEV-[0-9]{4}-[0-9]{6}$'
+          readOnly: true
+          description: Identifier of the device that produced the alert.
           example: DEV-2024-001842
         status:
           type: string
           enum: [open, acknowledged, resolved]
+          description: Workflow status of the alert.
         severity:
           type: string
           enum: [info, warning, critical]
+          description: Severity assigned to the alert.
         message:
           type: string
+          minLength: 1
+          description: Human-readable description of the alert condition.
           example: No telemetry received during the expected interval.
         created_at:
           type: string
           format: date-time
+          readOnly: true
+          description: UTC timestamp when the API created the alert.
+          example: '2026-10-01T10:00:00Z'
         resolved_at:
           type: string
           format: date-time
           nullable: true
+          readOnly: true
+          description: UTC timestamp when the alert was resolved, or null while it remains open or acknowledged.
+          example: null
+    AlertResolutionRequest:
+      type: object
+      description: Optional resolution detail for an alert.
+      properties:
+        resolution_note:
+          type: string
+          maxLength: 500
+          description: Optional explanation of the action taken to resolve the alert.
+          example: Reviewed by the operations team.
     UsageSummary:
       type: object
+      description: Aggregate measurement for one device, metric, and time range.
       required: [device_id, metric, from, to, total, unit]
       properties:
         device_id:
           type: string
+          pattern: '^DEV-[0-9]{4}-[0-9]{6}$'
+          description: Identifier of the device included in the aggregate.
           example: DEV-2024-001842
         metric:
           type: string
+          description: Metric included in the aggregate.
           example: energy
         from:
           type: string
           format: date-time
+          description: Inclusive UTC start timestamp used for the aggregate.
+          example: '2026-10-01T00:00:00Z'
         to:
           type: string
           format: date-time
+          description: Exclusive UTC end timestamp used for the aggregate.
+          example: '2026-10-08T00:00:00Z'
         total:
           type: number
           format: double
+          description: Sum of the selected metric during the requested time range.
           example: 148.6
         unit:
           type: string
+          description: Unit associated with total.
           example: kilowatt_hour
     Pagination:
       type: object
+      description: Page-based traversal details for a collection response.
       required: [page, per_page, total_items, total_pages]
       properties:
         page:
           type: integer
+          minimum: 1
+          description: One-based page number returned in this response.
           example: 1
         per_page:
           type: integer
+          minimum: 1
+          maximum: 100
+          description: Maximum number of records requested for this response page.
           example: 20
         total_items:
           type: integer
+          minimum: 0
+          description: Total number of matching records across all pages.
           example: 1
         total_pages:
           type: integer
+          minimum: 0
+          description: Total number of available pages for the current query.
           example: 1
     DevicePage:
       type: object
+      description: Paginated list of device records.
       required: [data, pagination]
       properties:
         data:
           type: array
+          description: Device records for the requested page.
           items:
             $ref: '#/components/schemas/Device'
         pagination:
           $ref: '#/components/schemas/Pagination'
     TelemetryPage:
       type: object
+      description: Paginated list of telemetry measurements.
       required: [data, pagination]
       properties:
         data:
           type: array
+          description: Telemetry points for the requested page.
           items:
             $ref: '#/components/schemas/TelemetryPoint'
         pagination:
           $ref: '#/components/schemas/Pagination'
     AlertPage:
       type: object
+      description: Paginated list of device alerts.
       required: [data, pagination]
       properties:
         data:
           type: array
+          description: Alert records for the requested page.
           items:
             $ref: '#/components/schemas/Alert'
         pagination:
           $ref: '#/components/schemas/Pagination'
     ErrorResponse:
       type: object
+      description: Standard response body returned for a documented client error.
       required: [error]
       properties:
         error:
           type: object
+          description: Details that explain the failed request.
           required: [code, message, request_id]
           properties:
             code:
               type: string
+              description: Stable machine-readable classification for the error.
+              enum: [invalid_request, invalid_client, invalid_token, resource_not_found, validation_failed, duplicate_external_id, alert_already_resolved, rate_limit_exceeded]
               example: resource_not_found
             message:
               type: string
+              description: Human-readable explanation of the failure.
               example: The requested device was not found.
             request_id:
               type: string
+              pattern: '^req_[A-Za-z0-9]+$'
+              description: Correlation identifier for the failed request.
               example: req_01HXYZ123ABC

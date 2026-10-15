@@ -1,0 +1,4 @@
+allowBuilds:
+  '@scarf/scarf': false
+minimumReleaseAgeExclude:
+  - '@redocly/cli@2.64.0'

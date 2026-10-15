@@ -1,0 +1,35 @@
+extends:
+  - spectral:oas
+
+functionsDir: .spectral/functions
+functions:
+  - operation-quality
+  - property-descriptions
+  - naming-conventions
+  - tag-descriptions
+
+rules:
+  operation-quality:
+    description: Every operation needs a summary, description, operationId, tags, success example, and documented 401 response when authenticated.
+    severity: error
+    given: $
+    then:
+      function: operation-quality
+  property-descriptions:
+    description: Every inline schema property needs a description unless it references a documented component schema.
+    severity: error
+    given: $
+    then:
+      function: property-descriptions
+  naming-conventions:
+    description: Operation IDs use lower camel case and request, response, and parameter names use snake case.
+    severity: error
+    given: $
+    then:
+      function: naming-conventions
+  tag-descriptions:
+    description: Every declared tag needs a useful description.
+    severity: error
+    given: $
+    then:
+      function: tag-descriptions
