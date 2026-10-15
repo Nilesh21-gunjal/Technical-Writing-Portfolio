@@ -160,6 +160,7 @@ p { max-width: var(--measure); }
   border-radius: var(--radius);
   background: var(--page);
 }
+.work-grid .card { min-height: 100%; }
 .card-category { margin: 0 0 8px; color: var(--muted); font-size: .86rem; font-weight: 700; }
 .card p { margin: 12px 0 0; color: var(--muted); }
 .card > a:last-child { margin-top: auto; padding-top: 20px; font-weight: 700; }
