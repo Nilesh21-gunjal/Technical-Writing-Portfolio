@@ -115,7 +115,7 @@ p { max-width: var(--measure); }
   object-fit: cover;
 }
 
-.actions, .sample-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-actions, .sample-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -282,8 +282,8 @@ pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radi
   .hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .hero-visual { order: -1; justify-self: start; }
   .profile-photo { width: 220px; height: 220px; }
-  .actions { flex-direction: column; align-items: stretch; max-width: 360px; }
-  .actions .button { width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; max-width: 360px; }
+  .hero-actions .button { width: 100%; }
   .work-grid, .skills-grid { grid-template-columns: 1fr; }
   .sample-hero { padding-block: 40px; }
   .case-main { width: min(760px, calc(100% - 48px)); padding-block: 40px 56px; }
@@ -297,5 +297,5 @@ pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radi
 }
 
 @media print {
-  .site-header, .actions, .contact-links, .sample-actions { display: none; }
+  .site-header, .hero-actions, .contact-links, .sample-actions { display: none; }
 }
