@@ -9,7 +9,7 @@
   "scripts": {
     "lint:openapi": "redocly lint --config API-Documentation/.redocly.yaml API-Documentation/openapi.yaml",
     "lint:spectral": "spectral lint --ruleset API-Documentation/.spectral.yaml API-Documentation/openapi.yaml",
-    "validate:openapi": "python -m openapi_spec_validator API-Documentation/openapi.yaml",
+    "validate:openapi": "python scripts/validate-openapi.py",
     "mock": "prism mock API-Documentation/openapi.yaml -h 127.0.0.1 -p 4010 --errors=false",
     "test:examples": "node scripts/test-api-examples.mjs",
     "test:postman": "newman run API-Documentation/postman/device-operations.postman_collection.json --environment API-Documentation/postman/device-operations.postman_environment.json",

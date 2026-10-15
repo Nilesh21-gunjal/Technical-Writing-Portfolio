@@ -1,0 +1,116 @@
+{
+  "info": {
+    "_postman_id": "d20b0511-7bb7-46c7-bf79-76f870700f49",
+    "name": "Device Operations API — local contract mock",
+    "description": "Fictional portfolio collection. Run it only against the local Prism contract mock. The mock returns documented examples and does not persist data or validate credentials.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create access token",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the token response shape', () => { pm.expect(body).to.have.property('access_token'); pm.expect(body).to.have.property('token_type', 'Bearer'); pm.expect(body).to.have.property('expires_in'); });",
+        "pm.environment.set('accessToken', body.access_token);"
+      ], "type": "text/javascript"}}],
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"client_id\": \"{{clientId}}\",\n  \"client_secret\": \"{{clientSecret}}\"\n}", "options": {"raw": {"language": "json"}}},
+        "url": "{{baseUrl}}/auth/token"
+      },
+      "response": [{"name": "Token created", "originalRequest": {"method": "POST", "url": "{{baseUrl}}/auth/token"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.demo-token\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600\n}"}]
+    },
+    {
+      "name": "List devices",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the device-page response shape', () => { pm.expect(body).to.have.property('data').that.is.an('array'); pm.expect(body).to.have.property('pagination'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices?page=1&per_page=20&status=active&site_code=SITE-001"},
+      "response": [{"name": "Device page", "originalRequest": {"method": "GET", "url": "{{baseUrl}}/devices"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"data\": [{\"id\": \"DEV-2024-001842\", \"external_id\": \"LD-SENSOR-042\"}],\n  \"pagination\": {\"page\": 1, \"per_page\": 20, \"total_items\": 1, \"total_pages\": 1}\n}"}]
+    },
+    {
+      "name": "Register device",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 201', () => pm.response.to.have.status(201));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the device response shape', () => { pm.expect(body).to.have.property('id'); pm.expect(body).to.have.property('external_id'); pm.expect(body).to.have.property('status'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"external_id\": \"{{externalId}}\",\n  \"name\": \"Loading dock sensor\",\n  \"device_type\": \"sensor\",\n  \"site\": {\"site_code\": \"SITE-001\", \"timezone\": \"UTC\"},\n  \"manufacturer\": \"Example Devices\",\n  \"model\": \"Edge-100\",\n  \"communication_protocol\": \"MQTT\"\n}", "options": {"raw": {"language": "json"}}}, "url": "{{baseUrl}}/devices"},
+      "response": [{"name": "Device registered", "originalRequest": {"method": "POST", "url": "{{baseUrl}}/devices"}, "status": "Created", "code": 201, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"id\": \"DEV-2024-001842\",\n  \"external_id\": \"LD-SENSOR-042\",\n  \"status\": \"inactive\"\n}"}]
+    },
+    {
+      "name": "Get device",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the device response shape', () => { pm.expect(body).to.have.property('id'); pm.expect(body).to.have.property('external_id'); pm.expect(body).to.have.property('site'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices/{{deviceId}}"},
+      "response": [{"name": "Device details", "originalRequest": {"method": "GET", "url": "{{baseUrl}}/devices/{{deviceId}}"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"id\": \"DEV-2024-001842\",\n  \"external_id\": \"LD-SENSOR-042\",\n  \"status\": \"active\"\n}"}]
+    },
+    {
+      "name": "Update device",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the updated-device response shape', () => { pm.expect(body).to.have.property('id'); pm.expect(body).to.have.property('status'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "PATCH", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Loading dock temperature sensor\",\n  \"status\": \"maintenance\"\n}", "options": {"raw": {"language": "json"}}}, "url": "{{baseUrl}}/devices/{{deviceId}}"},
+      "response": [{"name": "Device updated", "originalRequest": {"method": "PATCH", "url": "{{baseUrl}}/devices/{{deviceId}}"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"id\": \"DEV-2024-001842\",\n  \"status\": \"maintenance\"\n}"}]
+    },
+    {
+      "name": "Deactivate device",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 204', () => pm.response.to.have.status(204));",
+        "pm.test('Returns no response body', () => pm.expect(pm.response.text()).to.eql(''));"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "DELETE", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices/{{deviceId}}"},
+      "response": [{"name": "Device deactivated", "originalRequest": {"method": "DELETE", "url": "{{baseUrl}}/devices/{{deviceId}}"}, "status": "No Content", "code": 204, "_postman_previewlanguage": "text", "header": [], "cookie": [], "body": ""}]
+    },
+    {
+      "name": "List telemetry points",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the telemetry-page response shape', () => { pm.expect(body).to.have.property('data').that.is.an('array'); pm.expect(body).to.have.property('pagination'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices/{{deviceId}}/telemetry?from={{fromTimestamp}}&to=2026-10-02T00:00:00Z&metric=temperature&page=1&per_page=20"},
+      "response": [{"name": "Telemetry page", "originalRequest": {"method": "GET", "url": "{{baseUrl}}/devices/{{deviceId}}/telemetry"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"data\": [{\"timestamp\": \"2026-10-01T09:00:00Z\", \"metric\": \"temperature\", \"value\": 21.4, \"unit\": \"celsius\"}],\n  \"pagination\": {\"page\": 1, \"per_page\": 20, \"total_items\": 1, \"total_pages\": 1}\n}"}]
+    },
+    {
+      "name": "List alerts",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the alert-page response shape', () => { pm.expect(body).to.have.property('data').that.is.an('array'); pm.expect(body).to.have.property('pagination'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices/{{deviceId}}/alerts?status=open&page=1&per_page=20"},
+      "response": [{"name": "Alert page", "originalRequest": {"method": "GET", "url": "{{baseUrl}}/devices/{{deviceId}}/alerts"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"data\": [{\"id\": \"ALT-2026-000041\", \"status\": \"open\"}],\n  \"pagination\": {\"page\": 1, \"per_page\": 20, \"total_items\": 1, \"total_pages\": 1}\n}"}]
+    },
+    {
+      "name": "Resolve alert",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the alert response shape', () => { pm.expect(body).to.have.property('id'); pm.expect(body).to.have.property('status', 'resolved'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"resolution_note\": \"Reviewed by the operations team.\"\n}", "options": {"raw": {"language": "json"}}}, "url": "{{baseUrl}}/devices/{{deviceId}}/alerts/{{alertId}}/resolve"},
+      "response": [{"name": "Alert resolved", "originalRequest": {"method": "POST", "url": "{{baseUrl}}/devices/{{deviceId}}/alerts/{{alertId}}/resolve"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"id\": \"ALT-2026-000041\",\n  \"status\": \"resolved\"\n}"}]
+    },
+    {
+      "name": "Get usage summary",
+      "event": [{"listen": "test", "script": {"exec": [
+        "pm.test('Returns 200', () => pm.response.to.have.status(200));",
+        "const body = pm.response.json();",
+        "pm.test('Matches the usage-summary response shape', () => { pm.expect(body).to.have.property('device_id'); pm.expect(body).to.have.property('total'); pm.expect(body).to.have.property('unit'); });"
+      ], "type": "text/javascript"}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/devices/{{deviceId}}/usage-summary?metric=energy&from={{fromTimestamp}}&to={{toTimestamp}}"},
+      "response": [{"name": "Usage summary", "originalRequest": {"method": "GET", "url": "{{baseUrl}}/devices/{{deviceId}}/usage-summary"}, "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "cookie": [], "body": "{\n  \"device_id\": \"DEV-2024-001842\",\n  \"metric\": \"energy\",\n  \"total\": 148.6,\n  \"unit\": \"kilowatt_hour\"\n}"}]
+    }
+  ],
+  "variable": []
+}
