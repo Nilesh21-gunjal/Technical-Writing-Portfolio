@@ -256,8 +256,12 @@ pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radi
 .noscript-message, .api-meta { width: min(var(--container), calc(100% - 48px)); margin: 24px auto; color: var(--muted); font-size: .94rem; }
 .swagger-ui { color: var(--text); font-family: var(--font-family); }
 .swagger-ui .topbar { display: none !important; }
+.swagger-ui .wrapper { max-width: var(--container); padding: 0; }
+.swagger-ui .info { padding: 20px 0 10px; }
 .swagger-ui .info .title, .swagger-ui .info hgroup.main a { color: var(--navy); font-family: var(--font-family); }
 .swagger-ui a { color: var(--accent); }
+.swagger-ui .scheme-container { margin: 0 0 20px; padding: 20px; border: 1px solid var(--border); background: var(--surface); box-shadow: none; }
+.swagger-ui .btn { border-color: var(--navy); color: var(--navy); font-family: var(--font-family); }
 .swagger-ui .opblock,
 .swagger-ui .opblock.opblock-get,
 .swagger-ui .opblock.opblock-post,
@@ -274,6 +278,7 @@ pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radi
 .swagger-ui .btn.execute:hover { border-color: var(--accent) !important; background: var(--accent) !important; }
 .swagger-ui .opblock-tag { color: var(--navy); border-bottom-color: var(--border); }
 .swagger-ui .opblock .opblock-summary { border-bottom-color: var(--border); }
+.swagger-ui .opblock-section-header { background: var(--surface); box-shadow: none; }
 
 @media (max-width: 760px) {
   .site-header { position: static; }
