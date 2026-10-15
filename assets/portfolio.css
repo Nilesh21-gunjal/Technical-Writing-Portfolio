@@ -226,6 +226,7 @@ p { max-width: var(--measure); }
 /* Case studies */
 .sample-hero { padding-block: 56px; background: var(--surface); border-bottom: 1px solid var(--border); }
 .breadcrumb, .back-link { margin: 0 0 18px; font-size: .94rem; font-weight: 700; }
+.breadcrumb a, .back-link a, .detail-list a, .api-meta a { display: inline-flex; align-items: center; min-height: 44px; }
 .section-kicker { margin: 0 0 10px; color: var(--muted); font-size: .86rem; font-weight: 700; }
 .sample-hero h1 { max-width: var(--measure); }
 .sample-dek { margin: 16px 0 0; color: var(--muted); }
@@ -260,9 +261,11 @@ pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radi
 .swagger-ui .wrapper { max-width: var(--container); padding: 0; }
 .swagger-ui .info { padding: 20px 0 10px; }
 .swagger-ui .info .title, .swagger-ui .info hgroup.main a { color: var(--navy); font-family: var(--font-family); }
-.swagger-ui a { color: var(--accent); }
+.swagger-ui a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
 .swagger-ui .scheme-container { margin: 0 0 20px; padding: 20px; border: 1px solid var(--border); background: var(--surface); box-shadow: none; }
-.swagger-ui .btn { border-color: var(--navy); color: var(--navy); font-family: var(--font-family); }
+.swagger-ui .btn, .swagger-ui select { min-height: 44px; border-color: var(--navy); color: var(--navy); font-family: var(--font-family); }
+.swagger-ui .opblock-summary-control, .swagger-ui .expand-operation, .swagger-ui .authorization__btn, .swagger-ui .opblock-control-arrow { min-height: 44px; }
+.swagger-ui .models-control { display: inline-flex; align-items: center; min-height: 44px; }
 .swagger-ui .opblock,
 .swagger-ui .opblock.opblock-get,
 .swagger-ui .opblock.opblock-post,
