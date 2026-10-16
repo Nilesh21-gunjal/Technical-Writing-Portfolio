@@ -2,7 +2,7 @@
 
 ## Overview
 
-GitHub Pages publishes static HTML, CSS, JavaScript, and documentation files from a repository. It is useful for sharing a portfolio or a documentation preview.
+GitHub Pages publishes static HTML, CSS, JavaScript, and documentation files from a repository. Use it to publish a portfolio or documentation preview from the repository.
 
 ## Prerequisites
 
