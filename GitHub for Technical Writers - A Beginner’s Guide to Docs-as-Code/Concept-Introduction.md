@@ -2,39 +2,39 @@
 # Introduction to GitHub for Technical Writers
 
 ## Overview
-GitHub is a web-based platform built on Git, a distributed version control system. It enables technical writers to adopt the **Docs-as-Code approach** - a methodology where documentation is authored, reviewed, versioned, and published using the same tools and workflows as software development.
+GitHub hosts Git repositories and provides the review and publishing features used in a **Docs-as-Code approach**. In this approach, writers author, review, version, and publish documentation with the same workflow used for software development.
 
-With GitHub, documentation teams can track every change made to a document, collaborate with engineers and reviewers through structured review processes, and publish content directly from the repository. This eliminates the limitations of traditional documentation tools, such as manual versioning, isolated workflows, and disconnected publishing processes.
+With GitHub, a documentation team can track document changes, review them with engineers, and publish from the repository. The workflow replaces manual file versioning and separate review and publishing steps with one shared record.
 
 ---
 
 ## Purpose of This Guide
-This guide is designed to help technical writers transition to GitHub-based documentation workflows. By following this guide, you will be able to:
+Use this guide to move a documentation project to a GitHub-based workflow. You will learn how to:
 - Understand the core concepts of Git and GitHub  
 - Create and manage documentation using version control  
 - Collaborate with development teams through pull requests and reviews  
 - Publish documentation using GitHub.  
 
-By the end of this guide, you will have the practical knowledge to set up and manage a documentation project on GitHub from start to finish.
+By the end, you will have created and updated a documentation project on GitHub from setup through publication.
 
 ---
 
 ## Target Audience
-This guide is intended for:
+This guide is for:
 - Technical writers and documentation specialists transitioning from traditional tools (such as Microsoft Word or Confluence) to Docs-as-Code workflows  
 - Content managers working in software or product development environments  
 - Professionals transitioning into technical writing who need to work within engineering-driven documentation processes.
-  No prior experience with Git, GitHub, or programming is required.
+No prior experience with Git, GitHub, or programming is required.
 ---
 
 ## Scope
 
 ### This Guide Covers:
-- GitHub repositories- Creating and managing repositories for documentation projects.
-- Git fundamentals- Applying core Git commands to write and update content.
-- Collaboration workflows- Using pull requests, branches, and code reviews.
-- Publishing- Deploying documentation as a website using GitHub Pages.
-- Best practices- Writing, structuring, and maintaining documentation in GitHub.
+- GitHub repositories: creating and managing repositories for documentation projects.
+- Git fundamentals: applying core Git commands to write and update content.
+- Collaboration workflows: using pull requests, branches, and code reviews.
+- Publishing: deploying documentation as a website using GitHub Pages.
+- Best practices: writing, structuring, and maintaining documentation in GitHub.
 
 ### This Guide Does Not Cover:
 - Advanced Git commands or complex branching strategies.  
@@ -68,12 +68,12 @@ This guide uses the following callout types:
 
 ## Guide Structure
 This guide is organized into the following sections:
-1. **Getting Started with GitHub** – Create an account and understand the interface.  
-2. **Setting Up a Documentation Repository** – Initialize and structure your project. 
-3. **Git Basics for Writers** – Learn essential Git commands.  
-4. **Collaboration and Review** – Work with pull requests and feedback.  
-5. **Publishing with GitHub Pages** – Publish documentation as a website.  
-6. **Best Practices** – Apply writing and structuring guidelines.  
-7. **Troubleshooting** – Resolve common issues.  
-8. **Additional Resources** – Access further learning materials.  
+1. **Getting Started with GitHub:** create an account and understand the interface.
+2. **Setting Up a Documentation Repository:** initialize and structure your project.
+3. **Git Basics for Writers:** learn essential Git commands.
+4. **Collaboration and Review:** work with pull requests and feedback.
+5. **Publishing with GitHub Pages:** publish documentation as a website.
+6. **Best Practices:** apply writing and structuring guidelines.
+7. **Troubleshooting:** resolve common issues.
+8. **Additional Resources:** access further learning materials.
 
