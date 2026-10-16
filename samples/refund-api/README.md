@@ -1,10 +1,10 @@
 # Refund API Writing Sample
 
-> This independent portfolio sample uses fictional endpoints, data, quotas, and events. It demonstrates API-reference structure, examples, error handling, and webhook guidance. It is unrelated to the Device Operations API sample.
+> This independent portfolio sample uses fictional endpoints, data, quotas, and events. It contains API-reference structure, examples, error handling, and webhook guidance. It is unrelated to the Device Operations API sample.
 
 ## Overview
 
-The fictional Refund API enables developers to create and track refunds for completed payment transactions.
+The fictional Refund API documents how developers create and track refunds for completed payment transactions.
 
 ### Common use cases
 
