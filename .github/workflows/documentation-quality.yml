@@ -54,6 +54,9 @@ jobs:
       - name: Build API documentation portal
         run: pnpm build:api-docs
 
+      - name: Build Docs-as-Code user guide
+        run: pnpm build:docs-guide
+
       - name: Test API contract and code examples
         run: pnpm test:api
 
@@ -76,7 +79,7 @@ jobs:
         uses: vale-cli/vale-action@v3
         with:
           config: .vale.ini
-          files: '["API-Documentation/docs", "API-Documentation/README.md", "work/device-operations-api/index.html"]'
+          files: '["README.md", "index.html", "API-Documentation", "work", "case-studies", "samples", "docs", "GitHub for Technical Writers - A Beginner’s Guide to Docs-as-Code", "Microsoft Word 2010 to Microsoft 365 Transition Guide"]'
           fail_level: error
           sync: false
 
@@ -91,9 +94,12 @@ jobs:
             './README.md'
             './API-Documentation/**/*.md'
             './samples/**/*.md'
+            './GitHub for Technical Writers - A Beginner’s Guide to Docs-as-Code/**/*.md'
             './site/index.html'
             './site/API-Documentation/index.html'
             './site/API-Documentation/**/index.html'
+            './site/docs-as-code-guide/index.html'
+            './site/docs-as-code-guide/**/index.html'
             './site/work/**/*.html'
           fail: true
           jobSummary: true
