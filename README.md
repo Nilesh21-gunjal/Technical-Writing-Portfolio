@@ -1,4 +1,4 @@
-# Nilesh Gunjal — Senior Technical Writer
+# Nilesh Gunjal, Senior Technical Writer
 
 **API Documentation · Developer Documentation · Docs-as-Code · DITA and Structured Authoring**
 
@@ -13,19 +13,19 @@ Bengaluru, India · Open to remote opportunities and relocation to Pune/Mumbai
 
 ## Profile
 
-Senior Technical Writer with **7+ years of experience** creating clear, structured, and maintainable documentation for enterprise software, connected-device platforms, industrial systems, and engineering products.
+I am a Senior Technical Writer with **7+ years of experience** writing API, developer, user, installation, administrator, maintenance, and release documentation for enterprise software, connected-device platforms, industrial systems, and engineering products.
 
-I turn complex technical information into documentation that helps developers integrate, administrators configure, users complete tasks, and engineering teams release products with confidence.
+My work connects product behavior and engineering source data to procedures, references, examples, and release content for developers, administrators, users, and reviewers.
 
-My experience covers the full documentation lifecycle:
+Across these projects, I:
 
-- Discovering information through requirements analysis, source-data review, and SME interviews
-- Designing information architecture and selecting the right content type
-- Writing and maintaining API, developer, user, installation, administrator, maintenance, and release documentation
-- Applying DITA, topic-based authoring, conref reuse, single sourcing, and Information Mapping principles
-- Working in Docs-as-Code environments with Markdown, reStructuredText, Git, GitHub, and Sphinx
-- Coordinating reviews with engineering, product, QA, DevOps, support, and subject-matter teams
-- Validating content for technical accuracy, usability, consistency, accessibility, and release readiness
+- analyze requirements and source data, then confirm open questions with subject-matter experts;
+- choose concept, task, reference, troubleshooting, and release-document structures;
+- write and maintain API, developer, user, installation, administrator, maintenance, and release content;
+- apply DITA, topic-based authoring, conref reuse, single sourcing, and Information Mapping principles;
+- work in Docs-as-Code environments with Markdown, reStructuredText, Git, GitHub, and Sphinx;
+- coordinate reviews with engineering, product, QA, DevOps, support, and subject-matter teams;
+- check technical accuracy, usability, consistency, accessibility, and release readiness.
 
 > Portfolio samples are independent, fictional, or sanitized demonstrations. They do not contain proprietary employer, customer, credential, or production-system information.
 
@@ -69,14 +69,14 @@ Human-in-the-loop AI assistance, source verification, data minimization, AI-use 
 
 ## How I work
 
-I use a repeatable documentation workflow:
+I use this workflow when I start or update a documentation set:
 
-1. **Understand the audience and task** — identify who needs the information, what they already know, and what they must accomplish.
-2. **Gather and verify source information** — review requirements, specifications, product behavior, engineering data, and stakeholder input.
-3. **Design the structure** — select the appropriate concept, task, reference, troubleshooting, or release-document pattern.
-4. **Draft and validate** — write for clarity, add examples and expected results, and verify terminology, links, procedures, and technical details.
-5. **Review with stakeholders** — coordinate engineering, product, QA, DevOps, support, and editorial reviews.
-6. **Publish and maintain** — align documentation with product releases, version changes, reuse rules, and user feedback.
+1. **Understand the audience and task:** identify who needs the information, what they already know, and what they must accomplish.
+2. **Gather and verify source information:** review requirements, specifications, product behavior, engineering data, and stakeholder input.
+3. **Design the structure:** select the appropriate concept, task, reference, troubleshooting, or release-document pattern.
+4. **Draft and validate:** add examples and expected results, then verify terminology, links, procedures, and technical details.
+5. **Review with stakeholders:** coordinate engineering, product, QA, DevOps, support, and editorial reviews.
+6. **Publish and maintain:** align documentation with product releases, version changes, reuse rules, and user feedback.
 
 ## Tools and standards
 
@@ -91,7 +91,7 @@ I use a repeatable documentation workflow:
 
 ## Professional experience
 
-### Cuculus India Pvt. Ltd. — Senior Technical Writer
+### Senior Technical Writer, Cuculus India Pvt. Ltd.
 **August 2024 – Present · Bengaluru**
 
 - Own end-to-end documentation for connected-device and enterprise software, including user manuals, API documentation, installation and administrator guides, and release notes.
@@ -100,37 +100,37 @@ I use a repeatable documentation workflow:
 - Translate complex device communication, integration, performance, security, alarm, and troubleshooting concepts for global technical and non-technical audiences.
 - Mentor junior writers and lead documentation reviews for consistency, completeness, and technical accuracy.
 
-### HCL Technologies — Technical Writer
+### Technical Writer, HCL Technologies
 **August 2022 – August 2024 · Bengaluru**
 
 - Owned documentation for SaaS products across multiple release cycles, including user guides, installation manuals, release notes, and API documentation.
 - Structured concept, task, and reference topics using Oxygen XML, PTC Arbortext, Adobe FrameMaker, XML/SGML, Confluence, and Microsoft Word.
-- Applied reuse and Information Mapping principles to improve consistency across structured documentation.
+- Applied reuse and Information Mapping principles across structured documentation. [NEEDS REAL DETAIL: what was reused and what changed as a result]
 - Collaborated with development, QA, and product teams within SDLC and DDLC frameworks.
 
-### Cyient Ltd. — Client: Honeywell
+### Technical Writer, Cyient Ltd. | Client: Honeywell
 **June 2021 – August 2022 · Hyderabad**
 
 Created and revised maintenance manuals, service bulletins, service information letters, temporary revisions, parts catalogues, and illustrated parts lists from engineering source data. Analyzed requirements, estimated documentation effort, created illustrations, and tracked source-data queries through Jira.
 
-### Microgenesis CADsoft Pvt. Ltd. — Client: Flowserve
+### Technical Writer, Microgenesis CADsoft Pvt. Ltd. | Client: Flowserve
 **December 2020 – June 2021 · Bengaluru**
 
 Created user, service, installation, operation, and maintenance manuals for industrial equipment. Produced technical illustrations using Siemens NX and Adobe Illustrator, managed translation requests, and peer-reviewed documentation.
 
-### Sonovision Aetos Technical Services Pvt. Ltd. — Client: Honeywell
+### Technical Writer, Sonovision Aetos Technical Services Pvt. Ltd. | Client: Honeywell
 **March 2020 – November 2020 · Bengaluru**
 
 Created scope documents, mock-up illustrations, and revised maintenance manuals from engineering source data, technical revisions, service bulletins, and drawing updates.
 
-### Lionbridge Technology LLP — Client: Rolls-Royce
+### Technical Writer, Lionbridge Technology LLP | Client: Rolls-Royce
 **February 2019 – February 2020 · Chennai**
 
 Created and revised engine manuals and engine maintenance manuals, including technical variances, service bulletins, and tool bulletins.
 
 ## Education
 
-- **Bachelor of Engineering — Mechanical Engineering**, Savitribai Phule Pune University, 2017
+- **Bachelor of Engineering, Mechanical Engineering**, Savitribai Phule Pune University, 2017
 - **Diploma in Mechanical Engineering**, MSBTE Maharashtra, 2014
 
 ## Public portfolio safety
