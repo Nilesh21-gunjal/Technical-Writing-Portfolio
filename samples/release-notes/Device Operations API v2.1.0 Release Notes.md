@@ -1,4 +1,4 @@
-# Device Operations API v2.1.0 — Release Notes
+# Device Operations API v2.1.0: Release Notes
 
 **Release date:** October 5, 2026  
 **Audience:** Platform administrators, integration developers, and operations teams
