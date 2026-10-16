@@ -1,0 +1,17 @@
+extends: existence
+message: "API documentation must use a precise, direct phrase instead of '%s'."
+level: error
+ignorecase: true
+tokens:
+  - '\bin order to\b'
+  - '\butilize\b'
+  - '\bleverage\b'
+  - '\bsimply\b'
+  - '\bobviously\b'
+  - '\bjust\b'
+  - '\breally\b'
+  - '\bvery\b'
+  - '\bmake sure\b'
+  - '\ballows you to\b'
+  - '\bis able to\b'
+  - '\bit is important to\b'
