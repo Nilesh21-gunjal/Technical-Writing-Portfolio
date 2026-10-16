@@ -2,15 +2,15 @@
 
 ## Overview
 
-One of the most significant advantages of managing documentation on GitHub is the structured collaboration workflow it enables. Instead of sharing files over email, tracking feedback in comments, or reconciling multiple versions manually, GitHub provides a built-in review process - centred around **pull requests** - that mirrors how professional development teams collaborate on code.
+GitHub gives documentation teams a structured review workflow. Pull requests keep the proposed change, comments, suggestions, and approvals together.
 
-This section covers how to create and work with pull requests, how to give and respond to feedback, and how to merge approved changes into your main documentation branch.
+Use this section to create a pull request, review changes, respond to feedback, and merge an approved update into the main documentation branch.
 
 ---
 
 ## Understanding the Collaboration Workflow
 
-Before diving into individual steps, it helps to see how the full collaboration cycle fits together.
+Review the collaboration cycle before following the individual steps.
 
 ```
 Create a branch  →  Make changes  →  Push branch  →  Open pull request  →  Review & feedback  →  Merge
@@ -31,7 +31,7 @@ Create a branch  →  Make changes  →  Push branch  →  Open pull request  �
 
 ## What Is a Pull Request?
 
-A pull request (commonly abbreviated as *PR*) is a GitHub feature that allows you to propose changes from one branch and request that they be reviewed and merged into another typically the `main` branch.
+A pull request, or *PR*, proposes changes from one branch and requests review before the changes are merged into the `main` branch.
 
 Pull requests are the primary collaboration mechanism in a Docs-as-Code workflow. They provide:
 
@@ -39,7 +39,7 @@ Pull requests are the primary collaboration mechanism in a Docs-as-Code workflow
 - A **structured review process** with inline comments, suggestions, and approvals.
 - A **safe gate** that prevents unreviewed changes from reaching the published documentation.
 
-> **Note:** In GitLab, the equivalent feature is called a **merge request**. The process and purpose are identical - only the terminology differs.
+> **Note:** In GitLab, the equivalent feature is called a **merge request**. The process and purpose are the same; only the terminology differs.
 
 ---
 
@@ -65,10 +65,10 @@ Before creating a pull request, ensure you have:
 
    | Field | Guidance |
    |---|---|
-   | **Title** | Write a concise, descriptive title that summarises the change (for example, `Add Git basics section with command reference`) |
+| **Title** | Write a concise, descriptive title that summarizes the change (for example, `Add Git basics section with command reference`) |
    | **Description** | Explain what was changed, why it was changed, and any context the reviewer needs. Use Markdown to format clearly. |
    | **Reviewers** | Assign one or more collaborators to review the pull request |
-   | **Labels** | Optionally add labels such as `documentation`, `in-review`, or `needs-edit` to help categorise the PR |
+| **Labels** | Optionally add labels such as `documentation`, `in-review`, or `needs-edit` to help categorize the PR |
 
    > 💡 **Tip:** A well-written pull request description reduces the back-and-forth during review. Include links to related issues or tickets, note any decisions you made during drafting, and flag anything you are uncertain about.
 
@@ -84,7 +84,7 @@ Before creating a pull request, ensure you have:
 
 ## Writing an Effective Pull Request Description
 
-The pull request description is part of your documentation's permanent record. A vague description creates confusion during review and makes the commit history harder to audit later.
+The pull request description records the reader need, scope, and reason for the change. Reviewers use it to understand the proposed update before reading every changed line.
 
 Use the following structure as a starting point:
 
@@ -112,7 +112,7 @@ or any areas where you would like specific feedback.
 
 ## Reviewing a Pull Request
 
-When you are assigned as a reviewer, your role is to read the proposed changes carefully and provide clear, constructive feedback before the content is merged.
+As a reviewer, check the proposed changes and provide clear, constructive feedback before the content is merged.
 
 ### Accessing the Pull Request
 
@@ -135,13 +135,13 @@ When you are assigned as a reviewer, your role is to read the proposed changes c
    | Option | When to Use |
    |---|---|
    | **Add single comment** | For an isolated observation that does not require a response before you finish your review |
-   | **Start a review** | When you have multiple comments to leave — this batches them and submits them together at the end |
+   | **Start a review** | When you have multiple comments to leave; this batches them and submits them together at the end |
 
-   > **Tip:** Use **Start a review** rather than adding individual comments one by one. This prevents the author from receiving a separate notification for every comment and keeps the review thread organised.
+> **Tip:** Use **Start a review** rather than adding individual comments one by one. This prevents the author from receiving a separate notification for every comment and keeps the review thread organized.
 
 ### Suggesting Specific Edits
 
-GitHub allows reviewers to propose exact wording changes directly within the pull request. The author can accept suggestions with a single click, which applies the change as a commit.
+Use a suggestion when the exact wording change is small and clear. The author can accept it as a commit.
 
 1. In the **Files changed** view, click the **+** icon on the line you want to edit.
 2. In the comment box, click the **Insert a suggestion** icon (a document icon with a `+`).
@@ -156,7 +156,7 @@ GitHub allows reviewers to propose exact wording changes directly within the pul
    ```
    ````
 
-   > **Tip:** Use suggestions for specific, small edits — correcting a typo, rewording a sentence, or fixing a formatting inconsistency. For larger structural feedback, use a regular comment to explain your reasoning.
+   > **Tip:** Use suggestions for small edits such as a typo, a sentence revision, or a formatting correction. For structural feedback, use a regular comment and explain the reasoning.
 
 ### Submitting Your Review
 
@@ -180,7 +180,7 @@ Once you have finished reviewing all the changed files:
 
 ## Responding to Review Feedback
 
-When a reviewer requests changes, you address the feedback directly in your local branch and push the updates to the same pull request.
+When a reviewer requests changes, edit the same local branch and push the updates to the existing pull request.
 
 1. Read each comment carefully in the **Conversation** tab of the pull request.
 
@@ -194,17 +194,17 @@ When a reviewer requests changes, you address the feedback directly in your loca
    git push
    ```
 
-   The new commits appear automatically in the open pull request — no need to open a new one.
+   The new commits appear automatically in the open pull request. You do not need to open another one.
 
 4. Reply to each comment in the pull request thread to let the reviewer know how you addressed their feedback. When an individual comment has been resolved, click **Resolve conversation** to mark it as complete.
 
-   > **Tip:** Always respond to review comments, even if you have accepted the suggestion without changes. A brief acknowledgement — such as *"Updated as suggested"* or *"Revised to clarify the step sequence"* — keeps the review thread transparent and professional.
+   > **Tip:** Respond to every review comment, even when you accept the suggestion without changes. A brief acknowledgement, such as *"Updated as suggested"* or *"Revised to clarify the step sequence,"* keeps the thread clear.
 
 ---
 
 ## Merging a Pull Request
 
-Once all reviewers have approved the pull request and all conversations are resolved, the changes can be merged into the `main` branch.
+Merge the pull request after the required reviews are approved and all conversations are resolved.
 
 ### Merge Methods
 
@@ -216,7 +216,7 @@ GitHub offers three merge methods. The recommended method depends on your team's
 | **Squash and merge** | Combines all branch commits into a single commit on `main` | When the branch has many small or work-in-progress commits that do not need to appear individually in the history |
 | **Rebase and merge** | Replays branch commits onto `main` without a merge commit | When you want a linear commit history without merge commits |
 
-> **Tip:** For documentation repositories, **Squash and merge** is often the cleanest option. It keeps the `main` branch history readable — one commit per completed piece of work — without cluttering it with intermediate commits like `fix typo` or `another draft`.
+> **Tip:** For documentation repositories, **Squash and merge** keeps the `main` branch history readable by combining intermediate commits into one completed change.
 
 ### Steps to Merge
 
@@ -234,7 +234,7 @@ GitHub offers three merge methods. The recommended method depends on your team's
 
 ---
 
-## Quick Reference — Collaboration Workflow
+## Quick Reference: Collaboration Workflow
 
 | Task | Where to Act |
 |---|---|
