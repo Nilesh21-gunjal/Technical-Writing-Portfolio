@@ -1,6 +1,6 @@
 # Device Operations Platform — Administrator Guide Sample
 
-> This independent portfolio sample uses fictional systems and data. It demonstrates prerequisites, task steps, verification, and troubleshooting.
+> This independent portfolio sample uses fictional systems and data. It covers prerequisites, task steps, verification, and troubleshooting.
 
 ## Configure an alert rule
 
