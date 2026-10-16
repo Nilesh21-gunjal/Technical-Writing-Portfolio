@@ -75,7 +75,7 @@ jobs:
       - name: Check responsive layouts
         run: pnpm test:responsive
 
-      - name: Lint API prose with Vale
+      - name: Lint portfolio prose with Vale
         uses: vale-cli/vale-action@v3
         with:
           config: .vale.ini
