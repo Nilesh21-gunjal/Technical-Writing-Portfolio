@@ -4,7 +4,7 @@ This file preserves copy removed from the homepage during the landing-page redes
 
 ## How I work
 
-A repeatable workflow helps documentation stay accurate, useful, reviewable, and maintainable as products change.
+The workflow keeps documentation aligned with product changes by recording source review, drafting, technical review, validation, and maintenance activities.
 
 ### Understand the audience
 
@@ -36,7 +36,7 @@ Align content with releases, version changes, reuse rules, feedback, and documen
 
 ## Clarity is a product capability
 
-I work at the intersection of engineering, product, QA, support, and technical communication. My focus is not only on writing individual pages, but also on creating documentation systems that remain useful when products, teams, and release schedules change.
+I work with engineering, product, QA, support, and technical communication teams. I write individual pages and maintain documentation systems as products, teams, and release schedules change.
 
 For professional work that cannot be published, I can discuss the audience, documentation challenge, process, collaboration model, and outcome without disclosing restricted information.
 
