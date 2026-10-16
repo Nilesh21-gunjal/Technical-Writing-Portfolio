@@ -2,9 +2,9 @@
 
 ## 📘 Overview
 
-This guide helps users transition from **Microsoft Word 2010** to **Microsoft 365 Word** by explaining key differences, new features, and improved workflows.
+Use this guide to move common document tasks from **Microsoft Word 2010** to **Microsoft 365 Word**. It identifies the feature or workflow used for each task.
 
-It provides **task-based instructions** to help users adopt modern capabilities such as cloud storage, real-time collaboration, and AI-powered tools.
+The procedures cover cloud storage, real-time collaboration, and the AI-assisted tools listed in this sample.
 
 ---
 
@@ -31,11 +31,11 @@ This guide is intended for:
 
 ## ✨ What’s New in Microsoft 365 Word
 
-- **Cloud Integration** – Access documents via OneDrive  
-- **Real-time Collaboration** – Work simultaneously with others  
-- **Modern Interface** – Simplified ribbon and UI  
-- **AI-powered Features** – Editor, Dictation, Smart Lookup  
-- **Automatic Updates** – Continuous feature improvements  
+- **Cloud Integration:** access documents through OneDrive.  
+- **Real-time Collaboration:** work on one document with other users.  
+- **Modern Interface:** use the updated ribbon and user interface.  
+- **AI-powered Features:** use Editor, Dictation, and Smart Lookup.  
+- **Automatic Updates:** receive ongoing feature updates.  
 
 ---
 
@@ -169,10 +169,10 @@ A new document is created using a predefined template.
 
 This guide demonstrates:
 
-- **Task-based authoring** (step-by-step instructions)  
-- **Topic-based structure** (modular sections)  
-- **User-focused writing**  
-- **Clear and concise language**  
+- **Task-based authoring:** step-by-step instructions.  
+- **Topic-based structure:** modular sections.  
+- **User-focused writing:** procedures organized around common tasks.  
+- **Clear and concise language:** short instructions and expected results.  
 
 ---
 
