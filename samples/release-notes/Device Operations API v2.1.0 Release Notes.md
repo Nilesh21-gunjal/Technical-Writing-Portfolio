@@ -3,7 +3,7 @@
 **Release date:** October 5, 2026  
 **Audience:** Platform administrators, integration developers, and operations teams
 
-> This independent portfolio sample uses fictional systems and data. It demonstrates release-note structure, impact communication, upgrade guidance, and known-issue writing.
+> This independent portfolio sample uses fictional systems and data. It contains release-note structure, impact communication, upgrade guidance, and known-issue writing.
 
 ## Summary
 
