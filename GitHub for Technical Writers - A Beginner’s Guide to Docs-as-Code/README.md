@@ -1,14 +1,14 @@
-# GitHub for Technical Writers — Docs-as-Code Guide
+# GitHub for Technical Writers: Docs-as-Code Guide
 
-A modular guide for technical writers who need to author, review, and publish documentation in GitHub-based workflows.
+This guide takes technical writers through authoring, review, and publishing in a GitHub-based workflow.
 
 **Start here:** [Introduction to GitHub for Technical Writers](./00-introduction.md)
 
 ## About this guide
 
-This writing sample covers the documentation lifecycle from account setup and repository creation through branching, pull requests, review, publishing, and troubleshooting. It is written for readers who are new to Git and GitHub but need to work effectively with engineering teams.
+The guide covers account setup, repository creation, branching, pull requests, review, publishing, and troubleshooting. It is for readers who are new to Git and GitHub but need to work with engineering teams.
 
-The guide demonstrates:
+The guide includes:
 
 - Task-oriented procedures with prerequisites, validation, and expected results
 - Concept, task, and reference information types
