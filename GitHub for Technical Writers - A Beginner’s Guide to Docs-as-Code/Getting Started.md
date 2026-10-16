@@ -2,7 +2,7 @@
 
 ## Understanding GitHub Account Types
 
-Before creating an account, it is helpful to understand the three types of GitHub accounts. This determines the correct setup for your documentation workflow. For most technical writers, a **personal account** is sufficient.
+Choose the GitHub account type that matches your documentation work. For most technical writers, a **personal account** is sufficient.
 
 | Account Type | Description | Best For |
 |---|---|---|
@@ -21,7 +21,7 @@ Personal accounts come in two variants:
 
 ## Creating a New Personal Account
 
-Follow these steps to create a free personal account on GitHub.
+Create a free personal account on GitHub with these steps.
 
 1. Open a web browser and go to [github.com](https://github.com).
 
@@ -52,17 +52,17 @@ Follow these steps to create a free personal account on GitHub.
    - Answer optional setup questions about your intended use.
    - Verify your email address by clicking the confirmation link sent to your inbox.
 
-   > **Warning:** Do not skip email verification. Without a verified email address, certain GitHub features - including publishing with GitHub Pages - will not be available.
+   > **Warning:** Verify your email address. GitHub requires a verified address for features such as publishing with GitHub Pages.
 
    > **Note:** If you experience issues verifying your email address, see [Verifying your email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) in the GitHub documentation.
 
-   >  **Warning:** Avoid creating multiple GitHub accounts unless explicitly required by your organisation. Managing multiple accounts can cause confusion during collaboration and may conflict with your organisation's access policies.
+>  **Warning:** Avoid creating multiple GitHub accounts unless explicitly required by your organization. Managing multiple accounts can cause confusion during collaboration and may conflict with your organization's access policies.
 
 ---
 
 ## Signing In to an Existing Account
 
-If you already have a GitHub account, you do not need to sign up again. Use one of the following methods to sign in.
+If you already have a GitHub account, sign in with one of the following methods.
 
 ### Option 1: Sign in with a username or email address
 
@@ -87,7 +87,7 @@ If you already have a GitHub account, you do not need to sign up again. Use one 
 
 ## Resetting a Forgotten Password
 
-If you cannot remember your password, follow these steps to reset it.
+Reset a forgotten password with these steps.
 
 1. Go to [github.com/login](https://github.com/login) and click **Forgot password?**
 
@@ -107,26 +107,26 @@ If you cannot remember your password, follow these steps to reset it.
 
 ## GitHub Desktop vs. the Command Line
 
-Before setting up your local environment, it is important to understand the two ways you can interact with GitHub — and choose the approach that best suits your workflow.
+Choose whether to use GitHub Desktop or the command line for your local workflow.
 
 ### GitHub Desktop
 
-GitHub Desktop is a graphical user interface (GUI) application that lets you interact with GitHub repositories without typing commands. It provides buttons, menus, and visual panels to perform common version control tasks such as cloning repositories, committing changes, pushing updates, and reviewing history.
+GitHub Desktop is a graphical user interface (GUI) for cloning repositories, committing changes, pushing updates, and reviewing history without typing Git commands.
 
-GitHub Desktop is designed to lower the barrier to entry for users who prefer a visual workflow or are new to version control.
+Use GitHub Desktop if you prefer a visual workflow or are new to version control.
 
 ### The Git Command Line
 
-The Git command line — also referred to as Git Bash (Windows), Terminal (macOS/Linux), or the CLI — is a text-based interface for interacting with Git by typing commands. It provides complete control over version control operations, from basic tasks like committing changes to advanced actions like branching, merging, and rebasing.
+The Git command line, also called Git Bash on Windows, Terminal on macOS or Linux, or the CLI, lets you run Git commands directly. Use it for commits, branches, merges, rebases, and other repository operations.
 
 ### Why This Guide Uses the Command Line
 
-This guide uses the Git command line throughout. For technical writers working in Docs-as-Code environments, learning the command line offers significant advantages:
+This guide uses the Git command line throughout because it supports the same workflow used by many engineering teams:
 
-- **Collaboration with developers** — Development teams use the command line as their standard workflow. Familiarity with it allows you to work alongside engineers without friction.
-- **Consistency across environments** — Command-line Git works the same way on all operating systems and hosting platforms.
-- **Accuracy in documentation** — When writing documentation that involves Git-based processes, hands-on command-line experience ensures your instructions are accurate and reproducible.
-- **Portability** — Unlike GUI tools, the command line does not depend on a specific application being installed or updated.
+- **Collaboration with developers:** use the same branch, commit, and push commands as the engineering team.
+- **Consistency across environments:** run the same Git commands on supported operating systems and hosting platforms.
+- **Accuracy in documentation:** verify Git procedures by running the commands you document.
+- **Portability:** use Git without depending on a particular graphical application.
 
 >  **Tip:** If you are completely new to the command line, consider spending 30 minutes with a beginner's guide before continuing. See [Additional Resources](./Additional%20Resources.md) for recommended starting points.
 
