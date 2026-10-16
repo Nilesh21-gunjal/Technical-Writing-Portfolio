@@ -1,4 +1,4 @@
-# Device Operations API — Portfolio Sample
+# Device Operations API, Portfolio Sample
 
 **Nilesh Gunjal · Senior Technical Writer · OpenAPI 3.0.3 · Docs-as-Code**
 
@@ -6,11 +6,11 @@
 
 ## About this sample
 
-This independent, fictional portfolio sample demonstrates a complete developer documentation set for a connected-device REST API. All names, domains, identifiers, timestamps, credentials, and operational values are invented for portfolio use. The API is not connected to a production service and contains no employer or customer information.
+I built this independent, fictional developer documentation set for a connected-device REST API. All names, domains, identifiers, timestamps, credentials, and operational values are invented for portfolio use. The API is not connected to a production service and contains no employer or customer information.
 
 ## What to review
 
-| Evidence | What it demonstrates |
+| Evidence | Included artifact |
 |---|---|
 | [Documentation portal](./docs/index.md) | Task-based onboarding, concepts, guides, tutorial, reference, and support content. |
 | [`openapi.yaml`](./openapi.yaml) | Validated OpenAPI 3.0.3 contract with 10 operations across authentication, devices, telemetry, alerts, and usage. |
@@ -42,11 +42,11 @@ pnpm test:api
 
 ## Validation
 
-The documentation workflow validates the OpenAPI contract, lint rules, runnable examples, Postman collection, static-site build, links, and accessibility checks. These checks demonstrate a reviewable docs-as-code process; they do not represent production API performance or adoption.
+The documentation workflow validates the OpenAPI contract, lint rules, runnable examples, Postman collection, static-site build, links, and accessibility checks. The checks show how the repository protects the contract and its examples; they do not represent production API performance or adoption.
 
 ## Portfolio use
 
-Review every example before publishing a portfolio. Use fictional identifiers, example domains, and synthetic payloads. Do not copy internal URLs, customer names, architecture labels, credentials, logs, screenshots, or non-public operational rules into a public repository.
+Before publishing a portfolio, check every example. Use fictional identifiers, example domains, and synthetic payloads. Do not copy internal URLs, customer names, architecture labels, credentials, logs, screenshots, or non-public operational rules into a public repository.
 
 The Device Operations API does not model webhooks or event subscriptions. A separate [Refund API writing sample](./refund-api.md) is retained for an existing link and is not part of this API's contract or documentation set.
 
