@@ -2,7 +2,7 @@
 
 This changelog summarizes the fictional Device Operations API sample. It reuses the published portfolio release-notes sample and does not describe a production service.
 
-## 2.1.0 — October 5, 2026
+## 2.1.0: October 5, 2026
 
 ### Added
 
