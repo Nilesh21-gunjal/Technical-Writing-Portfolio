@@ -250,7 +250,7 @@ git checkout main
 
 ---
 
-## Quick Reference — Essential Git Commands
+## Quick Reference: Essential Git Commands
 
 | Command | Purpose |
 |---|---|
