@@ -1,6 +1,6 @@
 # Documentation decisions
 
-This page makes the scope and reasoning of the portfolio sample reviewable. It describes documentation decisions for a fictional API, not behavior of a production service.
+This page records the scope and reasoning behind the fictional API documentation set. It does not describe behavior of a production service.
 
 ## Use an OpenAPI-first source of truth
 
@@ -32,4 +32,4 @@ The sample exposes version `2.1.0` in the OpenAPI `info` object and uses `/v2` i
 
 ## Validate the documentation as code
 
-The repository runs OpenAPI validation, Redocly linting, Spectral rules, runnable cURL/Python/JavaScript samples against Prism, Newman tests, static-site builds, link checks, and accessibility checks. These checks demonstrate a reviewable workflow; they do not claim production documentation performance.
+The repository runs OpenAPI validation, Redocly linting, Spectral rules, runnable cURL/Python/JavaScript samples against Prism, Newman tests, static-site builds, link checks, and accessibility checks. Together, these checks make contract, example, build, and accessibility failures visible before publication; they do not claim production documentation performance.
