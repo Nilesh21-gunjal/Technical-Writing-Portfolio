@@ -38,7 +38,7 @@ The documentation challenge was to make each affected task accurate, scannable, 
 
 ### Documentation outcome
 
-The workflow produced maintainable, review-ready documentation that connected engineering changes to the affected maintenance content. It helped technicians find the required conditions, actions, illustrations, and verification information in the order needed to complete a task.
+In this sample, the workflow connects an engineering change to the affected maintenance content. The procedures place conditions, actions, illustrations, and verification information in the order required for the task.
 
 ### Evidence of impact
 
@@ -52,4 +52,4 @@ The workflow produced maintainable, review-ready documentation that connected en
 
 ## How I would quantify impact with approved data
 
-I do not publish employer or customer metrics without permission. When approved, I can supplement this case study with metrics such as documentation-change coverage, review-cycle time, technical-query closure rate, first-pass review acceptance, reuse coverage, or support-content effectiveness. These measures would be presented with the reporting period, baseline, and source so that the claim is meaningful and verifiable.
+I do not publish employer or customer metrics without permission. To add evidence to this case study, I need [NEEDS REAL DETAIL: an approved metric, baseline, reporting period, and source].
