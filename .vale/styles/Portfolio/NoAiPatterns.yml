@@ -1,0 +1,11 @@
+extends: existence
+message: "Replace this generic or stock phrase with a specific action, constraint, or result."
+level: warning
+ignorecase: true
+tokens:
+  - '—'
+  - '\b(leverage|robust|seamless|streamline|streamlined|streamlining|comprehensive|holistic|empower|empowers|empowering|elevate|elevates|elevating|ensure|ensures|ensuring|foster|fosters|fostering|delve|landscape|journey|cutting-edge|crucial role)\b'
+  - '\bin today[’'']s fast-paced world\b'
+  - '\bmake complex [a-z0-9 -]+ (easier|easy) to understand\b'
+  - '\bnot\s+just\b.{0,120}\bbut\b'
+  - '\bit[’'']s\s+not\s+about\b.{0,120}\bit[’'']s\s+about\b'
