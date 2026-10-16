@@ -2,15 +2,15 @@
 
 ## Overview
 
-Now that you have a GitHub account and a repository set up, the next step is to understand the Git commands that form the core of a Docs-as-Code workflow. Git is the version control system that powers GitHub. While GitHub provides the interface to host and collaborate on your documentation, Git is what tracks every change you make locally and synchronises it with the remote repository.
+After you create a GitHub account and repository, use Git to edit, record, and send documentation changes. Git tracks local changes and synchronizes them with the remote repository; GitHub hosts the repository and its review workflow.
 
-This section covers the essential Git commands that technical writers use on a daily basis — from checking the status of your files to committing changes and pushing them to GitHub.
+This section covers the commands used to check files, stage changes, commit updates, pull remote work, create branches, and push changes to GitHub.
 
 ---
 
 ## The Git Documentation Workflow
 
-Every documentation update follows the same repeatable sequence in Git. Understanding this cycle before learning individual commands makes each command easier to place in context.
+For a documentation update, use this sequence: edit the files, stage the intended changes, commit them, and push the branch to GitHub.
 
 ```
 Edit files  →  Stage changes  →  Commit changes  →  Push to GitHub
@@ -31,7 +31,7 @@ Edit files  →  Stage changes  →  Commit changes  →  Push to GitHub
 
 ### Checking Repository Status
 
-Before making any changes, it is good practice to check the current state of your repository. This tells you which files have been modified, which are staged for commit, and whether your local branch is in sync with GitHub.
+Run `git status` before editing or staging. It shows modified files, staged files, and whether the local branch is ahead of or behind GitHub.
 
 ```bash
 git status
@@ -62,7 +62,7 @@ Untracked files:
 
 ### Staging Changes
 
-Staging allows you to control precisely which changes are included in your next commit. You can stage a single file, multiple files, or all changes at once.
+Stage the files that belong in the next commit. You can stage one file, several files, or all current changes.
 
 **Stage a specific file:**
 
@@ -88,7 +88,7 @@ git add .
 
 ### Committing Changes
 
-A commit saves a permanent snapshot of your staged changes to the repository's history. Every commit requires a message that describes what was changed and why.
+A commit records the staged changes in the repository history. Write a message that states what changed and why.
 
 ```bash
 git commit -m "Your commit message here"
@@ -102,7 +102,7 @@ git commit -m "Add Git basics section with command reference table"
 
 **Writing effective commit messages**
 
-Commit messages are part of your documentation's audit trail. A clear, consistent commit history makes it easier for collaborators to understand the evolution of your content.
+Commit messages give reviewers a short record of how the documentation changed. Use a clear verb and identify the affected content.
 
 | ✅ Good Commit Message | ❌ Poor Commit Message |
 |---|---|
@@ -117,7 +117,7 @@ Commit messages are part of your documentation's audit trail. A clear, consisten
 
 ### Pushing Changes to GitHub
 
-Once you have committed your changes locally, push them to the remote repository on GitHub to make them visible to collaborators.
+After committing locally, push the branch to GitHub so collaborators can review the change.
 
 ```bash
 git push
@@ -143,13 +143,13 @@ For subsequent pushes on the same branch, `git push` alone is sufficient.
 
 ### Pulling Updates from GitHub
 
-If you are collaborating with others, the remote repository may have changes that are not yet on your local machine. Always pull the latest changes before starting new work to avoid conflicts.
+Before starting new work, pull the latest remote changes when other contributors may have updated the branch.
 
 ```bash
 git pull
 ```
 
-This fetches the latest changes from GitHub and merges them into your current local branch.
+`git pull` fetches the latest changes from GitHub and merges them into the current local branch.
 
 >  **Warning:** If you have uncommitted local changes when you run `git pull`, Git may report a conflict. To avoid this, always commit or stash your local changes before pulling. See [Troubleshooting](./Troubleshooting.md) for guidance on resolving merge conflicts.
 
@@ -199,7 +199,7 @@ git log --oneline
 
 ## Working with Branches
 
-Branches allow you to work on new content or updates without affecting the main published version of your documentation. When your changes are reviewed and approved, the branch is merged back into the main branch.
+Use a branch to draft or revise content without changing the published documentation. Merge the branch after review and approval.
 
 ### Why Branches Matter for Technical Writers
 
