@@ -45,7 +45,7 @@ Pull requests are the primary collaboration mechanism in a Docs-as-Code workflow
 
 ## Creating a Pull Request
 
-Before creating a pull request, ensure you have:
+Before creating a pull request, check that you have:
 
 - Created a branch for your changes (see [Git Basics for Writers](./Git%20Basics%20for%20Writers.md#working-with-branches))
 - Committed all your changes to that branch
@@ -98,7 +98,7 @@ Brief description of what this PR adds or changes.
 - Fixed broken cross-reference links in Section 3
 
 ## Reason for Change
-Explain why this update was needed — for example, content gap identified, 
+Explain why this update was needed: for example, identify the content gap,
 product update, or reviewer feedback from a previous PR.
 
 ## Review Notes
