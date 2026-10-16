@@ -1,6 +1,6 @@
 # Responsible AI Documentation Workflow
 
-> Independent portfolio sample. This workflow demonstrates how a technical writer can use generative AI as an assistive tool while keeping human accountability, source fidelity, privacy, security, accessibility, and traceability in the process.
+> Independent portfolio sample. This workflow defines how a technical writer can use generative AI for bounded assistance while keeping human accountability, source fidelity, privacy, security, accessibility, and traceability in the process.
 
 ## Purpose
 
@@ -118,7 +118,7 @@ After publication, review user feedback, reported defects, support questions, br
 
 ## Portfolio safety boundary
 
-This sample describes a reusable documentation process. It does not claim that an employer adopted this exact workflow, used a particular AI vendor, or achieved a specific business result. Employer-specific tools, policies, metrics, prompts, and review records should be added only with written approval.
+This sample describes a documentation process for portfolio review. It does not claim that an employer adopted this workflow, used a particular AI vendor, or achieved a specific business result. Add employer-specific tools, policies, metrics, prompts, and review records only with written approval.
 
 ## Reference frameworks
 
