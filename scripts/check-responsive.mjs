@@ -13,6 +13,7 @@ const paths = [
   "/API-Documentation/",
   "/API-Documentation/get-started/quickstart/",
   "/API-Documentation/reference/api-reference/",
+  "/docs-as-code-guide/",
 ];
 const chromeCandidates = [
   process.env.CHROME_PATH,

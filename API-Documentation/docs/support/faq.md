@@ -14,7 +14,7 @@ No. The local mock returns documented examples. It does not persist registration
 
 ## Which fields can I update after registration?
 
-You can update only `name` and `status`. The external ID, device type, site, manufacturer, model, and communication protocol are immutable after registration.
+Update only `name` and `status`. The external ID, device type, site, manufacturer, model, and communication protocol are immutable after registration.
 
 ## Does the current contract support webhooks or event subscriptions?
 

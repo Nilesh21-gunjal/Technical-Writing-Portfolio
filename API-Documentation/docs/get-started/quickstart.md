@@ -1,6 +1,6 @@
 # Quickstart: make your first API call in 5 minutes
 
-Use the local Prism mock to request a sample access token and list devices. You can complete this task without a real account because the mock returns the examples defined in the OpenAPI file.
+Use the local Prism mock to request a sample access token and list devices. Complete this task without a real account; the mock returns the examples defined in the OpenAPI file.
 
 ## Before you begin
 

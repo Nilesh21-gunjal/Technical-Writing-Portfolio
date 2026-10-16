@@ -53,6 +53,9 @@ jobs:
       - name: Build API documentation portal
         run: pnpm build:api-docs
 
+      - name: Build Docs-as-Code user guide
+        run: pnpm build:docs-guide
+
       - name: Build GitHub Pages output
         run: pnpm build:site
 

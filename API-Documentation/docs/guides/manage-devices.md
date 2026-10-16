@@ -16,7 +16,7 @@ The response includes the immutable identity fields, the current `name` and `sta
 
 ## Update a name or status
 
-Call `PATCH /devices/{device_id}`. You can update only `name` and `status`:
+Call `PATCH /devices/{device_id}`. Update only `name` and `status`:
 
 ```bash
 curl --request PATCH "http://127.0.0.1:4010/devices/DEV-2024-001842" \

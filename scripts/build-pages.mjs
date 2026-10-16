@@ -7,6 +7,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, "..");
 const siteDirectory = path.join(repositoryRoot, "site");
 const apiBuildDirectory = path.join(repositoryRoot, "site-api");
+const docsGuideBuildDirectory = path.join(repositoryRoot, "site-docs-as-code");
 const publicRoots = ["index.html", "assets", "work", "output"];
 
 const trackedFiles = new Set(
@@ -39,6 +40,10 @@ if (!fs.existsSync(apiBuildDirectory)) {
   throw new Error("API documentation build output is missing. Run pnpm build:api-docs before pnpm build:site.");
 }
 
+if (!fs.existsSync(docsGuideBuildDirectory)) {
+  throw new Error("Docs-as-Code guide build output is missing. Run pnpm build:docs-guide before pnpm build:site.");
+}
+
 fs.rmSync(siteDirectory, { recursive: true, force: true });
 fs.mkdirSync(siteDirectory, { recursive: true });
 
@@ -48,10 +53,11 @@ for (const relativePath of publicRoots) {
 }
 
 fs.cpSync(apiBuildDirectory, path.join(siteDirectory, "API-Documentation"), { recursive: true });
+fs.cpSync(docsGuideBuildDirectory, path.join(siteDirectory, "docs-as-code-guide"), { recursive: true });
 fs.copyFileSync(
   path.join(repositoryRoot, "API-Documentation", "openapi.yaml"),
   path.join(siteDirectory, "API-Documentation", "openapi.yaml"),
 );
 fs.writeFileSync(path.join(siteDirectory, ".nojekyll"), "");
 
-console.log("Built GitHub Pages output in site/ using tracked public files and generated API documentation.");
+console.log("Built GitHub Pages output in site/ using tracked public files and generated documentation portals.");

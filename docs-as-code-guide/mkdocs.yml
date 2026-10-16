@@ -1,0 +1,59 @@
+site_name: GitHub for Technical Writers — Docs-as-Code Guide
+site_description: A practical user guide for authoring, reviewing, and publishing documentation with Git and GitHub.
+site_url: https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/docs-as-code-guide/
+site_author: Nilesh Gunjal
+repo_url: https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio
+repo_name: Technical-Writing-Portfolio
+edit_uri: edit/Main/GitHub%20for%20Technical%20Writers%20-%20A%20Beginner%E2%80%99s%20Guide%20to%20Docs-as-Code/
+docs_dir: "../GitHub for Technical Writers - A Beginner’s Guide to Docs-as-Code"
+site_dir: ../site-docs-as-code
+
+theme:
+  name: material
+  language: en
+  font: false
+  features:
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+
+plugins: []
+
+extra:
+  generator: false
+
+extra_css:
+  - guide.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Portfolio home: https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/
+  - Guide overview: README.md
+  - Introduction: 00-introduction.md
+  - Concepts:
+      - Information architecture: Concept-Introduction.md
+  - Getting started:
+      - Get started with GitHub: Getting Started.md
+  - Tasks:
+      - Create and manage repositories: Creating and Managing Repositories.md
+      - Git basics for writers: Git Basics for Writers.md
+      - Collaborate and review: Collaboration and Review.md
+      - Publish with GitHub Pages: Publishing with GitHub Pages.md
+  - Reference:
+      - Best practices: Best Practices.md
+      - Troubleshooting: Troubleshooting.md
+      - Additional resources: Additional Resources.md
