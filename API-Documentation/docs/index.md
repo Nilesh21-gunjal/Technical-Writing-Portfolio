@@ -1,6 +1,6 @@
 # Device Operations API
 
-This fictional, public-safe API documentation sample shows how I organize a developer experience around onboarding, concepts, task guidance, reference, examples, validation, and support. The API models connected-device registration, lifecycle, telemetry, alerts, and usage reporting.
+I organized this fictional, public-safe API documentation set around the tasks a developer needs to complete: onboarding, device registration, telemetry, alerts, usage reporting, reference lookup, and error recovery.
 
 <div class="portfolio-note" markdown>
 
@@ -13,10 +13,10 @@ This fictional, public-safe API documentation sample shows how I organize a deve
 
 ## What you can review
 
-- A validated OpenAPI 3.0.3 contract with 10 documented operations across five resource areas.
+- The validated OpenAPI 3.0.3 contract with 10 documented operations across five resource areas.
 - Human-written onboarding, concepts, task guides, a tutorial, and troubleshooting content alongside generated reference.
 - Copy-ready cURL, Python, and JavaScript examples, plus a Postman collection and a local Prism mock.
-- Explicit documentation decisions for versioning, errors, pagination, sample safety, and docs-as-code quality checks.
+- Documentation decisions for versioning, errors, pagination, sample safety, and docs-as-code quality checks.
 
 ## Start with a developer goal
 
