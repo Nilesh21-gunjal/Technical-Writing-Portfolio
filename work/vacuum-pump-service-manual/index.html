@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional, illustrated industrial vacuum-pump service manual demonstrating task-based maintenance documentation, safety communication, and technical illustration.">
+  <meta name="author" content="Nilesh Gunjal">
+  <meta name="theme-color" content="#102f4e">
+  <link rel="canonical" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/work/vacuum-pump-service-manual/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/portfolio.css?v=20261023-1">
+  <link rel="stylesheet" href="../../assets/vsh-450-manual.css?v=20261023-1">
+  <title>VSH-450 Industrial Vacuum Pump | Service Manual Sample</title>
+</head>
+<body class="manual-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap nav-bar">
+      <a class="brand" href="../../" aria-label="Nilesh Gunjal home">Nilesh Gunjal</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../#skills">Skills</a></li>
+          <li><a href="../../#experience">Experience</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+          <li><a class="nav-resume" href="../../output/pdf/Nilesh_Gunjal_Public_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <header class="sample-hero manual-hero">
+    <div class="manual-wrap">
+      <p class="breadcrumb"><a href="../../">← Back to portfolio</a></p>
+      <div class="manual-cover">
+        <div class="manual-cover-copy">
+          <p class="section-kicker">Portfolio sample · fictional equipment</p>
+          <h1>VSH-450 Industrial Vacuum Pump</h1>
+          <p class="sample-dek">Service and maintenance manual</p>
+          <p class="manual-intro">A task-based manual sample for technicians and maintenance engineers. It brings safety information, component identification, inspection, troubleshooting, and service procedures into one navigable document.</p>
+          <p class="manual-status"><strong>Sample status:</strong> Fictional demonstration. Not approved for field use.</p>
+        </div>
+        <figure class="manual-figure product-figure">
+          <div class="figure-scroll">
+            <svg viewBox="0 0 640 300" role="img" aria-labelledby="product-title product-desc">
+              <title id="product-title">Illustration of the fictional VSH-450 vacuum pump assembly</title>
+              <desc id="product-desc">A motor connects through a guarded coupling to a pump casing mounted on a base. The inlet and discharge ports are labelled.</desc>
+              <defs><marker id="arrow-product" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#102f4e"/></marker></defs>
+              <path class="svg-line" d="M54 244H584M82 237V255M553 237V255"/>
+              <rect class="svg-fill" x="112" y="123" width="183" height="78" rx="12"/>
+              <path class="svg-line" d="M130 136V188M151 136V188M172 136V188M193 136V188M214 136V188M235 136V188M256 136V188"/>
+              <path class="svg-line" d="M112 143H92V181H112M295 147H332M295 177H332"/>
+              <rect class="svg-fill" x="330" y="150" width="48" height="25" rx="4"/>
+              <path class="svg-line" d="M333 145V180M342 145V180M366 145V180M376 145V180"/>
+              <path class="svg-fill" d="M396 111H500Q531 111 531 143V186Q531 211 507 211H391Q373 211 373 193V136Q373 111 396 111Z"/>
+              <circle class="svg-line" cx="451" cy="161" r="35"/>
+              <path class="svg-line" d="M451 126V196M416 161H486M426 136L476 186M476 136L426 186"/>
+              <path class="svg-line" d="M426 112V74H467V111M502 211V231H539V211M382 211V231H419V211"/>
+              <path class="svg-line" d="M392 135H353V104H317" marker-end="url(#arrow-product)"/>
+              <path class="svg-line" d="M512 139H556V106H590" marker-end="url(#arrow-product)"/>
+              <text class="svg-label" x="146" y="221">Drive motor</text>
+              <text class="svg-label" x="315" y="221">Coupling guard</text>
+              <text class="svg-label" x="425" y="235">Pump casing</text>
+              <text class="svg-label" x="278" y="91">Inlet</text>
+              <text class="svg-label" x="546" y="91">Discharge</text>
+            </svg>
+          </div>
+          <figcaption>Figure 1. Fictional product overview. The drawing identifies major assemblies; it is not a manufacturing or lifting drawing.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="manual-main">
+    <section aria-labelledby="document-control">
+      <h2 id="document-control">Document control</h2>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <tbody>
+            <tr><th scope="row">Document number</th><td>VSH450-SM-001</td><th scope="row">Revision</th><td>A · Portfolio demonstration</td></tr>
+            <tr><th scope="row">Issue date</th><td><time datetime="2026-10-23">23 October 2026</time></td><th scope="row">Approval</th><td>Not approved for equipment use</td></tr>
+            <tr><th scope="row">Product</th><td>VSH-450 Industrial Vacuum Pump</td><th scope="row">Product status</th><td>Fictional, created for this writing sample</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="callout manual-safety-note" aria-label="Important sample limitation">
+        <strong>Do not use this sample to install, operate, inspect, or service equipment.</strong>
+        The product, configuration, component identifiers, procedures, and any example values are fictional. The sample does not define actual isolation points, operating limits, torque values, lifting instructions, replacement parts, or service intervals. Use approved manufacturer documentation and site safety procedures for real equipment.
+      </aside>
+    </section>
+
+    <nav class="manual-toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#scope">Scope and use</a></li>
+        <li><a href="#safety">Safety information</a></li>
+        <li><a href="#description">Product description</a></li>
+        <li><a href="#operation">How the pump works</a></li>
+        <li><a href="#specifications">Technical data</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#commissioning">Commissioning</a></li>
+        <li><a href="#operation-procedures">Operating procedures</a></li>
+        <li><a href="#maintenance">Preventive maintenance</a></li>
+        <li><a href="#inspection">Inspection and acceptance</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#service-tasks">Removal and replacement</a></li>
+        <li><a href="#parts">Illustrative parts list</a></li>
+        <li><a href="#bulletin">Sample service bulletin</a></li>
+        <li><a href="#reference">Glossary and records</a></li>
+      </ol>
+    </nav>
+
+    <section id="scope" class="manual-section" aria-labelledby="scope-title">
+      <h2 id="scope-title">1. Scope and use</h2>
+      <p>This demonstration shows how a service manual can help a qualified technician find the right task, check prerequisites, identify hazards, complete work in sequence, and record the result. The fictional VSH-450 is described as a motor-driven vacuum pump with a casing, impeller, shaft, bearings, seal, coupling, and guard.</p>
+      <h3>Intended audience</h3>
+      <ul>
+        <li>Service technicians performing inspection and component replacement.</li>
+        <li>Maintenance engineers planning service and reviewing equipment records.</li>
+        <li>Operators who need the approved start, stop, and abnormal-condition guidance.</li>
+        <li>Engineering and support staff who maintain product data and service information.</li>
+      </ul>
+      <h3>How to use this manual</h3>
+      <p>Start with the safety information. Identify the equipment from its approved nameplate and configuration record. Follow only the task that matches the work order, and use the released drawings, limits, and procedures for the actual unit. If a required value or step is unavailable, stop and request approved information rather than estimating.</p>
+    </section>
+
+    <section id="safety" class="manual-section" aria-labelledby="safety-title">
+      <h2 id="safety-title">2. Safety information</h2>
+      <p>Read the equipment-specific safety instructions and the site risk assessment before work. This sample cannot identify the hazards, energy sources, or controls for a real installation.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Signal word</th><th scope="col">Meaning in this sample</th><th scope="col">Required response</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WARNING</th><td>A hazardous situation could cause serious injury or death.</td><td>Follow the approved equipment procedure and site controls before continuing.</td></tr>
+            <tr><th scope="row">CAUTION</th><td>A hazardous situation could cause minor or moderate injury or equipment damage.</td><td>Use the specified tools, protective equipment, and handling method.</td></tr>
+            <tr><th scope="row">NOTICE</th><td>Important information that is not related to personal injury.</td><td>Follow the approved process to prevent equipment or data damage.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Hazards to assess before service</h3>
+      <ul>
+        <li><strong>Electrical energy:</strong> identify every supply and control source. Use the site lockout/tagout process, then verify the equipment is in the required safe state.</li>
+        <li><strong>Rotating parts:</strong> do not remove guards or approach a moving coupling. Confirm that rotation has stopped and cannot restart.</li>
+        <li><strong>Vacuum and process energy:</strong> isolate and release stored pressure or vacuum using the approved system procedure. Do not loosen a connection to test whether it is pressurised.</li>
+        <li><strong>Hot surfaces and process material:</strong> check the equipment state and process hazards. Use the approved cooling, draining, and personal-protection requirements.</li>
+        <li><strong>Lifting and handling:</strong> use the approved mass, centre-of-gravity information, lifting points, and rigging plan. This sample supplies none of these values.</li>
+      </ul>
+      <aside class="callout"><strong>Stop-work rule:</strong> Stop if the equipment identity is uncertain, isolation cannot be verified, a required limit is missing, or the observed condition differs from the approved procedure. Escalate the issue to the responsible supervisor or engineer.</aside>
+    </section>
+
+    <section id="description" class="manual-section" aria-labelledby="description-title">
+      <h2 id="description-title">3. Product description</h2>
+      <p>The fictional pump assembly is shown as a motor, coupling and guard, bearing support, seal area, impeller, and casing. The drawing is a reader-orientation aid only. It does not show internal tolerances, fastener locations, wiring, lifting points, or configuration differences.</p>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 700 300" role="img" aria-labelledby="exploded-title exploded-desc">
+            <title id="exploded-title">Exploded assembly illustration for the fictional VSH-450</title>
+            <desc id="exploded-desc">Eight simplified components are separated along the shaft axis: motor, coupling guard, coupling, bearing carrier, seal, impeller, casing, and casing cover.</desc>
+            <path class="svg-line svg-dash" d="M34 154H664"/>
+            <rect class="svg-fill" x="35" y="123" width="92" height="62" rx="8"/><path class="svg-line" d="M48 132V176M63 132V176M78 132V176M93 132V176M108 132V176"/>
+            <path class="svg-line" d="M137 117V191M147 117V191M147 131H174V177H147"/>
+            <rect class="svg-fill" x="185" y="137" width="52" height="34" rx="4"/><path class="svg-line" d="M199 137V171M223 137V171"/>
+            <rect class="svg-fill" x="253" y="119" width="75" height="70" rx="8"/><circle class="svg-line" cx="291" cy="154" r="22"/>
+            <rect class="svg-fill" x="345" y="128" width="42" height="52" rx="6"/><circle class="svg-line" cx="366" cy="154" r="13"/>
+            <path class="svg-line" d="M404 154L445 121L445 187Z"/>
+            <path class="svg-fill" d="M462 116H535Q559 116 559 140V169Q559 192 535 192H462Z"/><circle class="svg-line" cx="501" cy="154" r="27"/>
+            <path class="svg-fill" d="M583 127H646V181H583Z"/><circle class="svg-line" cx="614" cy="154" r="18"/>
+            <g class="svg-label">
+              <text x="43" y="222">1 Motor</text><text x="121" y="76">2 Guard</text>
+              <text x="180" y="222">3 Coupling</text><text x="250" y="76">4 Bearing carrier</text>
+              <text x="340" y="222">5 Seal</text><text x="401" y="76">6 Impeller</text>
+              <text x="462" y="222">7 Casing</text><text x="576" y="76">8 Cover</text>
+            </g>
+            <path class="svg-line" d="M83 185V205M135 117V96M211 171V205M291 119V96M366 180V205M425 121V96M508 192V205M614 127V96"/>
+          </svg>
+        </div>
+        <figcaption>Figure 2. Simplified exploded view. Component order and identification are illustrative and must be replaced with approved parts data for a real product.</figcaption>
+      </figure>
+      <h3>Component identification</h3>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Item</th><th scope="col">Assembly</th><th scope="col">Function in the fictional model</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>Drive motor</td><td>Supplies rotational energy to the pump.</td></tr>
+            <tr><th scope="row">2</th><td>Coupling guard</td><td>Separates personnel from the rotating coupling during operation.</td></tr>
+            <tr><th scope="row">3</th><td>Flexible coupling</td><td>Transfers rotation from the motor shaft to the pump shaft.</td></tr>
+            <tr><th scope="row">4</th><td>Bearing carrier</td><td>Supports the rotating shaft assembly.</td></tr>
+            <tr><th scope="row">5</th><td>Shaft seal</td><td>Limits leakage along the shaft boundary.</td></tr>
+            <tr><th scope="row">6</th><td>Impeller</td><td>Transfers energy to the gas handled by the pump.</td></tr>
+            <tr><th scope="row">7</th><td>Pump casing</td><td>Contains and guides the gas flow through the pump.</td></tr>
+            <tr><th scope="row">8</th><td>Casing cover</td><td>Closes the casing and provides access for approved service tasks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="operation" class="manual-section" aria-labelledby="operation-title">
+      <h2 id="operation-title">4. How the pump works</h2>
+      <p>This conceptual diagram shows the fictional process path. Confirm the actual flow direction and process connections from the equipment drawing before work.</p>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 700 250" role="img" aria-labelledby="flow-title flow-desc">
+            <title id="flow-title">Conceptual gas path through the fictional pump</title>
+            <desc id="flow-desc">Gas enters the inlet, moves through the impeller and casing, then leaves through the discharge port. A motor drives the impeller through a coupling.</desc>
+            <defs><marker id="arrow-flow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#102f4e"/></marker></defs>
+            <rect class="svg-fill" x="18" y="85" width="112" height="56" rx="8"/>
+            <path class="svg-line" d="M130 113H221" marker-end="url(#arrow-flow)"/>
+            <circle class="svg-fill" cx="291" cy="113" r="60"/><circle class="svg-line" cx="291" cy="113" r="36"/>
+            <path class="svg-line" d="M291 77V149M255 113H327M265 87L317 139M317 87L265 139"/>
+            <path class="svg-line" d="M351 113H462" marker-end="url(#arrow-flow)"/>
+            <rect class="svg-fill" x="463" y="85" width="112" height="56" rx="8"/>
+            <text class="svg-label" x="39" y="119">Inlet gas</text>
+            <text class="svg-label" x="250" y="197">Impeller</text>
+            <text class="svg-label" x="485" y="119">Discharge</text>
+            <rect class="svg-fill" x="222" y="18" width="138" height="38" rx="6"/>
+            <path class="svg-line" d="M291 56V68" marker-end="url(#arrow-flow)"/>
+            <text class="svg-label" x="247" y="43">Motor + coupling</text>
+            <text class="svg-small" x="154" y="89">1 · Admit</text>
+            <text class="svg-small" x="365" y="89">2 · Transfer energy</text>
+            <text class="svg-small" x="483" y="166">3 · Discharge</text>
+          </svg>
+        </div>
+        <figcaption>Figure 3. Conceptual flow path. This diagram explains the sample narrative, not a verified pump design.</figcaption>
+      </figure>
+      <ol>
+        <li>Gas enters through the inlet connection.</li>
+        <li>The motor turns the impeller through the coupling.</li>
+        <li>The impeller and casing guide gas toward the discharge connection.</li>
+        <li>The connected process system receives the discharge flow.</li>
+      </ol>
+    </section>
+
+    <section id="specifications" class="manual-section" aria-labelledby="specifications-title">
+      <h2 id="specifications-title">5. Technical data and limits</h2>
+      <p>Do not use a model name, drawing, or sample value to select a motor, configure a process, or set a protection limit. A released manual must identify the applicable product configuration and cite its approved source.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Data item</th><th scope="col">Portfolio sample status</th><th scope="col">Source required before release</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Equipment model</th><td>VSH-450, fictional identifier</td><td>Product configuration record</td></tr>
+            <tr><th scope="row">Rated capacity and vacuum range</th><td>Not defined</td><td>Approved performance data sheet</td></tr>
+            <tr><th scope="row">Motor supply, rating, and speed</th><td>Not defined</td><td>Motor nameplate and electrical drawing</td></tr>
+            <tr><th scope="row">Process gas and material compatibility</th><td>Not defined</td><td>Approved process and material specification</td></tr>
+            <tr><th scope="row">Temperature, vibration, and leakage limits</th><td>Not defined</td><td>Released operating and inspection limits</td></tr>
+            <tr><th scope="row">Mass, lifting points, and centre of gravity</th><td>Not defined</td><td>Approved handling drawing</td></tr>
+            <tr><th scope="row">Fastener torque, clearances, and lubricants</th><td>Not defined</td><td>Released assembly drawings and maintenance data</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="callout"><strong>Release gate:</strong> Keep this manual at demonstration status until all applicable values, configuration variants, safety controls, and acceptance limits have been verified by the responsible engineering and safety authorities.</aside>
+    </section>
+
+    <section id="installation" class="manual-section" aria-labelledby="installation-title">
+      <h2 id="installation-title">6. Installation</h2>
+      <p>This section demonstrates procedure structure. It is not an installation instruction for real equipment. The installation drawing, foundation requirements, pipe loads, electrical design, lifting plan, and alignment limits are not part of this sample.</p>
+      <h3>Before you begin</h3>
+      <ul>
+        <li>Confirm the equipment identity, configuration, work order, and approved installation procedure.</li>
+        <li>Review the site risk assessment, isolation boundary, lifting plan, and required personal protective equipment.</li>
+        <li>Check that approved foundation, alignment, piping, electrical, and process data are available.</li>
+        <li>Use only the tools, lifting equipment, and consumables listed by the released procedure.</li>
+      </ul>
+      <h3>Installation sequence</h3>
+      <ol class="manual-steps">
+        <li><strong>Verify the installation location.</strong> Compare the foundation and surrounding clearances with the approved installation drawing. Record any discrepancy and stop until it is resolved.</li>
+        <li><strong>Position the assembly.</strong> Use the approved mass, lifting points, and rigging plan. Do not lift from the motor, coupling guard, or process connections unless the released handling drawing identifies them as lifting points.</li>
+        <li><strong>Secure the base.</strong> Follow the approved foundation and fastening procedure. Use only the specified fasteners and torque values.</li>
+        <li><strong>Connect process piping.</strong> Confirm the inlet and discharge against the system drawing. Support piping independently where required by the approved design.</li>
+        <li><strong>Complete electrical connections.</strong> Have qualified personnel follow the released wiring diagram and site electrical rules. Confirm protective devices and grounding against the approved design.</li>
+        <li><strong>Check alignment and guarding.</strong> Use the approved alignment method and tolerance. Install the coupling guard before the unit is released for operation.</li>
+        <li><strong>Record installation status.</strong> Complete the site checklist, attach inspection records, and resolve open items before commissioning.</li>
+      </ol>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 700 260" role="img" aria-labelledby="install-title install-desc">
+            <title id="install-title">Installation arrangement for a fictional pump assembly</title>
+            <desc id="install-desc">A motor and pump rest on a common base above a foundation. Inlet and discharge piping connect to the pump, and the coupling guard covers the shaft connection.</desc>
+            <path class="svg-line" d="M80 210H624M112 210V231M590 210V231M90 231H612"/>
+            <rect class="svg-fill" x="128" y="118" width="178" height="68" rx="9"/>
+            <path class="svg-line" d="M145 130V174M164 130V174M183 130V174M202 130V174M221 130V174M240 130V174M259 130V174"/>
+            <rect class="svg-fill" x="337" y="137" width="49" height="24" rx="4"/>
+            <path class="svg-line" d="M329 127V171M394 127V171"/>
+            <path class="svg-fill" d="M407 111H523Q546 111 546 136V177Q546 192 527 192H410Q394 192 394 176V131Q394 111 407 111Z"/>
+            <path class="svg-line" d="M432 112V70H475V111M522 111V64H573V45M546 173H597V128"/>
+            <path class="svg-line" d="M129 187H546M312 185V207M386 185V207M514 185V207"/>
+            <text class="svg-label" x="157" y="105">Motor</text><text class="svg-label" x="319" y="117">Guard</text>
+            <text class="svg-label" x="442" y="215">Pump</text><text class="svg-label" x="536" y="34">Inlet / discharge</text>
+            <text class="svg-small" x="240" y="251">Common base and foundation shown for orientation only</text>
+          </svg>
+        </div>
+        <figcaption>Figure 4. Installation arrangement. Foundation, piping, dimensions, and connection details require approved engineering drawings.</figcaption>
+      </figure>
+    </section>
+
+    <section id="commissioning" class="manual-section" aria-labelledby="commissioning-title">
+      <h2 id="commissioning-title">7. Commissioning checklist</h2>
+      <p>Complete the approved commissioning procedure and record each result. The checklist below is a document-design example; it does not authorize energisation or operation.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Check</th><th scope="col">Acceptance basis</th><th scope="col">Record</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Equipment identity</th><td>Matches approved configuration and work order</td><td>Model and serial number</td></tr>
+            <tr><th scope="row">Mechanical installation</th><td>Meets released foundation and alignment criteria</td><td>Inspection result and reference drawing</td></tr>
+            <tr><th scope="row">Process connections</th><td>Match the approved piping and flow diagram</td><td>Connection check and open items</td></tr>
+            <tr><th scope="row">Electrical installation</th><td>Verified by qualified personnel against released drawings</td><td>Electrical test record</td></tr>
+            <tr><th scope="row">Guards and access</th><td>Required guards installed; work area clear</td><td>Visual inspection</td></tr>
+            <tr><th scope="row">Operating limits</th><td>Available to the operator from the approved data set</td><td>Document reference and revision</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Release decision:</strong> Do not release the unit if an acceptance criterion is missing, any required check fails, or an unresolved safety or engineering item remains.</p>
+    </section>
+
+    <section id="operation-procedures" class="manual-section" aria-labelledby="operation-procedures-title">
+      <h2 id="operation-procedures-title">8. Operating procedures</h2>
+      <p>Use the approved operator procedure for the installed configuration. The following task structures illustrate how a manual separates routine actions from abnormal response.</p>
+      <h3>Prepare the pump for an approved start</h3>
+      <ol class="manual-steps">
+        <li>Confirm that the equipment identity and operating configuration match the work instruction.</li>
+        <li>Review the approved operating limits, process requirements, and site start-up checklist.</li>
+        <li>Check that maintenance work is complete, tools are removed, access panels are restored, and guards are fitted.</li>
+        <li>Confirm that alarms, protective devices, and process connections are in the condition specified by the approved procedure.</li>
+        <li>Start the equipment only when authorised by the site procedure. Record the required operating observations.</li>
+      </ol>
+      <h3>Stop the pump</h3>
+      <ol class="manual-steps">
+        <li>Follow the approved normal-stop sequence for the connected process.</li>
+        <li>Confirm the equipment reaches the required stopped state and record any abnormal noise, leakage, vibration, or alarm.</li>
+        <li>For maintenance, apply the approved isolation and lockout/tagout process. A normal stop is not an energy-isolation method.</li>
+      </ol>
+      <h3>Respond to an emergency</h3>
+      <p>Use the site emergency plan and the equipment-specific emergency-stop instructions. If a person is at risk, raise the site alarm and follow the emergency response process. Do not restart the unit until the cause has been assessed and an authorised person has released it.</p>
+    </section>
+
+    <section id="maintenance" class="manual-section" aria-labelledby="maintenance-title">
+      <h2 id="maintenance-title">9. Preventive maintenance</h2>
+      <p>Set maintenance intervals from the approved product schedule, operating environment, duty cycle, and site maintenance strategy. This sample does not prescribe calendar or run-hour intervals.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Maintenance topic</th><th scope="col">Example activity</th><th scope="col">Interval source</th><th scope="col">Record</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Operating condition</th><td>Review alarms, abnormal sound, visible leakage, and recorded operating data.</td><td>Approved operator routine</td><td>Logbook or maintenance system</td></tr>
+            <tr><th scope="row">External condition</th><td>Inspect the casing, base, connections, labels, fasteners, and guard for visible change.</td><td>Manufacturer maintenance schedule</td><td>Inspection checklist</td></tr>
+            <tr><th scope="row">Vibration and temperature</th><td>Compare measurements with configuration-specific limits and a valid baseline.</td><td>Approved monitoring plan</td><td>Instrument, location, and result</td></tr>
+            <tr><th scope="row">Seal and bearing</th><td>Check condition using the released inspection method. Replace only with approved parts.</td><td>Manufacturer maintenance schedule</td><td>Part and work-order traceability</td></tr>
+            <tr><th scope="row">Coupling and alignment</th><td>Inspect and measure using the approved method and tolerance.</td><td>Released service procedure</td><td>Measurements and acceptance result</td></tr>
+            <tr><th scope="row">Protection and guard</th><td>Verify required guard and protective-device condition.</td><td>Site safety and inspection plan</td><td>Inspection record and disposition</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 700 180" role="img" aria-labelledby="maint-title maint-desc">
+            <title id="maint-title">Maintenance record workflow</title>
+            <desc id="maint-desc">The maintenance workflow moves from prepare and isolate, to inspect and measure, to compare with approved limits, then record and release or escalate.</desc>
+            <defs><marker id="arrow-maint" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#102f4e"/></marker></defs>
+            <rect class="svg-fill" x="12" y="50" width="142" height="66" rx="8"/>
+            <rect class="svg-fill" x="190" y="50" width="142" height="66" rx="8"/>
+            <rect class="svg-fill" x="368" y="50" width="142" height="66" rx="8"/>
+            <rect class="svg-fill" x="546" y="50" width="142" height="66" rx="8"/>
+            <path class="svg-line" d="M154 83H183M332 83H361M510 83H539" marker-end="url(#arrow-maint)"/>
+            <text class="svg-label" x="32" y="78">Prepare +</text><text class="svg-label" x="31" y="101">isolate</text>
+            <text class="svg-label" x="211" y="78">Inspect +</text><text class="svg-label" x="211" y="101">measure</text>
+            <text class="svg-label" x="384" y="78">Compare with</text><text class="svg-label" x="391" y="101">approved limits</text>
+            <text class="svg-label" x="564" y="78">Record or</text><text class="svg-label" x="570" y="101">escalate</text>
+            <text class="svg-small" x="105" y="153">Use released procedures and site controls at each stage</text>
+          </svg>
+        </div>
+        <figcaption>Figure 5. Maintenance decision path. A measurement without an approved limit and traceable equipment identity is not an acceptance decision.</figcaption>
+      </figure>
+    </section>
+
+    <section id="inspection" class="manual-section" aria-labelledby="inspection-title">
+      <h2 id="inspection-title">10. Inspection and acceptance</h2>
+      <p>Record the equipment identifier, operating state, instrument, measurement location, result, applicable limit, and disposition. Use only calibrated instruments and the released inspection method where required.</p>
+      <h3>Visual inspection</h3>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Area</th><th scope="col">Accept when</th><th scope="col">Stop and escalate when</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Casing and cover</th><td>No visible damage or condition outside approved criteria</td><td>A crack, deformation, unexpected residue, or unapproved repair is present</td></tr>
+            <tr><th scope="row">Connections</th><td>Connection condition matches the released inspection criteria</td><td>Leakage, movement, damage, or mismatch is found</td></tr>
+            <tr><th scope="row">Guard and base</th><td>Guard is fitted and stable; base condition meets approved criteria</td><td>Guard is missing or damaged, or the assembly has shifted</td></tr>
+            <tr><th scope="row">Seal area</th><td>Observed condition is within the published leakage limit</td><td>Leakage exceeds the approved limit or its source is unclear</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Condition measurements</h3>
+      <p>Take vibration, temperature, and leakage measurements only at specified locations and under the operating conditions defined by the approved method. Compare results with configuration-specific limits and a valid baseline. This sample provides no numerical acceptance thresholds.</p>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 640 270" role="img" aria-labelledby="inspect-title inspect-desc">
+            <title id="inspect-title">Illustrative inspection locations on the fictional pump</title>
+            <desc id="inspect-desc">Numbered markers identify the motor, coupling guard, bearing carrier, seal area, casing, and process connections as locations to identify in an approved inspection plan.</desc>
+            <rect class="svg-fill" x="68" y="106" width="174" height="72" rx="10"/>
+            <path class="svg-line" d="M86 117V166M106 117V166M126 117V166M146 117V166M166 117V166M186 117V166M206 117V166"/>
+            <rect class="svg-fill" x="279" y="130" width="44" height="24" rx="4"/>
+            <rect class="svg-fill" x="339" y="103" width="63" height="78" rx="8"/>
+            <path class="svg-fill" d="M419 92H515Q539 92 539 118V165Q539 185 517 185H418Q402 185 402 168V112Q402 92 419 92Z"/>
+            <path class="svg-line" d="M445 93V56H479V92M516 111H566V73M439 184V205H472V184"/>
+            <path class="svg-line" d="M43 205H571M91 179V205M230 179V205M344 181V205M405 153H386"/>
+            <g class="svg-number"><circle cx="130" cy="96" r="15"/><text x="125" y="102">1</text></g>
+            <g class="svg-number"><circle cx="300" cy="113" r="15"/><text x="295" y="119">2</text></g>
+            <g class="svg-number"><circle cx="370" cy="88" r="15"/><text x="365" y="94">3</text></g>
+            <g class="svg-number"><circle cx="425" cy="69" r="15"/><text x="420" y="75">4</text></g>
+            <g class="svg-number"><circle cx="485" cy="204" r="15"/><text x="480" y="210">5</text></g>
+            <g class="svg-number"><circle cx="574" cy="66" r="15"/><text x="569" y="72">6</text></g>
+            <text class="svg-label" x="74" y="247">1 Motor</text><text class="svg-label" x="161" y="247">2 Guard</text>
+            <text class="svg-label" x="249" y="247">3 Bearings</text><text class="svg-label" x="354" y="247">4 Seal</text>
+            <text class="svg-label" x="439" y="247">5 Casing</text><text class="svg-label" x="531" y="247">6 Ports</text>
+          </svg>
+        </div>
+        <figcaption>Figure 6. Example inspection map. The actual measurement points, limits, and instrument setup must come from the approved inspection plan.</figcaption>
+      </figure>
+    </section>
+
+    <section id="troubleshooting" class="manual-section" aria-labelledby="troubleshooting-title">
+      <h2 id="troubleshooting-title">11. Troubleshooting</h2>
+      <p>Use this table as a documentation pattern, not as a diagnosis for real equipment. Follow the approved fault-isolation procedure, maintain required safeguards, and record each check before changing a component.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Observed condition</th><th scope="col">Possible area to investigate</th><th scope="col">Check using approved method</th><th scope="col">Disposition</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">The pump does not start</th><td>Supply, control permissive, protective device, or mechanical restriction</td><td>Review alarms and electrical status with qualified personnel; check the approved turning method only when isolated</td><td>Do not bypass protection. Escalate unresolved faults.</td></tr>
+            <tr><th scope="row">Vacuum performance differs from expected</th><td>Process condition, connection leak, configuration, or internal condition</td><td>Verify the unit and process against approved data; test leakage with the released method</td><td>Compare results with published limits; stop if a limit is unavailable.</td></tr>
+            <tr><th scope="row">Vibration or temperature changes</th><td>Alignment, bearing, mounting, flow condition, or measurement setup</td><td>Repeat measurements at defined locations and operating conditions</td><td>Use the approved limit and escalation path; do not infer acceptance.</td></tr>
+            <tr><th scope="row">Leakage is observed</th><td>Seal, joint, connection, or process boundary</td><td>Identify the fluid or gas and follow the approved isolation and leak-check method</td><td>Apply site response rules. Do not tighten a pressurised connection.</td></tr>
+            <tr><th scope="row">Unusual sound is reported</th><td>Rotating assembly, contact, loose component, or process condition</td><td>Record when the sound occurs and review the approved inspection plan</td><td>Stop and isolate if required by the risk assessment or site procedure.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 660 310" role="img" aria-labelledby="trouble-title trouble-desc">
+            <title id="trouble-title">Troubleshooting decision flow</title>
+            <desc id="trouble-desc">Start by recording the symptom and confirming equipment identity. Check approved alarms and limits. If the condition remains abnormal or safe data is unavailable, stop and escalate; otherwise record the result and follow the approved release process.</desc>
+            <defs><marker id="arrow-trouble" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#102f4e"/></marker></defs>
+            <rect class="svg-fill" x="214" y="12" width="232" height="44" rx="7"/>
+            <rect class="svg-fill" x="214" y="88" width="232" height="54" rx="7"/>
+            <path class="svg-fill" d="M330 174L405 218L330 262L255 218Z"/>
+            <rect class="svg-fill" x="22" y="202" width="184" height="58" rx="7"/>
+            <rect class="svg-fill" x="454" y="202" width="184" height="58" rx="7"/>
+            <path class="svg-line" d="M330 56V80M330 142V165" marker-end="url(#arrow-trouble)"/>
+            <path class="svg-line" d="M255 218H214" marker-end="url(#arrow-trouble)"/>
+            <path class="svg-line" d="M405 218H446" marker-end="url(#arrow-trouble)"/>
+            <text class="svg-label" x="249" y="40">Record symptom + identity</text>
+            <text class="svg-label" x="240" y="110">Check approved alarms</text><text class="svg-label" x="250" y="131">and published limits</text>
+            <text class="svg-label" x="286" y="215">Condition</text><text class="svg-label" x="287" y="236">acceptable?</text>
+            <text class="svg-label" x="59" y="227">Stop, isolate if needed,</text><text class="svg-label" x="60" y="248">and escalate</text>
+            <text class="svg-label" x="480" y="227">Record result and follow</text><text class="svg-label" x="492" y="248">release procedure</text>
+            <text class="svg-small" x="212" y="293">If a required limit or safe method is missing, stop and escalate.</text>
+            <text class="svg-small" x="216" y="190">No</text><text class="svg-small" x="429" y="190">Yes</text>
+          </svg>
+        </div>
+        <figcaption>Figure 7. Troubleshooting logic. The flow keeps an unknown or out-of-limit condition from being treated as acceptable.</figcaption>
+      </figure>
+    </section>
+
+    <section id="service-tasks" class="manual-section" aria-labelledby="service-tasks-title">
+      <h2 id="service-tasks-title">12. Removal and component replacement</h2>
+      <p>Each service task in a released manual should identify the configuration, hazards, prerequisites, parts, tools, ordered actions, verification, and record required. The examples below show that structure but intentionally omit torque, clearances, extraction methods, and other product-specific instructions.</p>
+      <h3>Remove the pump assembly</h3>
+      <p><strong>Prerequisites:</strong> approved work order, equipment-specific isolation procedure, process drain and handling instructions, lifting plan, and released assembly drawing.</p>
+      <p><strong>Tools and parts:</strong> use only the tools, lifting equipment, plugs, and replacement items listed in the approved task.</p>
+      <ol class="manual-steps">
+        <li>Confirm the equipment identifier and record the installed configuration.</li>
+        <li>Isolate electrical and process energy according to the approved site and equipment procedures. Verify the safe state.</li>
+        <li>Drain, vent, cool, and disconnect the system only as specified by approved instructions.</li>
+        <li>Label and protect disconnected lines and electrical conductors as required by the released method.</li>
+        <li>Attach the approved lifting equipment at the specified lifting points. Remove the assembly using the approved handling plan.</li>
+        <li>Protect open connections and record the unit condition, removed parts, and unresolved findings.</li>
+      </ol>
+      <h3>Reinstall the pump assembly</h3>
+      <ol class="manual-steps">
+        <li>Confirm that the replacement or repaired assembly matches the approved configuration.</li>
+        <li>Inspect the foundation and mounting surfaces against the released installation drawing.</li>
+        <li>Position and secure the assembly with the approved handling and fastening methods.</li>
+        <li>Reconnect process and electrical interfaces using the released drawings and procedures.</li>
+        <li>Verify alignment, guards, connections, and protective devices against their approved acceptance criteria.</li>
+        <li>Complete commissioning checks and records before the authorised release to operation.</li>
+      </ol>
+      <h3>Replace a shaft seal</h3>
+      <p><strong>Prerequisites:</strong> isolation verified; process boundary made safe; correct seal kit and revision confirmed; released seal drawing and setting method available.</p>
+      <ol class="manual-steps">
+        <li>Record the pump configuration and the seal-kit identifier before disassembly.</li>
+        <li>Remove access components in the order shown by the approved assembly drawing.</li>
+        <li>Inspect the shaft and seal chamber using the released acceptance criteria. Record damage or wear.</li>
+        <li>Install the approved seal kit using its specified orientation, setting dimensions, lubricant, and assembly method.</li>
+        <li>Reassemble the pump using the released fastener and alignment data.</li>
+        <li>Perform the approved leak check and record the result before returning the unit to service.</li>
+      </ol>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 640 230" role="img" aria-labelledby="seal-title seal-desc">
+            <title id="seal-title">Conceptual shaft-seal cross-section</title>
+            <desc id="seal-desc">A shaft passes through a housing. A stationary seal face, rotating seal face, and secondary seal are shown as conceptual parts. The drawing is not to scale.</desc>
+            <rect class="svg-fill" x="54" y="60" width="530" height="110" rx="8"/>
+            <rect class="svg-fill" x="34" y="103" width="574" height="26" rx="13"/>
+            <rect class="svg-fill" x="242" y="75" width="22" height="80"/>
+            <rect class="svg-fill" x="280" y="78" width="22" height="74"/>
+            <rect class="svg-fill" x="222" y="82" width="12" height="66" rx="5"/>
+            <path class="svg-line" d="M253 47V72M291 47V75M228 47V78"/>
+            <path class="svg-line" d="M253 40H198M291 40H340M228 40H138"/>
+            <text class="svg-label" x="74" y="35">Secondary seal</text>
+            <text class="svg-label" x="185" y="35">Stationary face</text>
+            <text class="svg-label" x="328" y="35">Rotating face</text>
+            <text class="svg-label" x="438" y="119">Shaft</text>
+            <text class="svg-small" x="170" y="205">Conceptual section only · not to scale · use released seal drawing and setting data</text>
+          </svg>
+        </div>
+        <figcaption>Figure 8. Conceptual seal arrangement. Face materials, orientation, setting, and assembly limits are not defined in this sample.</figcaption>
+      </figure>
+      <h3>Replace a bearing set</h3>
+      <p><strong>Prerequisites:</strong> isolation verified; bearing configuration and replacement set confirmed; approved extraction, fitting, lubrication, and clearance data available.</p>
+      <ol class="manual-steps">
+        <li>Record the bearing identifiers and installed arrangement before disassembly.</li>
+        <li>Remove the coupling, seal components, and bearing carrier in the order specified by the released assembly drawing.</li>
+        <li>Remove the bearing with the approved tool and method. Do not apply force through rolling elements unless the approved procedure permits it.</li>
+        <li>Inspect the shaft seat and carrier against the released acceptance criteria. Record damage or contamination.</li>
+        <li>Fit the approved bearing set using the specified method, orientation, lubricant, and clearance data.</li>
+        <li>Reassemble the shaft train and complete the specified rotation, alignment, and inspection checks. Record the results.</li>
+      </ol>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 640 240" role="img" aria-labelledby="bearing-title bearing-desc">
+            <title id="bearing-title">Conceptual rolling-bearing cross-section</title>
+            <desc id="bearing-desc">A shaft passes through an inner race, rolling elements, and an outer race held by a bearing carrier. The drawing is not to scale and does not define a bearing type.</desc>
+            <rect class="svg-fill" x="72" y="64" width="496" height="112" rx="16"/>
+            <rect class="svg-fill" x="42" y="105" width="556" height="30" rx="15"/>
+            <path class="svg-line" d="M190 70V170M450 70V170"/>
+            <path class="svg-line" d="M220 85H420M220 155H420"/>
+            <circle class="svg-fill" cx="240" cy="91" r="13"/><circle class="svg-fill" cx="300" cy="91" r="13"/>
+            <circle class="svg-fill" cx="360" cy="91" r="13"/><circle class="svg-fill" cx="420" cy="91" r="13"/>
+            <circle class="svg-fill" cx="240" cy="149" r="13"/><circle class="svg-fill" cx="300" cy="149" r="13"/>
+            <circle class="svg-fill" cx="360" cy="149" r="13"/><circle class="svg-fill" cx="420" cy="149" r="13"/>
+            <path class="svg-line" d="M200 45V66M320 45V76M447 45V66M80 45V62"/>
+            <path class="svg-line" d="M200 39H150M320 39H270M447 39H500M80 39H33"/>
+            <text class="svg-label" x="22" y="31">Carrier</text>
+            <text class="svg-label" x="143" y="31">Outer race</text>
+            <text class="svg-label" x="263" y="31">Rolling element</text>
+            <text class="svg-label" x="491" y="31">Inner race</text>
+            <text class="svg-label" x="467" y="126">Shaft</text>
+            <text class="svg-small" x="142" y="215">Conceptual only · bearing type, fit, preload, and lubrication are not specified</text>
+          </svg>
+        </div>
+        <figcaption>Figure 9. Conceptual bearing section. Use the released bearing drawing and fitting instructions for an actual assembly.</figcaption>
+      </figure>
+      <h3>Replace the motor assembly</h3>
+      <p><strong>Prerequisites:</strong> qualified electrical personnel; isolation verified; motor nameplate, wiring diagram, approved replacement, and lifting method confirmed.</p>
+      <ol class="manual-steps">
+        <li>Record motor identification, terminal connections, mounting arrangement, and coupling configuration.</li>
+        <li>Isolate and verify every electrical source. Disconnect conductors and identify them as required by the released wiring procedure.</li>
+        <li>Remove the motor using the approved lifting points and handling plan.</li>
+        <li>Compare the replacement motor rating and interfaces with the approved configuration before installation.</li>
+        <li>Install and reconnect the motor using released mounting, wiring, and alignment instructions.</li>
+        <li>Have qualified personnel complete required electrical tests. Verify the guard and record the commissioning disposition.</li>
+      </ol>
+      <h3>Replace the coupling</h3>
+      <p><strong>Prerequisites:</strong> isolation verified; correct coupling set and revision confirmed; released removal, fit, and alignment instructions available.</p>
+      <ol class="manual-steps">
+        <li>Record the coupling arrangement and available alignment measurements before removing components.</li>
+        <li>Remove the guard only after the equipment is isolated and rotation has stopped.</li>
+        <li>Remove coupling elements and hubs with the approved tools. Do not strike shafts or hubs unless the released method specifies that action.</li>
+        <li>Inspect shaft ends and mounting interfaces against the approved criteria.</li>
+        <li>Install the approved coupling set and align the shafts using the released method and tolerance.</li>
+        <li>Reinstall the guard, complete the required checks, and record alignment results and part traceability.</li>
+      </ol>
+      <figure class="manual-figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 660 250" role="img" aria-labelledby="coupling-title coupling-desc">
+            <title id="coupling-title">Conceptual motor-to-pump coupling alignment</title>
+            <desc id="coupling-desc">Two shaft ends connect through a flexible coupling element. A dashed centreline marks the alignment reference, with a callout for offset and angular alignment checks. No tolerance is shown.</desc>
+            <path class="svg-line svg-dash" d="M42 126H618"/>
+            <rect class="svg-fill" x="48" y="84" width="172" height="84" rx="12"/>
+            <path class="svg-line" d="M65 95V157M84 95V157M103 95V157M122 95V157M141 95V157M160 95V157M179 95V157"/>
+            <path class="svg-line" d="M220 113H292M220 139H292"/>
+            <rect class="svg-fill" x="292" y="96" width="76" height="60" rx="10"/>
+            <path class="svg-line" d="M308 96V156M352 96V156"/>
+            <path class="svg-line" d="M368 113H438M368 139H438"/>
+            <path class="svg-fill" d="M438 78H596Q618 78 618 101V151Q618 174 596 174H438Z"/>
+            <circle class="svg-line" cx="525" cy="126" r="28"/>
+            <path class="svg-line" d="M525 98V154M497 126H553"/>
+            <path class="svg-line" d="M330 80V55H246M396 171V198H493"/>
+            <text class="svg-label" x="94" y="207">Motor</text><text class="svg-label" x="277" y="207">Coupling element</text>
+            <text class="svg-label" x="501" y="207">Pump shaft</text>
+            <text class="svg-small" x="27" y="36">Check offset and angular alignment with the released method</text>
+            <text class="svg-small" x="185" y="234">Dashed line is a reference only; no alignment tolerance is defined</text>
+          </svg>
+        </div>
+        <figcaption>Figure 10. Coupling arrangement. The diagram shows the parts to identify, not a measurement setup or acceptance limit.</figcaption>
+      </figure>
+      <h3>Replace the impeller</h3>
+      <p><strong>Prerequisites:</strong> isolation verified; casing drained and made safe; impeller configuration, retention method, and approved replacement confirmed.</p>
+      <ol class="manual-steps">
+        <li>Record the pump configuration, rotation direction, and installed impeller identifier.</li>
+        <li>Remove the casing cover and retention hardware in the sequence shown by the released assembly drawing.</li>
+        <li>Remove the impeller with the specified extraction method. Protect the shaft, seal surfaces, and casing.</li>
+        <li>Inspect the shaft, key or retention interface, and casing using the released criteria.</li>
+        <li>Install the approved impeller with the specified orientation, retention hardware, and assembly values.</li>
+        <li>Verify clearances, rotation, balance status, and post-assembly condition against the approved data. Record the result.</li>
+      </ol>
+      <p>These component tasks intentionally do not supply extraction forces, temperatures, torque values, clearances, or run-out limits. Add those only from verified product engineering data.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Task topic</th><th scope="col">Information the released procedure must provide</th><th scope="col">Verification</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Bearing replacement</th><td>Bearing configuration, approved removal and fitting method, lubrication, clearances, and parts</td><td>Document measurements and rotation/inspection results required by the source procedure</td></tr>
+            <tr><th scope="row">Motor replacement</th><td>Electrical configuration, mounting, lifting, coupling interface, and alignment criteria</td><td>Qualified electrical checks and approved mechanical acceptance records</td></tr>
+            <tr><th scope="row">Coupling replacement</th><td>Coupling type, element, hub fit, guard removal, and alignment method</td><td>Record specified alignment values and confirm guard restoration</td></tr>
+            <tr><th scope="row">Impeller replacement</th><td>Rotation direction, retention method, clearance, balance, and approved part</td><td>Complete released fit, clearance, and post-assembly checks</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="parts" class="manual-section" aria-labelledby="parts-title">
+      <h2 id="parts-title">13. Illustrative parts list</h2>
+      <p>The identifiers below are fictional examples for demonstrating table structure. They are not orderable part numbers and do not establish compatibility.</p>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Item</th><th scope="col">Illustrative identifier</th><th scope="col">Description</th><th scope="col">Replacement control</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>VSH4-MTR-001</td><td>Drive motor assembly</td><td>Confirm rating and configuration from approved parts data.</td></tr>
+            <tr><th scope="row">2</th><td>VSH4-GRD-001</td><td>Coupling guard assembly</td><td>Confirm fit and safety configuration from approved parts data.</td></tr>
+            <tr><th scope="row">3</th><td>VSH4-CPL-001</td><td>Flexible coupling set</td><td>Confirm coupling element and hub configuration.</td></tr>
+            <tr><th scope="row">4</th><td>VSH4-BRG-001</td><td>Bearing set</td><td>Confirm specification, orientation, and approved supplier source.</td></tr>
+            <tr><th scope="row">5</th><td>VSH4-SEAL-001</td><td>Shaft-seal kit</td><td>Confirm process compatibility and kit revision.</td></tr>
+            <tr><th scope="row">6</th><td>VSH4-IMP-001</td><td>Impeller assembly</td><td>Confirm rotation, geometry, and configuration.</td></tr>
+            <tr><th scope="row">7</th><td>VSH4-CAS-001</td><td>Pump casing assembly</td><td>Confirm material and connection configuration.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For a production publication, add applicable serial-number effectivity, quantity, unit of measure, interchangeability, source drawing, revision, and procurement restrictions from the approved parts catalogue.</p>
+    </section>
+
+    <section id="bulletin" class="manual-section" aria-labelledby="bulletin-title">
+      <h2 id="bulletin-title">14. Sample service bulletin</h2>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <tbody>
+            <tr><th scope="row">Bulletin number</th><td>SB-VSH450-001 · fictional example</td></tr>
+            <tr><th scope="row">Subject</th><td>Record coupling-guard inspection findings</td></tr>
+            <tr><th scope="row">Status</th><td>Writing sample only. No field action is authorised.</td></tr>
+            <tr><th scope="row">Affected units</th><td>Not defined. Applicability would require approved configuration and serial-number data.</td></tr>
+            <tr><th scope="row">Required action</th><td>A released bulletin must state the approved inspection method, parts, acceptance criteria, and completion record.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>This bulletin layout demonstrates change communication and applicability control. It does not report a real defect, corrective action, or product change.</p>
+    </section>
+
+    <section id="reference" class="manual-section" aria-labelledby="reference-title">
+      <h2 id="reference-title">15. Glossary and records</h2>
+      <dl class="manual-glossary">
+        <dt>Acceptance criterion</dt><dd>A documented requirement used to decide whether an inspection or test result is acceptable.</dd>
+        <dt>Configuration</dt><dd>The approved combination of equipment, components, and options that identifies a unit.</dd>
+        <dt>Isolation</dt><dd>A controlled process that separates equipment from energy or process sources before work.</dd>
+        <dt>Lockout/tagout</dt><dd>A site-controlled method for preventing unexpected energisation or release of stored energy during work.</dd>
+        <dt>SME</dt><dd>Subject-matter expert; a person who provides or verifies specialist technical information.</dd>
+        <dt>Work order</dt><dd>An authorised record that defines the work to be performed and its status.</dd>
+      </dl>
+      <h3>Records to retain</h3>
+      <ul>
+        <li>Equipment identity and configuration.</li>
+        <li>Work order, isolation record, and personnel authorisation where required by site process.</li>
+        <li>Inspection method, instrument, measurement location, result, limit, and disposition.</li>
+        <li>Parts installed or removed, including approved identifier and traceability details.</li>
+        <li>Open technical queries, approved deviations, and release decision.</li>
+      </ul>
+      <h3>Document revision history</h3>
+      <div class="manual-table-scroll">
+        <table class="case-table">
+          <thead><tr><th scope="col">Revision</th><th scope="col">Date</th><th scope="col">Change</th><th scope="col">Status</th></tr></thead>
+          <tbody><tr><th scope="row">A</th><td>23 October 2026</td><td>Initial fictional portfolio demonstration.</td><td>Not approved for equipment use</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="manual-section manual-author-note" aria-labelledby="author-note-title">
+      <h2 id="author-note-title">About this sample</h2>
+      <p>This independent portfolio demonstration shows task-oriented service content, safety-message placement, source-data boundaries, inspection tables, revision control, and original vector illustrations. It is not based on employer, customer, or production-system data. The structure uses separate concept, task, and reference content patterns; the page does not claim formal DITA or S1000D compliance.</p>
+      <p><a href="../../#work">← Back to selected work</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Nilesh Gunjal · Last updated October 2026 · <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio" target="_blank" rel="noopener noreferrer">Portfolio repository</a></p>
+      <p>Portfolio samples are fictional or sanitized demonstrations.</p>
+    </div>
+  </footer>
+</body>
+</html>
