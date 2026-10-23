@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VSH-450 Industrial Vacuum Pump service and maintenance manual: controlled specifications, inspection tasks, fault isolation, and illustrated parts catalogue.">
+  <meta name="author" content="Nilesh Gunjal">
+  <meta name="theme-color" content="#102f4e">
+  <link rel="canonical" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/work/vacuum-pump-service-manual/">
+  <style>
+:root {
+  --navy: #102f4e;
+  --accent: #2563a8;
+  --text: #1a1f2b;
+  --muted: #4b5563;
+  --page: #ffffff;
+  --surface: #f6f8fb;
+  --border: #e3e8ef;
+  --radius: 10px;
+  --container: 1100px;
+  --measure: 68ch;
+  --font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --body-size: 17px;
+  --body-leading: 1.65;
+  --section-space: 88px;
+  --section-space-mobile: 56px;
+  --card-padding: 24px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+}
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--navy); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+img { display: block; max-width: 100%; }
+
+.wrap {
+  width: min(var(--container), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: -100px;
+  left: 24px;
+  padding: 10px 14px;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--navy);
+  color: #fff;
+}
+.skip-link:focus { top: 0; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--page);
+  border-bottom: 1px solid var(--border);
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 68px;
+}
+.brand { display: inline-flex; align-items: center; min-height: 44px; color: var(--navy); font-weight: 750; text-decoration: none; white-space: nowrap; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text);
+  font-size: .94rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+.nav-links .nav-resume { padding-inline: 12px; border: 1px solid var(--navy); border-radius: 6px; }
+
+h1, h2, h3 { margin: 0; color: var(--navy); line-height: 1.2; }
+h1 { font-size: clamp(2.25rem, 4vw, 3rem); letter-spacing: -.035em; }
+h2 { font-size: 1.75rem; letter-spacing: -.02em; }
+h3 { font-size: 1.15rem; }
+p, li { color: var(--text); }
+p { max-width: var(--measure); }
+
+.hero { padding-block: var(--section-space); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 64px;
+}
+.hero-copy { min-width: 0; }
+.hero-title { max-width: 100%; margin: 14px 0 0; font-size: 1rem; font-weight: 700; line-height: 1.55; }
+.hero-intro { margin: 20px 0 0; color: var(--muted); }
+.hero-availability { margin: 16px 0 0; color: var(--muted); font-size: .94rem; }
+.hero-visual { justify-self: end; }
+.profile-photo {
+  width: 240px;
+  height: 240px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  object-fit: cover;
+}
+
+.hero-actions, .sample-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--navy);
+  border-radius: 6px;
+  background: var(--page);
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+}
+.button:hover { background: var(--navy); color: #fff; }
+.button-primary, .button.secondary {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: #fff;
+}
+.button-primary:hover, .button.secondary:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
+.button-secondary { background: var(--page); color: var(--navy); }
+
+.section { padding-block: var(--section-space); border-top: 1px solid var(--border); }
+.section-alt { background: var(--surface); }
+.section-heading { margin-bottom: 32px; }
+.section-heading > .section-kicker { display: none; }
+.intro { margin: 12px 0 0; color: var(--muted); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+.card, .detail-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+.card { position: relative; }
+.work-grid .card { min-height: 100%; }
+.card-category { margin: 0 0 8px; color: var(--muted); font-size: .86rem; font-weight: 700; }
+.card p { margin: 12px 0 0; color: var(--muted); }
+.card-link { position: static; display: inline-flex; align-items: center; margin-top: auto; padding-top: 20px; color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.card-link::after { content: ""; position: absolute; inset: 0; }
+.card-link:focus-visible { outline: 0; }
+.card-link:focus-visible::after { outline: 3px solid var(--accent); outline-offset: 3px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.tag {
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.4;
+}
+.quiet-link { margin: 24px 0 0; color: var(--muted); font-size: .94rem; }
+.quiet-link a, .resume-link, .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 40px; }
+.skill-group h3 { margin-bottom: 8px; }
+.skill-group p { margin: 0; color: var(--muted); font-size: .94rem; }
+.skill-items { margin-top: 12px; }
+.skill-items .tag { color: var(--text); }
+
+.timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+.timeline::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: 5px; width: 1px; background: var(--border); }
+.timeline-item { position: relative; padding: 0 0 32px 32px; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 7px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--page);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-role { color: var(--text); font-weight: 700; }
+.timeline-current .timeline-role { color: var(--navy); font-weight: 800; }
+.timeline-meta { margin: 4px 0 0; color: var(--muted); font-size: .94rem; }
+.timeline-item > p:last-child { margin: 8px 0 0; color: var(--muted); }
+.experience-details { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+.experience-details p { margin: 8px 0 0; color: var(--muted); }
+.experience-details strong { color: var(--text); }
+.resume-link { margin-top: 28px; font-weight: 700; }
+
+.contact-copy { margin: 12px 0 0; color: var(--muted); }
+.contact-links { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 24px; }
+.contact-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+.contact-links .contact-email {
+  padding-inline: 16px;
+  border: 1px solid var(--navy);
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+}
+.contact-links .contact-email:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+.site-footer {
+  padding-block: 28px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .88rem;
+}
+.site-footer p { margin: 4px 0; color: var(--muted); }
+
+/* Case studies */
+.sample-hero { padding-block: 56px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.breadcrumb, .back-link { margin: 0 0 18px; font-size: .94rem; font-weight: 700; }
+.breadcrumb a, .back-link a, .detail-list a, .api-meta a { display: inline-flex; align-items: center; min-height: 44px; }
+.section-kicker { margin: 0 0 10px; color: var(--muted); font-size: .86rem; font-weight: 700; }
+.sample-hero h1 { max-width: var(--measure); }
+.sample-dek { margin: 16px 0 0; color: var(--muted); }
+.case-main { max-width: 760px; margin: 0 auto; padding: 56px 0 88px; }
+.sample-layout { display: block; }
+.sample-content h2 { margin-top: 48px; }
+.sample-content h2:first-child { margin-top: 0; }
+.sample-content h3 { margin-top: 30px; }
+.sample-content p, .sample-content li { color: var(--text); }
+.sample-content li + li { margin-top: 7px; }
+.sample-aside { margin-top: 40px; }
+.detail-card + .detail-card { margin-top: 16px; }
+.detail-card h2 { margin-bottom: 12px; }
+.detail-list { margin: 0; padding: 0; list-style: none; }
+.detail-list li { padding: 9px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .94rem; }
+.detail-list li:first-child { padding-top: 0; border-top: 0; }
+.detail-list strong { display: block; color: var(--text); }
+.callout { margin: 24px 0; padding: 16px 20px; border-left: 3px solid var(--accent); background: var(--surface); color: var(--text); }
+.callout strong { color: var(--navy); }
+.case-table { width: 100%; margin: 20px 0; border-collapse: collapse; }
+.case-table th, .case-table td { padding: 13px 14px; border: 1px solid var(--border); color: var(--text); text-align: left; vertical-align: top; }
+.case-table th { background: var(--surface); color: var(--navy); }
+pre { overflow-x: auto; margin: 22px 0; padding: 18px; border-radius: var(--radius); background: var(--navy); color: #fff; font: .9rem/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+/* API reference */
+.api-intro { padding-block: 48px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.api-intro p { margin: 16px 0 0; color: var(--muted); }
+#swagger-ui { width: min(var(--container), calc(100% - 48px)); margin: 48px auto; }
+.noscript-message, .api-meta { width: min(var(--container), calc(100% - 48px)); margin: 24px auto; color: var(--muted); font-size: .94rem; }
+.swagger-ui { color: var(--text); font-family: var(--font-family); }
+.swagger-ui .topbar { display: none !important; }
+.swagger-ui .wrapper { max-width: var(--container); padding: 0; }
+.swagger-ui .info { padding: 20px 0 10px; }
+.swagger-ui .info .title, .swagger-ui .info hgroup.main a { color: var(--navy); font-family: var(--font-family); }
+.swagger-ui a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
+.swagger-ui .scheme-container { margin: 0 0 20px; padding: 20px; border: 1px solid var(--border); background: var(--surface); box-shadow: none; }
+.swagger-ui .btn, .swagger-ui select { min-height: 44px; border-color: var(--navy); color: var(--navy); font-family: var(--font-family); }
+.swagger-ui .opblock-summary-control, .swagger-ui .expand-operation, .swagger-ui .authorization__btn, .swagger-ui .opblock-control-arrow { min-height: 44px; }
+.swagger-ui .models-control { display: inline-flex; align-items: center; min-height: 44px; }
+.swagger-ui .opblock,
+.swagger-ui .opblock.opblock-get,
+.swagger-ui .opblock.opblock-post,
+.swagger-ui .opblock.opblock-patch,
+.swagger-ui .opblock.opblock-delete { border-color: var(--border); background: var(--surface); box-shadow: none; }
+.swagger-ui .opblock .opblock-summary-method,
+.swagger-ui .opblock.opblock-get .opblock-summary-method,
+.swagger-ui .opblock.opblock-post .opblock-summary-method,
+.swagger-ui .opblock.opblock-patch .opblock-summary-method,
+.swagger-ui .opblock.opblock-delete .opblock-summary-method {
+  background: var(--navy) !important;
+}
+.swagger-ui .btn.execute { border-color: var(--navy) !important; background: var(--navy) !important; }
+.swagger-ui .btn.execute:hover { border-color: var(--accent) !important; background: var(--accent) !important; }
+.swagger-ui .opblock-tag { color: var(--navy); border-bottom-color: var(--border); }
+.swagger-ui .opblock .opblock-summary { border-bottom-color: var(--border); }
+.swagger-ui .opblock-section-header { background: var(--surface); box-shadow: none; }
+
+@media (max-width: 760px) {
+  .site-header { position: static; }
+  .nav-bar { align-items: flex-start; flex-direction: column; gap: 0; padding-block: 10px; }
+  .nav-links { justify-content: flex-start; gap: 0 16px; }
+  .hero, .section { padding-block: var(--section-space-mobile); }
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-visual { order: -1; justify-self: start; }
+  .profile-photo { width: 220px; height: 220px; }
+  .hero-actions { flex-direction: column; align-items: stretch; max-width: 360px; }
+  .hero-actions .button { width: 100%; }
+  .work-grid, .skills-grid { grid-template-columns: 1fr; }
+  .sample-hero { padding-block: 40px; }
+  .case-main { width: min(760px, calc(100% - 48px)); padding-block: 40px 56px; }
+  .case-table { display: block; max-width: 100%; overflow-x: auto; white-space: normal; }
+  .contact-links { align-items: stretch; flex-direction: column; max-width: 360px; }
+  .contact-links a { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  .site-header, .hero-actions, .contact-links, .sample-actions { display: none; }
+}
+
+</style>
+  <style>
+/* VSH450-SM-001, Rev C. Shared portfolio navigation uses portfolio.css. */
+.manual-page { color: #1a1f2b; }
+.manual-shell { width: min(1140px, calc(100% - 48px)); margin: 0 auto; padding: 28px 0 100px; }
+.manual-shell .breadcrumb { margin: 0; font-size: .88rem; }
+.manual-actions { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 22px; }
+.download-link { display: inline-flex; align-items: center; min-height: 44px; font-size: .86rem; font-weight: 700; }
+.manual-shell a { text-underline-offset: 3px; }
+.manual-cover { min-height: 600px; padding: 30px 38px 24px; border: 1px solid #cad5e0; border-top: 8px solid #102f4e; background: #fff; }
+.cover-rule, .cover-bottom { display: flex; justify-content: space-between; gap: 18px; font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; color: #102f4e; }
+.cover-rule { padding-bottom: 16px; border-bottom: 1px solid #cad5e0; }
+.cover-bottom { padding-top: 16px; border-top: 1px solid #cad5e0; }
+.cover-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: center; gap: 26px; padding: 67px 0 55px; }
+.manual-cover .eyebrow { margin: 0 0 18px; color: #2563a8; font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+.manual-cover h1 { max-width: 14ch; margin: 0; color: #102f4e; font-size: clamp(2.3rem, 4.2vw, 3.5rem); line-height: 1.1; letter-spacing: -.03em; }
+.cover-subtitle { margin: 20px 0 0; color: #1a1f2b; font-size: 1.08rem; font-weight: 650; }
+.cover-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.cover-facts div { border-top: 2px solid #102f4e; padding-top: 9px; }
+.cover-facts span { display: block; color: #4b5563; font-size: .77rem; text-transform: uppercase; letter-spacing: .04em; }
+.cover-facts strong { display: block; margin-top: 4px; color: #102f4e; font-size: .95rem; }
+.cover-disclaimer { max-width: none; margin: 0 0 22px; padding: 12px 14px; border-left: 4px solid #102f4e; background: #f6f8fb; font-size: .8rem; line-height: 1.5; }
+.manual-content { width: min(940px, 100%); margin: 0 auto; }
+.manual-section { margin-top: 72px; padding-top: 30px; border-top: 2px solid #e3e8ef; scroll-margin-top: 86px; }
+.manual-section:first-child { border-top: 0; }
+.manual-section h2 { margin-bottom: 17px; color: #102f4e; font-size: 1.75rem; }
+.manual-section h3 { margin: 31px 0 11px; color: #102f4e; font-size: 1.2rem; }
+.manual-section h4 { margin: 21px 0 8px; color: #102f4e; font-size: 1.03rem; }
+.manual-section p, .manual-section li, .manual-section dd { max-width: 74ch; }
+.manual-section p { margin: 12px 0 16px; }
+.manual-section li + li { margin-top: 5px; }
+.manual-section ul { padding-left: 1.4rem; }
+.topic-id { color: #4b5563; font-size: .73rem; font-weight: 750; letter-spacing: .085em; text-transform: uppercase; }
+h3 .topic-id { display: inline; margin-left: 8px; font-size: .68rem; font-weight: 650; white-space: normal; }
+.table-scroll { width: 100%; margin: 20px 0 25px; overflow-x: auto; overscroll-behavior-inline: contain; }
+.manual-table { width: 100%; min-width: 620px; border-collapse: collapse; border: 1px solid #cbd5e1; font-size: .84rem; line-height: 1.5; }
+.manual-table caption { padding: 7px 0 9px; color: #102f4e; font-size: .82rem; font-weight: 750; text-align: left; }
+.manual-table th, .manual-table td { padding: 10px 11px; border: 1px solid #d5dee8; text-align: left; vertical-align: top; }
+.manual-table thead th { background: #102f4e; color: #fff; font-weight: 700; }
+.manual-table tbody th[scope=row] { color: #102f4e; font-weight: 700; }
+.manual-table tbody tr:nth-child(even) { background: #f6f8fb; }
+.manual-table .group-row th { background: #e8eef4; color: #102f4e; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.manual-table.matrix { min-width: 800px; }
+.manual-table.matrix td:not(:first-child) { text-align: center; font-weight: 700; }
+.table-note { color: #4b5563; font-size: .82rem; }
+.parts-table { min-width: 690px; }
+.parts-table td:nth-child(2) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.form-table td { min-width: 110px; }
+.manual-toc { margin: 70px 0 36px; padding: 24px 30px; border: 1px solid #cad5e0; background: #f6f8fb; }
+.manual-toc h2 { margin: 0 0 18px; font-size: 1.4rem; }
+.manual-toc ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 35px; margin: 0; padding-left: 1.45rem; font-size: .9rem; }
+.manual-toc a, .front-matter-grid a { display: inline-block; min-height: 32px; }
+.front-matter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; margin-bottom: 45px; }
+.front-matter-grid h3 { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #e3e8ef; font-size: 1.13rem; }
+.front-matter-grid ol { margin: 0; padding-left: 1.5rem; font-size: .82rem; line-height: 1.45; }
+.front-matter-grid li + li { margin-top: 2px; }
+.warning { max-width: 76ch; margin: 20px 0; padding: 15px 18px; border: 1px solid #aa5b48; border-left: 5px solid #aa5b48; background: #fff8f5; font-size: .92rem; }
+.warning strong { display: block; color: #743b2d; }
+.manual-steps { counter-reset: step; margin: 15px 0 22px; padding: 0; list-style: none; }
+.manual-steps li { counter-increment: step; position: relative; margin: 0 !important; padding: 9px 0 9px 43px; border-top: 1px solid #e3e8ef; }
+.manual-steps li::before { content: counter(step, decimal-leading-zero); position: absolute; top: 9px; left: 0; color: #102f4e; font-size: .83rem; font-weight: 800; }
+.task-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+.task-brief { padding: 17px 19px; border: 1px solid #d5dee8; background: #fff; }
+.task-brief h4 { margin-top: 0; }
+.task-brief p, .task-brief li { font-size: .86rem; }
+.task-brief ol { margin: 10px 0; padding-left: 1.3rem; }
+.task-meta { display: grid; grid-template-columns: 155px minmax(0, 1fr); margin: 18px 0; border-top: 1px solid #d5dee8; font-size: .88rem; }
+.task-meta dt, .task-meta dd { margin: 0; padding: 8px 10px; border-bottom: 1px solid #d5dee8; }
+.task-meta dt { color: #102f4e; font-weight: 750; background: #f6f8fb; }
+.manual-figure { margin: 24px 0 34px; padding: 15px; border: 1px solid #cad5e0; background: #fff; overflow-x: auto; }
+.manual-figure svg { display: block; width: 100%; min-width: 650px; height: auto; margin: auto; background: #fff; }
+.manual-figure figcaption { margin-top: 12px; padding-top: 10px; border-top: 1px solid #e3e8ef; color: #4b5563; font-size: .82rem; line-height: 1.55; }
+.cover-figure { margin: 0; }
+.cover-figure svg { min-width: 0; }
+.drawing-line { fill: none; stroke: #102f4e; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.drawing-dash { stroke-dasharray: 7 6; }
+.drawing-part { fill: #fff; stroke: #102f4e; stroke-width: 2.5; stroke-linejoin: round; }
+.leader { fill: none; stroke: #4b5563; stroke-width: 1.5; }
+.flow-box rect { fill: #f6f8fb; stroke: #102f4e; stroke-width: 2; rx: 4; }
+.drawing-label { fill: #102f4e; font: 700 13px Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: .015em; }
+.drawing-small { fill: #4b5563; font: 12px Inter, ui-sans-serif, system-ui, sans-serif; }
+.svg-number circle { fill: #102f4e; stroke: #fff; stroke-width: 2; }
+.svg-number text { fill: #fff; font: 700 12px Inter, ui-sans-serif, system-ui, sans-serif; }
+.manual-glossary { display: grid; grid-template-columns: minmax(155px, .45fr) 1fr; margin: 18px 0; border-top: 1px solid #d5dee8; font-size: .86rem; }
+.manual-glossary dt, .manual-glossary dd { margin: 0; padding: 8px 10px; border-bottom: 1px solid #d5dee8; }
+.manual-glossary dt { color: #102f4e; font-weight: 750; background: #f6f8fb; }
+.index-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.index-grid h3 { border-bottom: 1px solid #d5dee8; padding-bottom: 8px; }
+.index-grid ul { margin-top: 0; }
+@media (max-width: 760px) {
+  .manual-shell { width: min(100% - 28px, 680px); padding: 20px 0 60px; }
+  .manual-cover { min-height: 0; padding: 18px; }
+  .cover-rule, .cover-bottom { font-size: .63rem; }
+  .cover-grid { grid-template-columns: 1fr; gap: 22px; padding: 42px 0 30px; }
+  .cover-facts { margin-top: 30px; }
+  .manual-figure svg { min-width: 650px; }
+  .cover-figure svg { min-width: 0; }
+  .manual-section { margin-top: 54px; }
+  .manual-toc { margin: 50px 0 28px; padding: 18px; }
+  .manual-toc ol, .front-matter-grid, .task-grid, .index-grid { grid-template-columns: 1fr; }
+  .front-matter-grid { gap: 22px; }
+  .task-meta { grid-template-columns: 1fr; }
+  .task-meta dd { padding-top: 2px; }
+  .manual-glossary { grid-template-columns: 1fr; }
+  .manual-glossary dd { padding-top: 1px; }
+}
+@media (max-width: 420px) {
+  .cover-rule, .cover-bottom { flex-direction: column; gap: 4px; }
+  .cover-facts { grid-template-columns: 1fr 1fr; }
+  .manual-cover h1 { font-size: 2.2rem; }
+}
+@media print {
+  @page { size: A4; margin: 16mm 14mm; }
+  html { scroll-behavior: auto; }
+  body { font-size: 10pt; line-height: 1.42; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .screen-only, .skip-link { display: none !important; }
+  .manual-shell { width: 100%; padding: 0; }
+  .manual-cover { min-height: 250mm; page-break-after: always; border: 1px solid #cad5e0; border-top: 8px solid #102f4e; }
+  .cover-grid { padding-block: 65mm 45mm; }
+  .manual-content { width: 100%; }
+  .manual-section { margin-top: 14mm; padding-top: 5mm; break-before: page; }
+  .manual-section:first-child { break-before: auto; }
+  .manual-figure, .warning, .task-brief, .task-meta { break-inside: avoid; }
+  .manual-figure svg { min-width: 0; max-height: 80mm; }
+  .cover-figure svg { max-height: none; }
+  .manual-table { min-width: 0 !important; font-size: 8pt; }
+  .manual-table thead { display: table-header-group; }
+  .manual-table tr { break-inside: avoid; }
+  .table-scroll { overflow: visible; }
+  .manual-toc, .front-matter-grid { break-before: page; }
+  a { color: #102f4e; text-decoration: none; }
+}
+
+</style>
+  <title>VSH-450 | Service and Maintenance Manual | Rev C</title>
+</head>
+<body class="manual-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header screen-only">
+    <div class="wrap nav-bar">
+      <a class="brand" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/">Nilesh Gunjal</a>
+      <nav class="site-nav" aria-label="Portfolio navigation"><ul class="nav-links">
+        <li><a href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/#work">Work</a></li><li><a href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/#skills">Skills</a></li><li><a href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/#experience">Experience</a></li><li><a href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/#contact">Contact</a></li>
+        <li><a class="nav-resume" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/output/pdf/Nilesh_Gunjal_Public_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+      </ul></nav>
+    </div>
+  </header>
+  <main id="main-content" class="manual-shell">
+    <div class="manual-actions screen-only"><p class="breadcrumb"><a href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/">← Back to portfolio</a></p><a class="download-link" href="https://nilesh21-gunjal.github.io/Technical-Writing-Portfolio/output/html/VSH450_Service_and_Maintenance_Manual_Rev_C.html" download>Download HTML manual</a></div>
+    <article>
+      <header class="manual-cover" id="cover">
+        <div class="cover-rule"><span>VSH / TECHNICAL PUBLICATIONS</span><span>PUBLICATION VSH450-SM-001</span></div>
+        <div class="cover-grid">
+          <div>
+            <p class="eyebrow">SERVICE AND MAINTENANCE MANUAL</p>
+            <h1>VSH-450 Industrial Vacuum Pump</h1>
+            <p class="cover-subtitle">Models VSH-450A · VSH-450B · VSH-450C</p>
+            <div class="cover-facts"><div><span>Revision</span><strong>C</strong></div><div><span>Release date</span><strong>23 October 2026</strong></div><div><span>Maintenance levels</span><strong>Operator · Field · Depot</strong></div></div>
+          </div>
+          <figure class="manual-figure cover-figure" id="fig-3-1">
+            <svg viewBox="0 0 640 300" role="img" aria-labelledby="fig-3-1-title fig-3-1-desc">
+              <title id="fig-3-1-title">VSH-450 product overview</title><desc id="fig-3-1-desc">Line drawing of motor, guarded coupling, bearing carrier, seal, impeller casing, inlet and discharge on a common base.</desc>
+              <path class="drawing-line" d="M40 244H602M76 254H570M98 226V244M536 222V244"/>
+              <rect class="drawing-part" x="88" y="110" width="185" height="102" rx="9"/><path class="drawing-line" d="M112 119v84m22-84v84m22-84v84m22-84v84m22-84v84m22-84v84m22-84v84"/>
+              <rect class="drawing-part" x="285" y="134" width="72" height="54" rx="5"/><path class="drawing-line" d="M300 134v54m42-54v54"/>
+              <rect class="drawing-part" x="364" y="117" width="76" height="85" rx="8"/><circle class="drawing-line" cx="402" cy="160" r="23"/>
+              <path class="drawing-part" d="M448 100h91q28 0 28 28v61q0 27-29 27h-90z"/><circle class="drawing-line" cx="506" cy="158" r="31"/><path class="drawing-line" d="M506 127v62m-31-31h62m-53-22 44 44m0-44-44 44"/>
+              <path class="drawing-line" d="M478 100V64h48v36M562 138h46V91M85 211h487"/>
+              <g class="leader"><path d="M160 110V66H95M320 134V81h-20M402 117V64h-29M506 189v51h41"/></g>
+              <text class="drawing-label" x="44" y="59">DRIVE MOTOR</text><text class="drawing-label" x="266" y="73">COUPLING</text><text class="drawing-label" x="340" y="56">BEARING CARRIER</text><text class="drawing-label" x="480" y="261">PUMP CASING</text>
+            </svg><figcaption>Figure 3-1. Product overview and principal service interfaces.</figcaption>
+          </figure>
+        </div>
+        <p class="cover-disclaimer">Portfolio Demonstration Manual - Equipment and specifications are fictional and created for technical writing demonstration purposes.</p>
+        <div class="cover-bottom"><span>PUBLIC · CONTROLLED COPY: REV C</span><span>© 2026 Nilesh Gunjal</span></div>
+      </header>
+
+      <div class="manual-content">
+        <section id="publication-control" class="manual-section" data-topic-type="reference" aria-labelledby="control-title">
+          <p class="topic-id">REF-PUB-001 · PUBLICATION CONTROL</p><h2 id="control-title">1. Publication control</h2>
+          <div class="table-scroll"><table class="manual-table" id="tbl-1-1"><caption>Table 1-1. Publication identity</caption><tbody>
+            <tr><th scope="row">Publication number</th><td>VSH450-SM-001</td><th scope="row">Manual type</th><td>Service and Maintenance Manual</td></tr>
+            <tr><th scope="row">Revision</th><td>Rev C</td><th scope="row">Release date</th><td><time datetime="2026-10-23">23 October 2026</time></td></tr>
+            <tr><th scope="row">Product applicability</th><td>VSH-450A, VSH-450B, VSH-450C</td><th scope="row">Confidentiality</th><td>Public</td></tr>
+            <tr><th scope="row">Distribution</th><td>Public portfolio distribution</td><th scope="row">Owner</th><td>Nilesh Gunjal</td></tr>
+          </tbody></table></div>
+          <h3>1.1 Configuration effectivity</h3>
+          <div class="table-scroll"><table class="manual-table" id="tbl-1-2"><caption>Table 1-2. Model and serial-number effectivity</caption><thead><tr><th scope="col">Model</th><th scope="col">Serial number</th><th scope="col">Configuration</th><th scope="col">Distinguishing service content</th></tr></thead><tbody>
+            <tr><th scope="row">VSH-450A</th><td>1000–1999</td><td>Standard</td><td>Standard seal cartridge, item 08.</td></tr>
+            <tr><th scope="row">VSH-450B</th><td>2000–2999</td><td>Enhanced seal package</td><td>Enhanced cartridge, item 09; see Section 8.2.</td></tr>
+            <tr><th scope="row">VSH-450C</th><td>3000–3999</td><td>Enhanced seal package and condition monitor</td><td>Item 09 and monitored vibration points P1/P2; see Section 7.</td></tr>
+          </tbody></table></div>
+          <h3>1.2 Approval record</h3>
+          <div class="table-scroll"><table class="manual-table" id="tbl-1-3"><caption>Table 1-3. Document approval</caption><thead><tr><th scope="col">Role</th><th scope="col">Name</th><th scope="col">Approval reference</th></tr></thead><tbody>
+            <tr><th scope="row">Author</th><td>Nilesh Gunjal</td><td>Document author</td></tr>
+            <tr><th scope="row">Reviewer</th><td>Unassigned</td><td>Open</td></tr><tr><th scope="row">Engineering approval</th><td>Unassigned</td><td>Open</td></tr><tr><th scope="row">Publication manager</th><td>Unassigned</td><td>Open</td></tr>
+          </tbody></table></div>
+          <h3>1.3 Revision and change impact</h3>
+          <div class="table-scroll"><table class="manual-table" id="tbl-1-4"><caption>Table 1-4. Revision history</caption><thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Content change</th><th scope="col">Impact</th></tr></thead><tbody>
+            <tr><th scope="row">A</th><td>1 October 2026</td><td>Initial manual structure and assembly identification.</td><td>Models A–C.</td></tr>
+            <tr><th scope="row">B</th><td>12 October 2026</td><td>Added enhanced-seal effectivity and SB-VSH450-001.</td><td>Models B/C, serial 2000–3999.</td></tr>
+            <tr><th scope="row">C</th><td>23 October 2026</td><td>Added inspection limits, work packages, illustrated parts, and records.</td><td>All models; condition-monitor content applies to C.</td></tr>
+          </tbody></table></div>
+          <p><strong>Change control:</strong> SB-VSH450-001 and TR-VSH450-001 are incorporated in Rev C. See Section 11 for their effectivity and compliance notes. Confirm the model and serial number before selecting a part or task.</p>
+        </section>
+
+        <nav class="manual-toc" aria-label="Manual contents"><h2>Contents</h2><ol>
+          <li><a href="#publication-control">1. Publication control</a></li><li><a href="#safety">2. Safety and maintenance levels</a></li><li><a href="#concepts">3. System concepts</a></li><li><a href="#specifications">4. Specifications and limits</a></li><li><a href="#planning">5. Maintenance programme</a></li><li><a href="#operation">6. Operation and commissioning</a></li><li><a href="#inspections">7. Inspection tasks</a></li><li><a href="#work-packages">8. Removal and installation</a></li><li><a href="#troubleshooting">9. Fault isolation</a></li><li><a href="#parts">10. Illustrated parts catalogue</a></li><li><a href="#changes">11. Service information</a></li><li><a href="#records">12. Record sheets</a></li><li><a href="#glossary">13. Glossary</a></li><li><a href="#acronyms">14. Acronyms</a></li><li><a href="#index">15. Index</a></li>
+        </ol></nav>
+        <div class="front-matter-grid"><nav aria-label="List of figures"><h3>List of figures</h3><ol>
+          <li><a href="#fig-3-1">3-1 Product overview</a></li><li><a href="#fig-3-2">3-2 Functional flow</a></li><li><a href="#fig-3-3">3-3 Air path</a></li><li><a href="#fig-3-4">3-4 Lubrication circuit</a></li><li><a href="#fig-5-1">5-1 Maintenance workflow</a></li><li><a href="#fig-7-1">7-1 Inspection points</a></li><li><a href="#fig-8-1">8-1 Seal sequence</a></li><li><a href="#fig-8-2">8-2 Bearing sequence</a></li><li><a href="#fig-8-3">8-3 Motor replacement</a></li><li><a href="#fig-8-4">8-4 Coupling removal</a></li><li><a href="#fig-9-1">9-1 Fault-isolation tree</a></li><li><a href="#fig-10-1">10-1 Complete assembly</a></li><li><a href="#fig-10-2">10-2 Motor assembly</a></li><li><a href="#fig-10-3">10-3 Seal assembly</a></li><li><a href="#fig-10-4">10-4 Bearing assembly</a></li><li><a href="#fig-10-5">10-5 Coupling assembly</a></li><li><a href="#fig-10-6">10-6 Impeller assembly</a></li>
+        </ol></nav><nav aria-label="List of tables"><h3>List of tables</h3><ol>
+          <li><a href="#tbl-1-1">1-1 Publication identity</a></li><li><a href="#tbl-1-2">1-2 Effectivity</a></li><li><a href="#tbl-1-3">1-3 Approval</a></li><li><a href="#tbl-1-4">1-4 Revision history</a></li><li><a href="#tbl-2-1">2-1 Maintenance levels</a></li><li><a href="#tbl-4-1">4-1 Engineering data</a></li><li><a href="#tbl-4-2">4-2 Temperature and vibration</a></li><li><a href="#tbl-4-3">4-3 Torque</a></li><li><a href="#tbl-4-4">4-4 Wear and alignment</a></li><li><a href="#tbl-4-5">4-5 Lubrication</a></li><li><a href="#tbl-4-6">4-6 Motor electrical checks</a></li><li><a href="#tbl-5-1">5-1 Interval matrix</a></li><li><a href="#tbl-9-1">9-1 Symptom diagnosis</a></li><li><a href="#tbl-9-2">9-2 Root-cause tests</a></li><li><a href="#tbl-10-1">10-1 Illustrated parts</a></li><li><a href="#tbl-11-1">11-1 Service information</a></li>
+        </ol></nav></div>
+
+        <section id="safety" class="manual-section" data-topic-type="concept" aria-labelledby="safety-title">
+          <p class="topic-id">CONCEPT-SAFE-001</p><h2 id="safety-title">2. Safety and maintenance levels</h2>
+          <p>Only personnel qualified for the assigned maintenance level may work on the pump. A normal stop does not isolate electrical energy, stored vacuum, or process gas. Apply the site lockout/tagout procedure and verify a zero-energy state before opening the guard, casing, seal chamber, or terminal box.</p>
+          <div class="warning"><strong>WARNING · Rotating and stored-energy hazards.</strong> Stop the drive. Isolate electrical and process sources. Vent the casing through the designated system connection. Verify zero voltage, zero gauge differential, and zero shaft rotation before disassembly.</div>
+          <div class="warning"><strong>WARNING · Lifting hazard.</strong> The assembled unit has a maximum mass of 328 kg. Use the baseplate lifting lugs and a rated lift plan. Do not lift by the motor eye, guard, or pipe nozzles.</div>
+          <p><strong>Hot surfaces:</strong> Let the casing and bearing carrier cool below 45 °C before contact. <strong>Process material:</strong> Identify residues and use the site's handling controls before opening the casing.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-2-1"><caption>Table 2-1. Maintenance authorisation levels</caption><thead><tr><th scope="col">Level</th><th scope="col">Scope</th><th scope="col">Example work</th></tr></thead><tbody>
+            <tr><th scope="row">Operator</th><td>External checks with guards fitted.</td><td>Daily log, alarm review, visible-leak check.</td></tr>
+            <tr><th scope="row">Field</th><td>Isolated inspection and line-replaceable work.</td><td>Seal, motor, coupling, alignment, routine lubrication.</td></tr>
+            <tr><th scope="row">Depot</th><td>Bench overhaul and rotor work.</td><td>Bearing renewal, impeller inspection, dimensional rebuild.</td></tr>
+          </tbody></table></div>
+          <h3 id="safe-task">2.1 Make the pump safe for maintenance <span class="topic-id">TASK-SAFE-001</span></h3>
+          <p><strong>Prerequisites:</strong> Work order, model and serial number, isolation diagram, process-material assessment, and competent personnel. <strong>Tools:</strong> Rated voltage tester, calibrated pressure gauge, lockout kit. <strong>Consumables:</strong> Identification tags. <strong>PPE:</strong> Safety glasses, protective gloves, safety footwear; add process-specific protection from the site assessment.</p>
+          <ol class="manual-steps"><li>Record the model, serial number, configuration, and work order.</li><li>Stop the pump by the site operating sequence. Wait until the shaft stops.</li><li>Isolate and lock out every electrical source. Have a qualified electrician verify absence of voltage.</li><li>Close the process isolation valves. Vent through the designated connection and verify zero gauge differential.</li><li>Check the surface temperature. Continue only when exposed parts are below 45 °C.</li><li>Attach the isolation record to the work order. Keep the keys under site control.</li></ol>
+          <p><strong>Acceptance:</strong> Isolation record complete; zero voltage and zero gauge differential recorded; shaft stationary. If any condition is not met, stop the task.</p>
+        </section>
+
+        <section id="concepts" class="manual-section" data-topic-type="concept" aria-labelledby="concepts-title">
+          <p class="topic-id">CONCEPT-001 · CONCEPT-002 · CONCEPT-003</p><h2 id="concepts-title">3. System concepts</h2>
+          <h3>3.1 Operating principle</h3><p>The motor turns a single side-channel impeller through a flexible coupling. The rotating blades transfer energy to dry air inside the annular casing. The inlet pressure falls below ambient pressure and air leaves through the discharge. The impeller does not contact the casing in normal operation. The bearing carrier supports the shaft; the shaft seal limits leakage at the casing boundary.</p>
+          <figure class="manual-figure" id="fig-3-2"><svg viewBox="0 0 720 190" role="img" aria-labelledby="f32t f32d"><title id="f32t">Functional flow diagram</title><desc id="f32d">Energy path from supply through motor, coupling and impeller; air path from process inlet to discharge.</desc><defs><marker id="a32" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5-9 4.5z"/></marker></defs><g class="flow-box"><rect x="20" y="23" width="122" height="56"/><rect x="186" y="23" width="122" height="56"/><rect x="353" y="23" width="122" height="56"/><rect x="520" y="23" width="170" height="56"/><rect x="186" y="115" width="122" height="56"/><rect x="520" y="115" width="170" height="56"/></g><path class="drawing-line" d="M142 51h37m129 0h38m129 0h38m-205 92h205" marker-end="url(#a32)"/><text class="drawing-label" x="46" y="57">SUPPLY</text><text class="drawing-label" x="213" y="57">MOTOR</text><text class="drawing-label" x="371" y="57">COUPLING</text><text class="drawing-label" x="559" y="57">IMPELLER</text><text class="drawing-label" x="202" y="150">INLET AIR</text><text class="drawing-label" x="545" y="150">DISCHARGE</text></svg><figcaption>Figure 3-2. Mechanical drive and process-air paths.</figcaption></figure>
+          <h3>3.2 Air-flow theory</h3><p>At the rated free-flow point, the pump moves 450 m³/h with no inlet restriction. As inlet vacuum increases, delivered flow falls. Continuous operation is limited to −28 kPa gauge inlet pressure. The unit is for dry, nonflammable air; solids or liquid carryover can damage the impeller and seal.</p>
+          <figure class="manual-figure" id="fig-3-3"><svg viewBox="0 0 720 200" role="img" aria-labelledby="f33t f33d"><title id="f33t">Air-flow path through the pump</title><desc id="f33d">Three arrows show air entering at the top, passing through the side channel around the impeller, and leaving at the right outlet.</desc><defs><marker id="a33" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5-9 4.5z"/></marker></defs><path class="drawing-line" d="M63 45h127v49h70m200 0h70V45h119" marker-end="url(#a33)"/><circle class="drawing-part" cx="360" cy="103" r="75"/><circle class="drawing-line" cx="360" cy="103" r="48"/><path class="drawing-line" d="M360 55v96m-48-48h96m-82-34 68 68m0-68-68 68"/><path class="drawing-line" d="M289 125q73 103 142 0" marker-end="url(#a33)"/><text class="drawing-label" x="70" y="36">PROCESS INLET</text><text class="drawing-label" x="528" y="36">DISCHARGE</text><text class="drawing-label" x="297" y="191">SIDE CHANNEL</text></svg><figcaption>Figure 3-3. Flow direction and side-channel path.</figcaption></figure>
+          <h3>3.3 System architecture and lubrication</h3><p>The motor, guard, pump, and baseplate form one skid. The oil-bath bearing carrier is separate from the dry process-air path. A sight glass provides the static oil-level reference. Model C adds vibration points P1 and P2; it does not change the mechanical service limits.</p>
+          <figure class="manual-figure" id="fig-3-4"><svg viewBox="0 0 720 200" role="img" aria-labelledby="f34t f34d"><title id="f34t">Bearing carrier lubrication path</title><desc id="f34d">Fill plug, oil bath, two bearings, sight glass and drain plug in the isolated bearing carrier.</desc><rect class="drawing-part" x="72" y="60" width="570" height="106" rx="10"/><path class="drawing-line" d="M85 128h543M230 70v85m260-85v85"/><circle class="drawing-part" cx="230" cy="102" r="19"/><circle class="drawing-part" cx="490" cy="102" r="19"/><rect class="drawing-part" x="336" y="45" width="48" height="15"/><circle class="drawing-part" cx="617" cy="125" r="12"/><rect class="drawing-part" x="346" y="166" width="28" height="14"/><g class="leader"><path d="M360 45V21h-90M230 82V22h-89M490 82V22h35M617 125h43M360 180v15h-83"/></g><text class="drawing-label" x="208" y="17">FILL</text><text class="drawing-label" x="53" y="17">DRIVE BEARING</text><text class="drawing-label" x="526" y="17">OUTBOARD BEARING</text><text class="drawing-label" x="608" y="109">LEVEL</text><text class="drawing-label" x="216" y="197">DRAIN</text></svg><figcaption>Figure 3-4. Lubrication points and oil-bath boundary.</figcaption></figure>
+        </section>
+
+        <section id="specifications" class="manual-section" data-topic-type="reference" aria-labelledby="spec-title">
+          <p class="topic-id">REF-SPEC-001</p><h2 id="spec-title">4. Specifications and service limits</h2>
+          <p>Unless a row states otherwise, values apply to all three models. Read Table 1-2 before choosing a seal part.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-1"><caption>Table 4-1. Engineering data</caption><thead><tr><th scope="col">Parameter</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">Condition</th></tr></thead><tbody>
+            <tr><th scope="row">Envelope (L × W × H)</th><td colspan="3">1380 × 620 × 810 mm</td><td>With guard and baseplate</td></tr><tr><th scope="row">Dry assembly mass</th><td>310 kg</td><td>320 kg</td><td>328 kg</td><td>Without process piping</td></tr>
+            <tr><th scope="row">Motor output</th><td colspan="3">11 kW</td><td>Three-phase induction drive</td></tr><tr><th scope="row">Supply</th><td colspan="3">400 V ±10%, 50 Hz, 3 phase</td><td>Motor terminals</td></tr><tr><th scope="row">Rated motor current</th><td colspan="3">21 A</td><td>At rated output</td></tr><tr><th scope="row">Nominal shaft speed</th><td colspan="3">2950 r/min</td><td>At rated supply</td></tr>
+            <tr><th scope="row">Free-flow air capacity</th><td colspan="3">450 m³/h</td><td>0 kPa gauge inlet, 20 °C dry air</td></tr><tr><th scope="row">Maximum continuous inlet vacuum</th><td colspan="3">−28 kPa gauge</td><td>Dry air, inlet restriction</td></tr><tr><th scope="row">Motor full-load efficiency</th><td colspan="3">90.4%</td><td>Nominal motor rating</td></tr><tr><th scope="row">Sound pressure</th><td colspan="3">≤78 dB(A)</td><td>1 m from casing at free flow</td></tr>
+            <tr><th scope="row">Ambient air</th><td colspan="3">5–40 °C</td><td>Operating range</td></tr><tr><th scope="row">Process-air inlet</th><td colspan="3">5–40 °C</td><td>Dry, nonflammable air</td></tr><tr><th scope="row">Relative humidity</th><td colspan="3">≤95%</td><td>Noncondensing</td></tr><tr><th scope="row">Installation altitude</th><td colspan="3">≤1000 m</td><td>Without derating</td></tr>
+          </tbody></table></div>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-2"><caption>Table 4-2. Condition limits at steady state</caption><thead><tr><th scope="col">Measured condition</th><th scope="col">Normal</th><th scope="col">Alarm / investigate</th><th scope="col">Stop</th></tr></thead><tbody>
+            <tr><th scope="row">Vibration velocity, P1/P2, RMS</th><td>&lt;4.5 mm/s</td><td>4.5–7.0 mm/s</td><td>&gt;7.0 mm/s</td></tr><tr><th scope="row">Bearing carrier surface</th><td>&lt;75 °C</td><td>75–85 °C</td><td>&gt;85 °C</td></tr><tr><th scope="row">Motor frame surface</th><td>&lt;80 °C</td><td>80–90 °C</td><td>&gt;90 °C</td></tr><tr><th scope="row">Casing exterior</th><td>&lt;70 °C</td><td>70–80 °C</td><td>&gt;80 °C</td></tr>
+          </tbody></table></div><p>Measure vibration on the rigid bearing-carrier pads at P1 and P2 with the pump at steady speed and normal process load. Record the instrument, axis, and load. Investigate a sustained alarm condition within one shift; stop immediately above a stop limit.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-3"><caption>Table 4-3. Fastener torque, clean dry threads</caption><thead><tr><th scope="col">Fastener</th><th scope="col">Size</th><th scope="col">Torque</th><th scope="col">Application</th></tr></thead><tbody>
+            <tr><th scope="row">Bearing-housing bolts</th><td>M12</td><td>85 N·m</td><td>Item 43; cross pattern</td></tr><tr><th scope="row">Seal-retainer screws</th><td>M6</td><td>15 N·m</td><td>Item 13; alternating sequence</td></tr><tr><th scope="row">Motor-mounting bolts</th><td>M14</td><td>120 N·m</td><td>Item 44; after alignment</td></tr><tr><th scope="row">Casing-cover bolts</th><td>M12</td><td>85 N·m</td><td>Item 42; cross pattern</td></tr><tr><th scope="row">Coupling-hub set screws</th><td>M8</td><td>25 N·m</td><td>Item 35, two positions</td></tr><tr><th scope="row">Guard screws</th><td>M6</td><td>10 N·m</td><td>Item 45</td></tr><tr><th scope="row">Impeller retaining nut</th><td>M16</td><td>95 N·m</td><td>Item 39; fit new lock washer</td></tr><tr><th scope="row">Base anchor bolts</th><td>M16</td><td>160 N·m</td><td>Item 48; after positioning</td></tr><tr><th scope="row">Oil drain plug</th><td>M16 × 1.5</td><td>30 N·m</td><td>Item 27; fit new seal 49</td></tr>
+          </tbody></table></div>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-4"><caption>Table 4-4. Wear and alignment criteria</caption><thead><tr><th scope="col">Characteristic</th><th scope="col">New / installation</th><th scope="col">Service limit</th><th scope="col">Method</th></tr></thead><tbody>
+            <tr><th scope="row">Shaft radial runout</th><td>≤0.03 mm TIR</td><td>0.05 mm TIR</td><td>Dial indicator at seal land</td></tr><tr><th scope="row">Bearing radial play</th><td>≤0.04 mm</td><td>0.10 mm</td><td>Indicator at shaft, isolated unit</td></tr><tr><th scope="row">Seal-face wear depth</th><td>0 mm</td><td>0.25 mm</td><td>Depth gauge across wear track</td></tr><tr><th scope="row">Impeller-to-casing axial gap</th><td>0.30–0.60 mm</td><td>0.80 mm maximum</td><td>Feeler gauge at four quadrants</td></tr><tr><th scope="row">Coupling parallel offset</th><td>≤0.10 mm</td><td>0.10 mm</td><td>Laser or dial-indicator method, cold</td></tr><tr><th scope="row">Coupling angular difference</th><td>≤0.10 mm / 100 mm</td><td>0.10 mm / 100 mm</td><td>Face reading, cold</td></tr>
+          </tbody></table></div><p>At a measured service limit, remove the affected component from service. Do not compensate for a worn component by adjusting an unrelated part.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-5"><caption>Table 4-5. Bearing-carrier lubrication</caption><thead><tr><th scope="col">Property</th><th scope="col">Requirement</th><th scope="col">Verification</th></tr></thead><tbody>
+            <tr><th scope="row">Oil type</th><td>Synthetic PAO bearing oil</td><td>Product label and service log</td></tr><tr><th scope="row">Viscosity grade</th><td>ISO VG 68</td><td>Oil container label</td></tr><tr><th scope="row">Initial fill quantity</th><td>0.75 L</td><td>Fill to sight-glass centre with shaft stopped</td></tr><tr><th scope="row">Replacement interval</th><td>3000 operating hours or 6 months, whichever comes first</td><td>Hour meter and maintenance date</td></tr><tr><th scope="row">Minimum before start</th><td>Oil visible at sight-glass centre ±5 mm</td><td>Level ground, pump stopped</td></tr>
+          </tbody></table></div>
+          <div class="table-scroll"><table class="manual-table" id="tbl-4-6"><caption>Table 4-6. Motor electrical checks after isolation</caption><thead><tr><th scope="col">Check</th><th scope="col">Acceptance</th><th scope="col">Condition</th></tr></thead><tbody>
+            <tr><th scope="row">Insulation resistance</th><td>≥10 MΩ</td><td>500 V DC test; motor disconnected; record winding temperature</td></tr><tr><th scope="row">Phase-to-phase resistance imbalance</th><td>≤5%</td><td>Compare three winding readings at the same temperature</td></tr><tr><th scope="row">Protective-earth continuity</th><td>≤0.1 Ω</td><td>Motor frame to earth terminal, leads compensated</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section id="planning" class="manual-section" data-topic-type="reference" aria-labelledby="planning-title">
+          <p class="topic-id">REF-MAINT-001</p><h2 id="planning-title">5. Maintenance programme</h2><p>Use the shorter interval when calendar time and running hours both apply. Increase inspection frequency after contamination, prolonged high load, or an alarm. The work order must identify the model, serial number, hour-meter reading, and maintenance level.</p>
+          <div class="table-scroll"><table class="manual-table matrix" id="tbl-5-1"><caption>Table 5-1. Maintenance interval matrix</caption><thead><tr><th scope="col">Task</th><th scope="col">Daily</th><th scope="col">Weekly</th><th scope="col">Monthly</th><th scope="col">Quarterly</th><th scope="col">6 months</th><th scope="col">Annual</th></tr></thead><tbody>
+            <tr><th scope="row">Log vacuum, current, temperatures, vibration</th><td>●</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">Check leaks, guard and oil sight glass</th><td>●</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Inspect connections and intake screen</th><td></td><td>●</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">Trend vibration and temperatures</th><td></td><td></td><td>●</td><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Inspect seal and coupling</th><td></td><td></td><td></td><td>●</td><td></td><td></td></tr><tr><th scope="row">Verify alignment and motor condition</th><td></td><td></td><td></td><td>●</td><td></td><td></td></tr>
+            <tr><th scope="row">Change bearing oil</th><td></td><td></td><td></td><td></td><td>●</td><td></td></tr><tr><th scope="row">Overhaul bearings, seal and impeller</th><td></td><td></td><td></td><td></td><td></td><td>●</td></tr>
+          </tbody></table></div><p class="table-note">● = scheduled task. Change oil earlier at 3000 h. A condition outside Table 4-2 starts unscheduled fault isolation.</p>
+          <figure class="manual-figure" id="fig-5-1"><svg viewBox="0 0 740 185" role="img" aria-labelledby="f51t f51d"><title id="f51t">Maintenance workflow</title><desc id="f51d">Plan, isolate, inspect, compare, correct, verify, record and release in order.</desc><defs><marker id="a51" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5-9 4.5z"/></marker></defs><g class="flow-box"><rect x="10" y="60" width="94" height="58"/><rect x="114" y="60" width="94" height="58"/><rect x="218" y="60" width="94" height="58"/><rect x="322" y="60" width="94" height="58"/><rect x="426" y="60" width="94" height="58"/><rect x="530" y="60" width="94" height="58"/><rect x="634" y="60" width="94" height="58"/></g><path class="drawing-line" d="M104 89h7m97 0h7m97 0h7m97 0h7m97 0h7m97 0h7" marker-end="url(#a51)"/><text class="drawing-label" x="28" y="95">PLAN</text><text class="drawing-label" x="126" y="95">ISOLATE</text><text class="drawing-label" x="232" y="95">INSPECT</text><text class="drawing-label" x="338" y="95">COMPARE</text><text class="drawing-label" x="438" y="95">CORRECT</text><text class="drawing-label" x="546" y="95">VERIFY</text><text class="drawing-label" x="646" y="95">RECORD</text></svg><figcaption>Figure 5-1. Maintenance workflow and release gate.</figcaption></figure>
+          <h3 id="routine-tasks">5.1 Routine work packages</h3>
+          <div class="task-grid">
+            <div class="task-brief"><h4>Daily · TASK-MAINT-001 · Operator</h4><p><strong>Tools:</strong> log sheet, infrared thermometer, vibration meter. <strong>Consumables:</strong> none. <strong>PPE:</strong> safety glasses, hearing protection, safety footwear.</p><ol><li>Read the vacuum, current, and hour meter at steady load.</li><li>Measure temperatures and vibration at the points in Figure 7-1.</li><li>Check the guard, seal area, and oil sight glass without removing covers.</li><li>Record values; use Table 4-2 to classify the condition.</li></ol><p><strong>Acceptance:</strong> No leaks or damaged guard; values below alarm limits.</p></div>
+            <div class="task-brief"><h4>Weekly · TASK-MAINT-002 · Operator</h4><p><strong>Tools:</strong> flashlight, inspection mirror. <strong>Consumables:</strong> lint-free wipes. <strong>PPE:</strong> safety glasses, gloves, hearing protection.</p><ol><li>Inspect accessible piping joints and the intake screen.</li><li>Record corrosion, loose supports, deposits, or damage.</li><li>Compare findings with the previous inspection record.</li></ol><p><strong>Acceptance:</strong> No new leakage, blockage, or loose support.</p></div>
+            <div class="task-brief"><h4>Monthly · TASK-MAINT-003 · Field</h4><p><strong>Tools:</strong> calibrated vibration meter, thermometer. <strong>Consumables:</strong> record labels. <strong>PPE:</strong> safety glasses, hearing protection, safety footwear.</p><ol><li>Measure P1/P2 in three axes at steady load.</li><li>Measure bearing, motor-frame, and casing temperatures.</li><li>Compare readings with Table 4-2 and the last three monthly results.</li></ol><p><strong>Acceptance:</strong> All values below alarm thresholds; investigate a rising trend.</p></div>
+            <div class="task-brief"><h4>Quarterly · TASK-MAINT-004 · Field</h4><p><strong>Tools:</strong> dial indicator or laser alignment tool, torque wrench, flashlight. <strong>Consumables:</strong> replacement coupling insert if needed. <strong>PPE:</strong> safety glasses, gloves, safety footwear.</p><ol><li>Complete TASK-SAFE-001.</li><li>Inspect the seal, coupling, and motor by Sections 7.2–7.4.</li><li>Measure alignment by Section 7.6; restore the guard.</li></ol><p><strong>Acceptance:</strong> Wear and alignment within Table 4-4.</p></div>
+            <div class="task-brief"><h4>Six months · TASK-MAINT-005 · Field</h4><p><strong>Tools:</strong> drain pan, measuring jug, torque wrench. <strong>Consumables:</strong> 0.75 L ISO VG 68 PAO oil, item 49 drain-plug seal, wipes. <strong>PPE:</strong> safety glasses, oil-resistant gloves, safety footwear.</p><ol><li>Complete TASK-SAFE-001 and place a drain pan under the carrier.</li><li>Drain oil and inspect it for water or metal.</li><li>Fit a new item 49 seal. Torque item 27 plug to 30 N·m.</li><li>Refill with the oil in Table 4-5 to sight-glass centre.</li><li>Record oil type, quantity, date, and hour-meter reading.</li></ol><p><strong>Acceptance:</strong> No leakage; static level at centre ±5 mm.</p></div>
+            <div class="task-brief"><h4>Annual · TASK-MAINT-006 · Depot</h4><p><strong>Tools:</strong> bearing puller, dial indicator, depth gauge, feeler gauge, torque wrenches. <strong>Consumables:</strong> bearing set, seal kit by effectivity, gaskets, ISO VG 68 oil. <strong>PPE:</strong> safety glasses, gloves, safety footwear.</p><ol><li>Complete TASK-SAFE-001; remove the pump by Section 8.1.</li><li>Inspect bearings, seal, shaft, and impeller by Section 7.</li><li>Replace parts at their service limits; rebuild by Section 8.</li><li>Complete alignment, functional test, and return-to-service record.</li></ol><p><strong>Acceptance:</strong> Installation limits in Table 4-4 and operating limits in Table 4-2.</p></div>
+          </div>
+        </section>
+
+        <section id="operation" class="manual-section" data-topic-type="task" aria-labelledby="operation-title">
+          <p class="topic-id">TASK-OPS-001 · TASK-COMM-001</p><h2 id="operation-title">6. Operation and commissioning</h2>
+          <h3>6.1 Start and stop the pump</h3><p><strong>Level:</strong> Operator. <strong>Prerequisites:</strong> Work area clear, guards fitted, process connections secure, oil at the level in Table 4-5. <strong>Tools:</strong> Operating log, vibration meter. <strong>Consumables:</strong> none. <strong>PPE:</strong> Safety glasses, hearing protection, safety footwear.</p>
+          <ol class="manual-steps"><li>Record the model, serial number, hour meter, and process configuration.</li><li>Check that the inlet and discharge valves are in the site's approved start position.</li><li>Confirm that the oil sight glass shows the required static level.</li><li>Start the motor from the control station. Confirm the rotation indicator during the permitted observation period.</li><li>At steady load, record inlet vacuum, current, vibration, and temperatures. Compare them with Tables 4-1 and 4-2.</li><li>To stop, follow the site's process shutdown sequence. Confirm zero shaft rotation before leaving the unit.</li></ol>
+          <p><strong>Acceptance:</strong> Guard fitted, no visible leak, and all measured values below the alarm limits. If a stop limit is exceeded, stop the pump and follow Section 9.</p>
+          <h3>6.2 Commission after service</h3><p><strong>Level:</strong> Field. <strong>References:</strong> Sections 2.1, 4, 7.6, and 12.1. <strong>Tools:</strong> Calibrated vibration meter, thermometer, current meter, alignment instrument. <strong>Consumables:</strong> maintenance record sheet. <strong>PPE:</strong> Safety glasses, hearing protection, safety footwear.</p>
+          <ol class="manual-steps"><li>Check that the work package and part traceability are complete.</li><li>Verify the oil level, coupling alignment, fastener torque, guard installation, and electrical-test record.</li><li>Remove tools and temporary labels from the work area.</li><li>Release isolation under site control and start the pump by Section 6.1.</li><li>Run at steady normal load for 20 minutes. Record P1/P2 vibration, three temperatures, inlet vacuum, and motor current.</li><li>Inspect the seal, oil carrier, and process joints for leakage.</li><li>Record the results and obtain the maintenance release signature on Form 12-1.</li></ol>
+          <p><strong>Acceptance:</strong> All readings within Table 4-2 normal range; no leakage; no abnormal sound; release record complete.</p>
+        </section>
+
+        <section id="inspections" class="manual-section" data-topic-type="task" aria-labelledby="insp-title">
+          <p class="topic-id">TASK-INSP-001 THROUGH TASK-INSP-006</p><h2 id="insp-title">7. Inspection tasks</h2>
+          <p>Record every measurement with its location, instrument ID, operating state, and limit. Figure 7-1 identifies the points used in this section. Use the service limit only for an isolated unit; use Table 4-2 for running condition.</p>
+          <figure class="manual-figure" id="fig-7-1"><svg viewBox="0 0 760 275" role="img" aria-labelledby="f71t f71d"><title id="f71t">Pump inspection locations</title><desc id="f71d">A line drawing marks motor frame M1, coupling C1, bearings P1 and P2, seal S1, impeller I1 and casing H1.</desc><rect class="drawing-part" x="65" y="112" width="180" height="90" rx="8"/><path class="drawing-line" d="M87 122v70m25-70v70m25-70v70m25-70v70m25-70v70"/><rect class="drawing-part" x="266" y="133" width="76" height="45"/><rect class="drawing-part" x="366" y="114" width="96" height="88"/><rect class="drawing-part" x="492" y="100" width="170" height="112" rx="10"/><circle class="drawing-line" cx="574" cy="157" r="36"/><path class="drawing-line" d="M40 223h670M540 100V60h52v40"/><g class="svg-number"><circle cx="134" cy="90" r="18"/><text x="122" y="96">M1</text><circle cx="304" cy="110" r="18"/><text x="293" y="116">C1</text><circle cx="394" cy="88" r="18"/><text x="383" y="94">P1</text><circle cx="443" cy="88" r="18"/><text x="432" y="94">P2</text><circle cx="492" cy="91" r="18"/><text x="483" y="97">S1</text><circle cx="574" cy="157" r="18"/><text x="567" y="163">I1</text><circle cx="662" cy="222" r="18"/><text x="652" y="228">H1</text></g><text class="drawing-label" x="50" y="260">M1 MOTOR · C1 COUPLING · P1/P2 BEARINGS · S1 SEAL · I1 IMPELLER · H1 CASING</text></svg><figcaption>Figure 7-1. Inspection and condition-monitoring locations.</figcaption></figure>
+          <h3 id="bearing-inspection">7.1 Bearing inspection <span class="topic-id">TASK-INSP-001</span></h3><p><strong>Level:</strong> Field; depot for bearing removal. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; oil drained for internal inspection. <strong>Tools:</strong> Dial indicator, magnetic base, feeler gauge, flashlight. <strong>Consumables:</strong> Lint-free wipes, ISO VG 68 oil, replacement carrier gasket. <strong>PPE:</strong> Safety glasses, gloves, safety footwear.</p><ol class="manual-steps"><li>Record P1 and P2 vibration and bearing temperature before stopping the unit.</li><li>Isolate the unit. Check the oil for water, metal, or discoloration.</li><li>Mount the indicator at the shaft end. Measure radial movement at both bearing positions.</li><li>Rotate the shaft by hand. Check for roughness, binding, or abnormal sound.</li><li>Inspect the carrier for cracks, oil leakage, and damaged seats.</li><li>Record readings and compare them with Table 4-4.</li></ol><p><strong>Acceptance:</strong> Radial play below 0.10 mm, smooth rotation, no carrier damage or contamination. Replace the bearing set if a limit is reached.</p>
+          <h3 id="seal-inspection">7.2 Mechanical seal inspection <span class="topic-id">TASK-INSP-002</span></h3><p><strong>Level:</strong> Field. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; identify seal cartridge by Table 1-2. <strong>Tools:</strong> Depth gauge, flashlight, inspection mirror. <strong>Consumables:</strong> Lint-free wipes, compatible cleaning solvent, O-rings by effectivity. <strong>PPE:</strong> Safety glasses, chemical-resistant gloves, safety footwear.</p><ol class="manual-steps"><li>Record the observed leak location before removing the seal.</li><li>Remove the cartridge by Section 8.2. Keep the faces clean.</li><li>Inspect the stationary and rotating faces for chips, scoring, or heat marks.</li><li>Measure the deepest wear track with a depth gauge.</li><li>Inspect the sleeve and O-ring grooves for damage.</li><li>Record the part number, wear depth, and disposition.</li></ol><p><strong>Acceptance:</strong> Wear below 0.25 mm; no cracks, chips, or damaged elastomers. Replace a damaged cartridge as a set.</p>
+          <h3 id="motor-inspection">7.3 Motor inspection <span class="topic-id">TASK-INSP-003</span></h3><p><strong>Level:</strong> Field electrical. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; electrical test plan available. <strong>Tools:</strong> Approved voltage tester, insulation tester, low-resistance meter, thermometer, torque wrench. <strong>Consumables:</strong> Terminal labels, lint-free wipes. <strong>PPE:</strong> Arc-rated protection as required by the site, safety glasses, insulated gloves, safety footwear.</p><ol class="manual-steps"><li>Record running current and frame temperature before stopping.</li><li>Verify zero voltage at the motor terminals.</li><li>Inspect terminals, grounding, cooling fan, and ventilation openings.</li><li>Have qualified electrical personnel complete the three checks in Table 4-6.</li><li>Inspect motor feet and record the mounting-bolt condition.</li></ol><p><strong>Acceptance:</strong> No loose connection or blocked ventilation; frame temperature below 80 °C during normal load; electrical results within Table 4-6 limits.</p>
+          <h3 id="coupling-inspection">7.4 Coupling inspection <span class="topic-id">TASK-INSP-004</span></h3><p><strong>Level:</strong> Field. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; guard removed after rotation stops. <strong>Tools:</strong> Feeler gauge, straightedge, dial indicator, torque wrench. <strong>Consumables:</strong> Replacement elastomer insert. <strong>PPE:</strong> Safety glasses, gloves, safety footwear.</p><ol class="manual-steps"><li>Mark the installed hub positions and record the gap.</li><li>Inspect the insert for cracks, hardening, or missing material.</li><li>Inspect hub teeth, keys, set screws, and guard for damage.</li><li>Measure parallel offset and angular difference by Section 7.6.</li><li>Restore the guard with item 45 screws at 10 N·m.</li></ol><p><strong>Acceptance:</strong> Insert intact; hubs secure; cold alignment within Table 4-4; guard fitted.</p>
+          <h3 id="impeller-inspection">7.5 Impeller inspection <span class="topic-id">TASK-INSP-005</span></h3><p><strong>Level:</strong> Depot. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; casing drained and opened by Section 8.6. <strong>Tools:</strong> Feeler gauges, dial indicator, borescope, flashlight. <strong>Consumables:</strong> New cover gasket, lint-free wipes. <strong>PPE:</strong> Safety glasses, cut-resistant gloves, safety footwear.</p><ol class="manual-steps"><li>Mark the rotation direction and impeller position before removal.</li><li>Inspect blades and side channel for impact marks, corrosion, or rubbing.</li><li>Measure the axial gap at four quadrants.</li><li>Measure shaft runout at the seal land.</li><li>Record each reading and the affected item number.</li></ol><p><strong>Acceptance:</strong> No blade crack or casing contact; axial gap below 0.80 mm in service; runout below 0.05 mm TIR. Rebuild to installation values in Table 4-4.</p>
+          <h3 id="alignment-inspection">7.6 Alignment verification <span class="topic-id">TASK-INSP-006</span></h3><p><strong>Level:</strong> Field. <strong>Prerequisites:</strong> TASK-SAFE-001 complete; base fasteners seated; pipe strain checked. <strong>Tools:</strong> Laser alignment tool or two dial indicators, feeler gauge, torque wrench. <strong>Consumables:</strong> Motor shims, thread locker. <strong>PPE:</strong> Safety glasses, gloves, safety footwear.</p><ol class="manual-steps"><li>Clean the motor and pump coupling measurement surfaces.</li><li>Measure cold parallel offset and angular difference at four shaft positions.</li><li>Adjust motor shims and position until both values meet Table 4-4.</li><li>Torque motor bolts to 120 N·m. Repeat the measurements.</li><li>Record as-found and as-left values; reinstall the guard.</li></ol><p><strong>Acceptance:</strong> Offset ≤0.10 mm and angular difference ≤0.10 mm per 100 mm after final torque.</p>
+        </section>
+
+        <section id="work-packages" class="manual-section" data-topic-type="task" aria-labelledby="wp-title">
+          <p class="topic-id">TASK-REM-001 THROUGH TASK-INST-006</p><h2 id="wp-title">8. Removal and installation work packages</h2>
+          <p>Complete TASK-SAFE-001 before any work package. Keep removed parts identified by model, serial number, and position. Use the item numbers in Table 10-1. A technician records each hold point on Form 12-1.</p>
+
+          <h3 id="wp-pump">8.1 Remove and install the complete skid <span class="topic-id">TASK-REM-001 / TASK-INST-001</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Remove the complete motor-pump skid for depot overhaul and restore the unit.</dd><dt>References</dt><dd>Sections 2.1, 4, 7.6, and 10; Figure 10-1.</dd><dt>Required parts</dt><dd>Item 48 base anchor bolts as condition requires.</dd><dt>Required tools</dt><dd>Rated lifting beam, sling set, torque wrench, alignment instrument, capped line fittings.</dd><dt>Consumables</dt><dd>Process-joint gaskets, tags, lint-free wipes.</dd><dt>PPE</dt><dd>Safety glasses, gloves, safety footwear, lifting-area controls.</dd><dt>Safety</dt><dd>Support the 328 kg maximum assembly at baseplate lifting lugs. Verify process isolation and zero energy.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Record as-found alignment, pipe connections, cable identities, and baseplate position.</li><li>Have qualified electrical personnel disconnect the supply. Cap the process connections.</li><li>Attach the rated lifting gear to the baseplate lugs. Take the skid weight.</li><li>Remove item 48 anchor bolts and lift the complete skid clear of the foundation. Keep the load level.</li></ol>
+          <h4>Inspection</h4><p>Inspect lifting lugs, feet, casing, ports, and mounting faces. Reject cracked or distorted interfaces.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Lower the skid onto clean foundation pads. Fit item 48 anchor bolts.</li><li>Torque the anchor bolts to 160 N·m. Reconnect process piping without pulling the pump out of position.</li><li>Have qualified personnel reconnect the electrical supply.</li><li>Check coupling alignment and guard installation before energisation.</li></ol><p><strong>Alignment:</strong> Complete Section 7.6. <strong>Functional test:</strong> Complete Section 6.2. <strong>Return to service:</strong> Record model/serial, lift plan reference, alignment readings, leaks, vibration, and release signature.</p>
+
+          <h3 id="wp-seal">8.2 Replace the mechanical seal <span class="topic-id">TASK-REM-002 / TASK-INST-002</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Renew a worn or leaking shaft-seal cartridge.</dd><dt>References</dt><dd>Sections 1.1, 4, 7.2, and 10; Figures 8-1 and 10-3.</dd><dt>Required parts</dt><dd>Item 08 for model A or item 09 for models B/C; items 11–13.</dd><dt>Required tools</dt><dd>Torque wrench, depth gauge, nonmetallic seal tool, dial indicator.</dd><dt>Consumables</dt><dd>Compatible cleaning solvent, lint-free wipes, new O-rings, assembly lubricant.</dd><dt>PPE</dt><dd>Safety glasses, chemical-resistant gloves, safety footwear.</dd><dt>Safety</dt><dd>Verify the seal chamber is vented and drained. Keep hands clear of sharp gland edges.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Record the seal part number and leakage position.</li><li>Remove the coupling guard and access cover. Mark the cartridge orientation.</li><li>Loosen the retainer screws in an alternating sequence.</li><li>Withdraw the cartridge along the shaft without scoring the sleeve.</li></ol>
+          <h4>Inspection</h4><p>Measure face wear and shaft runout by Sections 7.2 and 7.5. Reject chipped faces and damaged O-ring grooves.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Clean the chamber and fit new O-rings. Select the cartridge by Table 1-2.</li><li>Slide the cartridge over the sleeve in its marked orientation.</li><li>Seat the gland evenly. Torque item 13 screws alternately to 15 N·m.</li><li>Rotate the shaft by hand and check for binding. Restore the cover and guard.</li></ol><p><strong>Alignment:</strong> Verify Section 7.6 after reassembly. <strong>Functional test:</strong> Run Section 6.2 and inspect the seal area for leakage. <strong>Return to service:</strong> Record cartridge and O-ring part numbers, torque, wear depth, and leak result.</p>
+          <figure class="manual-figure" id="fig-8-1"><svg viewBox="0 0 740 190" role="img" aria-labelledby="f81t f81d"><title id="f81t">Mechanical seal replacement sequence</title><desc id="f81d">Four schematic stages: loosen gland, withdraw cartridge, renew O-rings, seat and torque cartridge.</desc><defs><marker id="a81" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5-9 4.5z"/></marker></defs><g class="flow-box"><rect x="12" y="48" width="150" height="86"/><rect x="201" y="48" width="150" height="86"/><rect x="390" y="48" width="150" height="86"/><rect x="579" y="48" width="150" height="86"/></g><path class="drawing-line" d="M162 91h31m158 0h31m158 0h31" marker-end="url(#a81)"/><text class="drawing-label" x="32" y="83">1 LOOSEN</text><text class="drawing-label" x="211" y="83">2 WITHDRAW</text><text class="drawing-label" x="408" y="83">3 RENEW</text><text class="drawing-label" x="596" y="83">4 TORQUE</text><text class="drawing-small" x="34" y="110">Alternating</text><text class="drawing-small" x="219" y="110">Axial pull</text><text class="drawing-small" x="407" y="110">O-rings</text><text class="drawing-small" x="596" y="110">15 N·m</text></svg><figcaption>Figure 8-1. Seal replacement order and retainer torque.</figcaption></figure>
+
+          <h3 id="wp-bearing">8.3 Replace the bearing set <span class="topic-id">TASK-REM-003 / TASK-INST-003</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Renew bearings when radial play or condition reaches the service limit.</dd><dt>References</dt><dd>Sections 4, 7.1, and 10; Figures 8-2 and 10-4.</dd><dt>Required parts</dt><dd>Items 16–20, 24, and 43.</dd><dt>Required tools</dt><dd>Bearing puller, arbor press with race support, dial indicator, torque wrench.</dd><dt>Consumables</dt><dd>ISO VG 68 PAO oil, new gasket, lint-free wipes.</dd><dt>PPE</dt><dd>Safety glasses, cut-resistant gloves, safety footwear.</dd><dt>Safety</dt><dd>Support the rotor before releasing bearing retainers. Apply press load only to the race being fitted.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Record the as-found radial play and bearing identification.</li><li>Drain the carrier. Remove the coupling hub, seal cartridge, and carrier cover.</li><li>Support the shaft and withdraw the rotor assembly.</li><li>Use a bearing puller to remove both bearings without loading the rolling elements.</li></ol>
+          <h4>Inspection</h4><p>Inspect shaft seats, carrier bores, spacer, and oil path. Measure runout and reject a shaft at 0.05 mm TIR or more.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Fit new bearings and spacer in the order shown in Figure 10-4.</li><li>Install the rotor and carrier cover. Torque item 43 bolts to 85 N·m in a cross pattern.</li><li>Fill with 0.75 L ISO VG 68 PAO oil and check the static sight-glass level.</li><li>Measure installed play and rotate the shaft by hand.</li></ol><p><strong>Alignment:</strong> Complete Section 7.6 after coupling restoration. <strong>Functional test:</strong> Run Section 6.2 and compare P1/P2 readings with Table 4-2. <strong>Return to service:</strong> Record bearing batch, oil type, installed play, bolt torque, temperature, and vibration.</p>
+          <figure class="manual-figure" id="fig-8-2"><svg viewBox="0 0 740 185" role="img" aria-labelledby="f82t f82d"><title id="f82t">Bearing replacement sequence</title><desc id="f82d">Shaft is supported, bearings are pulled, new races are pressed onto the supported shaft, and the carrier is refilled.</desc><path class="drawing-line" d="M50 100h640"/><g class="flow-box"><rect x="12" y="54" width="155" height="90"/><rect x="199" y="54" width="155" height="90"/><rect x="386" y="54" width="155" height="90"/><rect x="573" y="54" width="155" height="90"/></g><text class="drawing-label" x="27" y="89">1 SUPPORT</text><text class="drawing-label" x="218" y="89">2 EXTRACT</text><text class="drawing-label" x="405" y="89">3 FIT RACES</text><text class="drawing-label" x="591" y="89">4 REFILL</text><text class="drawing-small" x="31" y="118">Shaft</text><text class="drawing-small" x="218" y="118">Puller</text><text class="drawing-small" x="407" y="118">Press support</text><text class="drawing-small" x="594" y="118">0.75 L</text></svg><figcaption>Figure 8-2. Bearing replacement and lubrication sequence.</figcaption></figure>
+
+          <h3 id="wp-motor">8.4 Replace the motor <span class="topic-id">TASK-REM-004 / TASK-INST-004</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Remove a failed drive motor and fit a matching 11 kW replacement.</dd><dt>References</dt><dd>Sections 4, 7.3, 7.6, and 10; Figures 8-3 and 10-2.</dd><dt>Required parts</dt><dd>Items 01, 06, 07, 29, 33, and 44 as needed.</dd><dt>Required tools</dt><dd>Rated hoist, voltage tester, insulation tester, torque wrench, alignment instrument.</dd><dt>Consumables</dt><dd>Shims, terminal labels.</dd><dt>PPE</dt><dd>Electrical protection per site assessment, safety glasses, gloves, safety footwear.</dd><dt>Safety</dt><dd>Only qualified electrical personnel may disconnect or reconnect the motor. Use the motor lifting eye for the bare motor only.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Record terminal designations, motor rating, rotation direction, and as-found alignment.</li><li>Verify zero voltage and disconnect the conductors.</li><li>Remove the guard and coupling insert. Support the bare motor with a rated hoist.</li><li>Remove item 44 bolts and lift the motor from the baseplate.</li></ol>
+          <h4>Inspection</h4><p>Inspect baseplate seats, earth connection, motor hub, fan, and terminal box. Compare the replacement nameplate with Table 4-1.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Set the motor on clean shims and fit item 44 bolts finger tight.</li><li>Fit the motor hub and key. Connect conductors and earth by the electrical test plan.</li><li>Align the shafts by Section 7.6. Torque item 44 bolts to 120 N·m.</li><li>Fit the coupling insert and guard. Complete electrical checks.</li></ol><p><strong>Alignment:</strong> Record cold offset and angular difference after final torque. <strong>Functional test:</strong> Run Section 6.2; verify rotation, current, and temperature. <strong>Return to service:</strong> Attach electrical test results, motor serial, alignment, and release signature.</p>
+          <figure class="manual-figure" id="fig-8-3"><svg viewBox="0 0 720 230" role="img" aria-labelledby="f83t f83d"><title id="f83t">Motor replacement lift and mounting</title><desc id="f83d">A motor hangs from its motor lifting eye above the baseplate with four mounting positions identified.</desc><rect class="drawing-part" x="185" y="62" width="290" height="112" rx="12"/><path class="drawing-line" d="M220 72v92m30-92v92m30-92v92m30-92v92m30-92v92m30-92v92m30-92v92"/><path class="drawing-line" d="M328 61V20h39v41M347 20V4M135 205h440M195 175v28m266-28v28"/><g class="svg-number"><circle cx="199" cy="194" r="17"/><text x="190" y="200">44</text><circle cx="461" cy="194" r="17"/><text x="452" y="200">44</text></g><text class="drawing-label" x="481" y="85">LIFT BARE MOTOR</text><text class="drawing-label" x="480" y="112">BY MOTOR EYE</text><text class="drawing-small" x="219" y="225">BASEPLATE · MOTOR BOLTS 120 N·m</text></svg><figcaption>Figure 8-3. Bare-motor lift and mounting-bolt locations.</figcaption></figure>
+
+          <h3 id="wp-coupling">8.5 Remove and install the coupling <span class="topic-id">TASK-REM-005 / TASK-INST-005</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Renew hubs or the flexible insert and restore drive alignment.</dd><dt>References</dt><dd>Sections 4, 7.4, 7.6, and 10; Figures 8-4 and 10-5.</dd><dt>Required parts</dt><dd>Items 29–35 and 45 as needed.</dd><dt>Required tools</dt><dd>Hub puller, torque wrench, feeler gauge, alignment instrument.</dd><dt>Consumables</dt><dd>New insert, lint-free wipes.</dd><dt>PPE</dt><dd>Safety glasses, gloves, safety footwear.</dd><dt>Safety</dt><dd>Do not expose the coupling until the shaft has stopped and isolation is verified.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Mark the hub positions and record the as-found gap.</li><li>Remove the guard screws and guard.</li><li>Remove the insert and use the hub puller if a hub must be renewed.</li></ol>
+          <h4>Inspection</h4><p>Inspect keys, hub bores, shaft ends, and guard. Reject cracked hubs or a damaged keyway.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Fit the correct keys and hubs. Torque M8 hub set screws to 25 N·m.</li><li>Fit a new insert. Adjust the motor position by Section 7.6.</li><li>Fit the guard and torque item 45 screws to 10 N·m.</li></ol><p><strong>Alignment:</strong> Offset ≤0.10 mm and angular difference ≤0.10 mm per 100 mm. <strong>Functional test:</strong> Run Section 6.2; check noise and P1/P2 vibration. <strong>Return to service:</strong> Record insert part, hub fit, alignment, and guard check.</p>
+          <figure class="manual-figure" id="fig-8-4"><svg viewBox="0 0 720 190" role="img" aria-labelledby="f84t f84d"><title id="f84t">Coupling removal order</title><desc id="f84d">Guard, motor hub, elastomer insert and pump hub shown along the shaft axis.</desc><path class="drawing-line drawing-dash" d="M40 94h640"/><path class="drawing-part" d="M86 45h65v98H86zM206 60h88v68h-88zM356 68h85v52h-85zM506 60h88v68h-88z"/><g class="svg-number"><circle cx="119" cy="28" r="18"/><text x="109" y="34">32</text><circle cx="251" cy="37" r="18"/><text x="241" y="43">29</text><circle cx="398" cy="46" r="18"/><text x="388" y="52">31</text><circle cx="551" cy="37" r="18"/><text x="541" y="43">30</text></g><text class="drawing-label" x="79" y="175">GUARD</text><text class="drawing-label" x="203" y="175">MOTOR HUB</text><text class="drawing-label" x="359" y="175">INSERT</text><text class="drawing-label" x="509" y="175">PUMP HUB</text></svg><figcaption>Figure 8-4. Coupling parts in removal order; callouts match Table 10-1.</figcaption></figure>
+
+          <h3 id="wp-impeller">8.6 Remove and install the impeller <span class="topic-id">TASK-REM-006 / TASK-INST-006</span></h3>
+          <dl class="task-meta"><dt>Purpose</dt><dd>Renew a damaged impeller or restore the casing axial gap.</dd><dt>References</dt><dd>Sections 4, 7.5, and 10; Figures 10-1 and 10-6.</dd><dt>Required parts</dt><dd>Items 23, 24, 36, 38–42 as condition requires.</dd><dt>Required tools</dt><dd>Impeller puller, dial indicator, feeler gauges, torque wrench.</dd><dt>Consumables</dt><dd>New casing gasket, lint-free wipes, assembly oil.</dd><dt>PPE</dt><dd>Safety glasses, cut-resistant gloves, safety footwear.</dd><dt>Safety</dt><dd>Drain and vent the casing. Support the rotor and protect blade edges.</dd></dl>
+          <h4>Removal</h4><ol class="manual-steps"><li>Mark rotation direction and impeller position.</li><li>Remove item 42 cover bolts in a cross pattern and lift off item 23 cover.</li><li>Release the retaining nut and washer. Remove the impeller with a puller.</li></ol>
+          <h4>Inspection</h4><p>Complete Section 7.5. Record blade condition, shaft runout, and four axial-gap readings.</p>
+          <h4>Installation</h4><ol class="manual-steps"><li>Fit the correct impeller and key. Fit a new retaining washer.</li><li>Torque item 39 retaining nut to 95 N·m.</li><li>Measure the axial gap at four quadrants. Adjust to 0.30–0.60 mm.</li><li>Fit a new cover gasket. Torque item 42 bolts to 85 N·m in a cross pattern.</li><li>Rotate the shaft by hand. Check that no blade contacts the casing.</li></ol><p><strong>Alignment:</strong> Complete Section 7.6 if the drive train was disturbed. <strong>Functional test:</strong> Run Section 6.2; compare flow, current, noise, and vibration with baseline. <strong>Return to service:</strong> Record part number, gap readings, shaft runout, and test results.</p>
+        </section>
+
+        <section id="troubleshooting" class="manual-section" data-topic-type="reference" aria-labelledby="fault-title">
+          <p class="topic-id">REF-FAULT-001</p><h2 id="fault-title">9. Fault isolation</h2><p>Confirm model, serial number, operating point, and measurement method before replacing a part. Use the decision path in Figure 9-1. Do not bypass a protective device to reproduce a fault.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-9-1"><caption>Table 9-1. Symptom-based diagnosis</caption><thead><tr><th scope="col">Symptom</th><th scope="col">Likely cause</th><th scope="col">Diagnostic check</th><th scope="col">Corrective action</th></tr></thead><tbody>
+            <tr><th scope="row">Excessive vibration</th><td>Misalignment, bearing play, impeller deposit, loose base</td><td>Measure P1/P2; inspect alignment by 7.6; inspect bearings by 7.1.</td><td>Correct alignment; renew worn bearing; remove deposits; torque base fasteners.</td></tr>
+            <tr><th scope="row">Seal leakage</th><td>Worn faces, damaged O-ring, excess runout, wrong cartridge</td><td>Check effectivity in Table 1-2; inspect by 7.2; measure shaft runout.</td><td>Fit correct cartridge and O-rings; renew shaft if runout reaches limit.</td></tr>
+            <tr><th scope="row">Motor overheating</th><td>Blocked fan, high current, supply imbalance, mechanical drag</td><td>Record frame temperature and current; have electrical staff check supply; turn isolated shaft.</td><td>Clear ventilation; correct supply or drag; replace damaged motor.</td></tr>
+            <tr><th scope="row">Low vacuum</th><td>Inlet leak, blocked intake, process demand above capacity, worn impeller</td><td>Compare inlet vacuum and flow with Table 4-1; inspect joints, screen, and axial gap.</td><td>Seal connection; clear screen; correct process load; replace worn parts.</td></tr>
+            <tr><th scope="row">High current draw</th><td>Excessive differential, impeller contact, bearing drag, electrical fault</td><td>Check inlet vacuum; inspect impeller by 7.5 and bearings by 7.1; test motor.</td><td>Restore operating point; renew rubbing or seized part; correct electrical fault.</td></tr>
+            <tr><th scope="row">Abnormal noise</th><td>Blade contact, bearing damage, loose guard, process pulsation</td><td>Locate sound; compare P1/P2 vibration; inspect guard and rotor after isolation.</td><td>Secure guard; repair rotor or bearing; correct process pulsation source.</td></tr>
+          </tbody></table></div>
+          <h3>9.1 Root-cause checks</h3><p>Record the triggering condition, first abnormal measurement, failed component, immediate correction, and systemic cause. A replaced part is a corrective action; it is not a root cause. Use Form 12-4 for the final disposition.</p>
+          <div class="table-scroll"><table class="manual-table" id="tbl-9-2"><caption>Table 9-2. Root-cause evidence by symptom</caption><thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to retain</th><th scope="col">System cause to test</th></tr></thead><tbody>
+            <tr><th scope="row">Excessive vibration</th><td>As-found alignment, P1/P2 trend, bearing play, foundation condition</td><td>Installation shift, pipe strain, or missed alignment interval</td></tr>
+            <tr><th scope="row">Seal leakage</th><td>Cartridge effectivity, face wear, O-ring condition, shaft runout</td><td>Wrong part selection, dry start, contamination, or shaft motion</td></tr>
+            <tr><th scope="row">Motor overheating</th><td>Current, frame temperature, supply balance, fan condition</td><td>Overload duty, blocked ventilation, or supply fault</td></tr>
+            <tr><th scope="row">Low vacuum</th><td>Operating point, joint leak check, screen condition, axial gap</td><td>Process demand change, intake contamination, or wear</td></tr>
+            <tr><th scope="row">High current draw</th><td>Current trend, inlet vacuum, bearing play, blade-contact evidence</td><td>Excessive differential, lubrication failure, or rotor interference</td></tr>
+            <tr><th scope="row">Abnormal noise</th><td>Sound location, event timing, guard condition, vibration spectrum</td><td>Loose guarding, bearing damage, or process pulsation</td></tr>
+          </tbody></table></div>
+          <figure class="manual-figure" id="fig-9-1"><svg viewBox="0 0 750 310" role="img" aria-labelledby="f91t f91d"><title id="f91t">Troubleshooting decision tree</title><desc id="f91d">From symptom verification, check for a stop limit, then split between mechanical and process or electrical paths, followed by measurement, correction and test.</desc><g class="flow-box"><rect x="265" y="12" width="220" height="49"/><rect x="265" y="91" width="220" height="49"/><rect x="28" y="184" width="205" height="58"/><rect x="273" y="184" width="205" height="58"/><rect x="517" y="184" width="205" height="58"/><rect x="265" y="264" width="220" height="39"/></g><path class="drawing-line" d="M375 61v30m0 49v22H130v22m245-44v44m0-22h245v22M130 242v12h245v10m0-22v22m245-22v12H375"/><text class="drawing-label" x="283" y="43">VERIFY SYMPTOM</text><text class="drawing-label" x="290" y="121">STOP LIMIT?</text><text class="drawing-label" x="61" y="217">YES · ISOLATE</text><text class="drawing-label" x="297" y="217">MECHANICAL</text><text class="drawing-label" x="545" y="217">PROCESS / ELEC.</text><text class="drawing-label" x="290" y="291">RECORD + RETEST</text><text class="drawing-small" x="79" y="173">Above Table 4-2</text><text class="drawing-small" x="316" y="173">Noise, play, leak</text><text class="drawing-small" x="560" y="173">Flow, current, supply</text></svg><figcaption>Figure 9-1. Stop-limit gate and diagnostic branches.</figcaption></figure>
+          <h3>9.2 Verification after correction</h3><ol class="manual-steps"><li>Record the as-found value and the corrected cause.</li><li>Repeat the same measurement at the same operating point.</li><li>Run the commissioning test in Section 6.2.</li><li>Attach the inspection and failure report to the work order.</li></ol>
+        </section>
+
+        <section id="parts" class="manual-section" data-topic-type="reference" aria-labelledby="parts-title">
+          <p class="topic-id">REF-IPL-001</p><h2 id="parts-title">10. Illustrated parts catalogue</h2>
+          <p>Identify the assembly in Figure 10-1, then use the detailed view and matching item number. Quantities are per pump. Use Table 1-2 for model and serial-number effectivity.</p>
+          <div class="table-scroll"><table class="manual-table parts-table" id="tbl-10-1"><caption>Table 10-1. Illustrated parts list</caption><thead><tr><th scope="col">Item</th><th scope="col">Part number</th><th scope="col">Nomenclature</th><th scope="col">Qty</th><th scope="col">Remarks</th></tr></thead><tbody>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Motor assembly · Figure 10-2</th></tr>
+            <tr id="part-01"><th scope="row">01</th><td>VSH450-0101</td><td>Motor assembly, 11 kW</td><td>1</td><td>400 V, 50 Hz</td></tr>
+            <tr id="part-02"><th scope="row">02</th><td>VSH450-0102</td><td>End shield</td><td>2</td><td>Drive and fan end</td></tr>
+            <tr id="part-03"><th scope="row">03</th><td>VSH450-0103</td><td>Cooling fan</td><td>1</td><td>Motor rear</td></tr>
+            <tr id="part-04"><th scope="row">04</th><td>VSH450-0104</td><td>Fan cover</td><td>1</td><td>Guarded ventilation</td></tr>
+            <tr id="part-05"><th scope="row">05</th><td>VSH450-0105</td><td>Terminal box</td><td>1</td><td>Electrical service only</td></tr>
+            <tr id="part-06"><th scope="row">06</th><td>VSH450-0106</td><td>Motor foot</td><td>2</td><td>Integral mounting feet</td></tr>
+            <tr id="part-07"><th scope="row">07</th><td>VSH450-0107</td><td>Grounding lug</td><td>1</td><td>Check continuity</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Seal assembly · Figure 10-3</th></tr>
+            <tr id="part-08"><th scope="row">08</th><td>VSH450-0201</td><td>Standard seal cartridge</td><td>1</td><td>Model A only</td></tr>
+            <tr id="part-09"><th scope="row">09</th><td>VSH450-0202</td><td>Enhanced seal cartridge</td><td>1</td><td>Models B/C only</td></tr>
+            <tr id="part-10"><th scope="row">10</th><td>VSH450-0203</td><td>Seal gland</td><td>1</td><td>Common</td></tr>
+            <tr id="part-11"><th scope="row">11</th><td>VSH450-0204</td><td>Housing O-ring</td><td>1</td><td>Renew at removal</td></tr>
+            <tr id="part-12"><th scope="row">12</th><td>VSH450-0205</td><td>Sleeve O-ring</td><td>1</td><td>Renew at removal</td></tr>
+            <tr id="part-13"><th scope="row">13</th><td>VSH450-0206</td><td>Retainer screw, M6</td><td>6</td><td>15 N·m</td></tr>
+            <tr id="part-14"><th scope="row">14</th><td>VSH450-0207</td><td>Shaft sleeve</td><td>1</td><td>Inspect seal land</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Bearing assembly · Figure 10-4</th></tr>
+            <tr id="part-15"><th scope="row">15</th><td>VSH450-0301</td><td>Bearing carrier</td><td>1</td><td>Oil bath</td></tr>
+            <tr id="part-16"><th scope="row">16</th><td>VSH450-0302</td><td>Drive-end bearing</td><td>1</td><td>Renew as pair with 17</td></tr>
+            <tr id="part-17"><th scope="row">17</th><td>VSH450-0303</td><td>Outboard bearing</td><td>1</td><td>Renew as pair with 16</td></tr>
+            <tr id="part-18"><th scope="row">18</th><td>VSH450-0304</td><td>Bearing spacer</td><td>1</td><td>Record orientation</td></tr>
+            <tr id="part-19"><th scope="row">19</th><td>VSH450-0305</td><td>Locknut</td><td>1</td><td>Rotor retention</td></tr>
+            <tr id="part-20"><th scope="row">20</th><td>VSH450-0306</td><td>Lock washer</td><td>1</td><td>Renew at overhaul</td></tr>
+            <tr id="part-21"><th scope="row">21</th><td>VSH450-0307</td><td>Oil sight glass</td><td>1</td><td>Static-level reference</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Housing assembly · Figure 10-1</th></tr>
+            <tr id="part-22"><th scope="row">22</th><td>VSH450-0401</td><td>Pump casing</td><td>1</td><td>Side-channel housing</td></tr>
+            <tr id="part-23"><th scope="row">23</th><td>VSH450-0402</td><td>Casing cover</td><td>1</td><td>Service access</td></tr>
+            <tr id="part-24"><th scope="row">24</th><td>VSH450-0403</td><td>Cover gasket kit</td><td>1</td><td>Casing and carrier gaskets; renew at removal</td></tr>
+            <tr id="part-25"><th scope="row">25</th><td>VSH450-0404</td><td>Inlet flange</td><td>1</td><td>Process connection</td></tr>
+            <tr id="part-26"><th scope="row">26</th><td>VSH450-0405</td><td>Discharge flange</td><td>1</td><td>Process connection</td></tr>
+            <tr id="part-27"><th scope="row">27</th><td>VSH450-0406</td><td>Oil drain plug</td><td>1</td><td>Carrier bottom</td></tr>
+            <tr id="part-28"><th scope="row">28</th><td>VSH450-0407</td><td>Common baseplate</td><td>1</td><td>Lifting lugs fitted</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Coupling assembly · Figure 10-5</th></tr>
+            <tr id="part-29"><th scope="row">29</th><td>VSH450-0501</td><td>Motor coupling hub</td><td>1</td><td>M8 set screw</td></tr>
+            <tr id="part-30"><th scope="row">30</th><td>VSH450-0502</td><td>Pump coupling hub</td><td>1</td><td>M8 set screw</td></tr>
+            <tr id="part-31"><th scope="row">31</th><td>VSH450-0503</td><td>Elastomer insert</td><td>1</td><td>Renew if cracked</td></tr>
+            <tr id="part-32"><th scope="row">32</th><td>VSH450-0504</td><td>Coupling guard</td><td>1</td><td>Fit before operation</td></tr>
+            <tr id="part-33"><th scope="row">33</th><td>VSH450-0505</td><td>Motor key</td><td>1</td><td>Hub-to-shaft</td></tr>
+            <tr id="part-34"><th scope="row">34</th><td>VSH450-0506</td><td>Pump key</td><td>1</td><td>Hub-to-shaft</td></tr>
+            <tr id="part-35"><th scope="row">35</th><td>VSH450-0507</td><td>Hub set screw, M8</td><td>2</td><td>25 N·m each</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Impeller assembly · Figure 10-6</th></tr>
+            <tr id="part-36"><th scope="row">36</th><td>VSH450-0601</td><td>Side-channel impeller</td><td>1</td><td>Check blade condition</td></tr>
+            <tr id="part-37"><th scope="row">37</th><td>VSH450-0602</td><td>Pump shaft</td><td>1</td><td>Runout limit 0.05 mm</td></tr>
+            <tr id="part-38"><th scope="row">38</th><td>VSH450-0603</td><td>Impeller key</td><td>1</td><td>Rotation lock</td></tr>
+            <tr id="part-39"><th scope="row">39</th><td>VSH450-0604</td><td>Impeller retaining nut</td><td>1</td><td>Inspect thread</td></tr>
+            <tr id="part-40"><th scope="row">40</th><td>VSH450-0605</td><td>Retaining lock washer</td><td>1</td><td>Renew at removal</td></tr>
+            <tr id="part-41"><th scope="row">41</th><td>VSH450-0606</td><td>Casing wear ring</td><td>1</td><td>Gap in Table 4-4</td></tr>
+            <tr class="group-row"><th colspan="5" scope="colgroup">Fastener kit and condition monitor</th></tr>
+            <tr id="part-42"><th scope="row">42</th><td>VSH450-0701</td><td>Casing-cover bolt, M12</td><td>8</td><td>85 N·m</td></tr>
+            <tr id="part-43"><th scope="row">43</th><td>VSH450-0702</td><td>Bearing-housing bolt, M12</td><td>8</td><td>85 N·m</td></tr>
+            <tr id="part-44"><th scope="row">44</th><td>VSH450-0703</td><td>Motor-mounting bolt, M14</td><td>4</td><td>120 N·m</td></tr>
+            <tr id="part-45"><th scope="row">45</th><td>VSH450-0704</td><td>Guard screw, M6</td><td>4</td><td>10 N·m</td></tr>
+            <tr id="part-46"><th scope="row">46</th><td>VSH450-0801</td><td>Vibration sensor</td><td>2</td><td>Model C; points P1/P2</td></tr>
+            <tr id="part-47"><th scope="row">47</th><td>VSH450-0802</td><td>Sensor cable set</td><td>1</td><td>Model C only</td></tr>
+            <tr id="part-48"><th scope="row">48</th><td>VSH450-0705</td><td>Base anchor bolt, M16</td><td>4</td><td>160 N·m; renew if damaged</td></tr>
+            <tr id="part-49"><th scope="row">49</th><td>VSH450-0408</td><td>Oil drain-plug seal</td><td>1</td><td>Renew at each oil change</td></tr>
+          </tbody></table></div>
+
+          <figure class="manual-figure" id="fig-10-1"><svg viewBox="0 0 760 285" role="img" aria-labelledby="f101t f101d"><title id="f101t">Complete VSH-450 assembly exploded view</title><desc id="f101d">Motor, guard, coupling, bearing carrier, seal, impeller, casing, cover and baseplate separated along the shaft axis, with item-number balloons.</desc>
+            <path class="drawing-line drawing-dash" d="M28 138h710"/><path class="drawing-line" d="M30 252h700"/>
+            <rect class="drawing-part" x="36" y="104" width="99" height="68" rx="7"/><path class="drawing-line" d="M49 112v52m18-52v52m18-52v52m18-52v52"/>
+            <path class="drawing-part" d="M151 92h22v92h-22z"/><rect class="drawing-part" x="188" y="120" width="50" height="35"/><rect class="drawing-part" x="252" y="103" width="72" height="70" rx="5"/><circle class="drawing-line" cx="288" cy="138" r="22"/>
+            <rect class="drawing-part" x="340" y="112" width="45" height="53"/><circle class="drawing-line" cx="362" cy="138" r="15"/><path class="drawing-part" d="M405 138l45-37v74z"/><path class="drawing-part" d="M466 98h80v81h-80z"/><circle class="drawing-line" cx="506" cy="138" r="29"/><path class="drawing-part" d="M565 107h64v62h-64z"/><circle class="drawing-line" cx="598" cy="138" r="21"/><path class="drawing-line" d="M80 174v48m436-43v43"/>
+            <g class="svg-number"><circle cx="80" cy="77" r="18"/><text x="70" y="83">01</text><circle cx="163" cy="66" r="18"/><text x="153" y="72">32</text><circle cx="212" cy="94" r="18"/><text x="202" y="100">31</text><circle cx="288" cy="77" r="18"/><text x="278" y="83">15</text><circle cx="363" cy="86" r="18"/><text x="353" y="92">09</text><circle cx="427" cy="77" r="18"/><text x="417" y="83">36</text><circle cx="505" cy="72" r="18"/><text x="495" y="78">22</text><circle cx="598" cy="82" r="18"/><text x="588" y="88">23</text><circle cx="367" cy="245" r="18"/><text x="357" y="251">28</text></g>
+            <text class="drawing-small" x="49" y="274">EXPLODED ON SHAFT CENTRELINE · CONFIGURATION B/C SHOWN WITH ITEM 09</text>
+          </svg><figcaption>Figure 10-1. Complete assembly, exploded on the shaft centreline. Balloon numbers refer to Table 10-1. Model A uses <a href="#part-08">item 08</a> in place of <a href="#part-09">item 09</a>.</figcaption></figure>
+          <figure class="manual-figure" id="fig-10-2"><svg viewBox="0 0 740 235" role="img" aria-labelledby="f102t f102d"><title id="f102t">Motor assembly exploded view</title><desc id="f102d">Motor body, two end shields, fan, fan cover, terminal box, foot and ground lug with numbered callouts.</desc><path class="drawing-line drawing-dash" d="M24 119h685"/><rect class="drawing-part" x="180" y="75" width="249" height="89" rx="12"/><path class="drawing-line" d="M207 85v69m24-69v69m24-69v69m24-69v69m24-69v69m24-69v69m24-69v69m24-69v69"/><rect class="drawing-part" x="131" y="86" width="27" height="67"/><rect class="drawing-part" x="447" y="86" width="27" height="67"/><circle class="drawing-part" cx="513" cy="119" r="28"/><path class="drawing-part" d="M565 81h38v76h-38z"/><rect class="drawing-part" x="258" y="27" width="87" height="36"/><path class="drawing-line" d="M220 165v25h53v-25m73 0v25h53v-25"/><g class="svg-number"><circle cx="306" cy="123" r="18"/><text x="296" y="129">01</text><circle cx="146" cy="61" r="18"/><text x="136" y="67">02</text><circle cx="512" cy="68" r="18"/><text x="502" y="74">03</text><circle cx="585" cy="59" r="18"/><text x="575" y="65">04</text><circle cx="306" cy="17" r="18"/><text x="296" y="23">05</text><circle cx="232" cy="204" r="18"/><text x="222" y="210">06</text><circle cx="405" cy="204" r="18"/><text x="395" y="210">07</text></g></svg><figcaption>Figure 10-2. Motor assembly. Callouts <a href="#part-01">01</a>–<a href="#part-07">07</a> identify the motor service group.</figcaption></figure>
+          <figure class="manual-figure" id="fig-10-3"><svg viewBox="0 0 740 225" role="img" aria-labelledby="f103t f103d"><title id="f103t">Seal assembly exploded view</title><desc id="f103d">Shaft sleeve, two O-rings, selected seal cartridge, gland and six retainer screws aligned on the shaft axis.</desc><path class="drawing-line drawing-dash" d="M38 112h665"/><rect class="drawing-part" x="77" y="98" width="115" height="28" rx="12"/><circle class="drawing-part" cx="244" cy="112" r="25"/><circle class="drawing-part" cx="321" cy="112" r="23"/><rect class="drawing-part" x="385" y="74" width="69" height="75" rx="7"/><circle class="drawing-line" cx="419" cy="111" r="22"/><rect class="drawing-part" x="509" y="82" width="43" height="61"/><rect class="drawing-part" x="600" y="96" width="55" height="30"/><g class="svg-number"><circle cx="137" cy="64" r="18"/><text x="127" y="70">14</text><circle cx="244" cy="60" r="18"/><text x="234" y="66">11</text><circle cx="321" cy="59" r="18"/><text x="311" y="65">12</text><circle cx="419" cy="49" r="18"/><text x="409" y="55">09</text><circle cx="528" cy="56" r="18"/><text x="518" y="62">10</text><circle cx="628" cy="65" r="18"/><text x="618" y="71">13</text></g><text class="drawing-small" x="134" y="187">MODEL A: 08 STANDARD CARTRIDGE · MODELS B/C: 09 ENHANCED CARTRIDGE</text></svg><figcaption>Figure 10-3. Seal assembly, model B/C shown. Use <a href="#part-08">08</a> for model A or <a href="#part-09">09</a> for B/C; renew <a href="#part-11">11</a> and <a href="#part-12">12</a>.</figcaption></figure>
+          <figure class="manual-figure" id="fig-10-4"><svg viewBox="0 0 740 220" role="img" aria-labelledby="f104t f104d"><title id="f104t">Bearing assembly exploded view</title><desc id="f104d">Bearing carrier, drive bearing, spacer, outboard bearing, lock washer, locknut and sight glass separated on centreline.</desc><path class="drawing-line drawing-dash" d="M30 119h680"/><rect class="drawing-part" x="54" y="59" width="121" height="119" rx="8"/><circle class="drawing-line" cx="114" cy="119" r="35"/><rect class="drawing-part" x="205" y="86" width="49" height="67"/><circle class="drawing-line" cx="230" cy="119" r="18"/><rect class="drawing-part" x="288" y="94" width="70" height="51"/><rect class="drawing-part" x="392" y="86" width="49" height="67"/><circle class="drawing-line" cx="416" cy="119" r="18"/><rect class="drawing-part" x="480" y="91" width="23" height="57"/><rect class="drawing-part" x="540" y="91" width="37" height="57"/><circle class="drawing-part" cx="115" cy="174" r="14"/><g class="svg-number"><circle cx="115" cy="35" r="18"/><text x="105" y="41">15</text><circle cx="229" cy="59" r="18"/><text x="219" y="65">16</text><circle cx="324" cy="67" r="18"/><text x="314" y="73">18</text><circle cx="416" cy="59" r="18"/><text x="406" y="65">17</text><circle cx="492" cy="65" r="18"/><text x="482" y="71">20</text><circle cx="559" cy="65" r="18"/><text x="549" y="71">19</text><circle cx="115" cy="203" r="18"/><text x="105" y="209">21</text></g></svg><figcaption>Figure 10-4. Bearing carrier and rotor retention. Use items <a href="#part-15">15</a>–<a href="#part-21">21</a>.</figcaption></figure>
+          <figure class="manual-figure" id="fig-10-5"><svg viewBox="0 0 740 220" role="img" aria-labelledby="f105t f105d"><title id="f105t">Coupling assembly exploded view</title><desc id="f105d">Motor hub and key, elastomer insert, pump hub and key, two hub screws, guard and guard screw positions.</desc><path class="drawing-line drawing-dash" d="M39 120h665"/><rect class="drawing-part" x="105" y="82" width="87" height="76"/><rect class="drawing-part" x="287" y="91" width="97" height="58" rx="9"/><path class="drawing-line" d="M305 91v58m61-58v58"/><rect class="drawing-part" x="482" y="82" width="87" height="76"/><path class="drawing-part" d="M83 36h509v19H83z"/><rect class="drawing-part" x="122" y="166" width="56" height="13"/><rect class="drawing-part" x="496" y="166" width="56" height="13"/><g class="svg-number"><circle cx="153" cy="66" r="18"/><text x="143" y="72">29</text><circle cx="336" cy="67" r="18"/><text x="326" y="73">31</text><circle cx="526" cy="66" r="18"/><text x="516" y="72">30</text><circle cx="336" cy="27" r="18"/><text x="326" y="33">32</text><circle cx="146" cy="194" r="18"/><text x="136" y="200">33</text><circle cx="527" cy="194" r="18"/><text x="517" y="200">34</text><circle cx="625" cy="120" r="18"/><text x="615" y="126">35</text></g></svg><figcaption>Figure 10-5. Coupling assembly. The <a href="#part-31">insert 31</a> sits between hubs <a href="#part-29">29</a> and <a href="#part-30">30</a>; <a href="#part-32">guard 32</a> covers the rotating assembly.</figcaption></figure>
+          <figure class="manual-figure" id="fig-10-6"><svg viewBox="0 0 740 230" role="img" aria-labelledby="f106t f106d"><title id="f106t">Impeller assembly exploded view</title><desc id="f106d">Pump shaft, key, side-channel impeller, lock washer, retaining nut and casing wear ring shown in axial order.</desc><path class="drawing-line drawing-dash" d="M37 120h665"/><rect class="drawing-part" x="61" y="107" width="173" height="26" rx="12"/><rect class="drawing-part" x="180" y="83" width="51" height="13"/><circle class="drawing-part" cx="344" cy="120" r="61"/><circle class="drawing-line" cx="344" cy="120" r="29"/><path class="drawing-line" d="M344 59v122m-61-61h122m-104-43 86 86m0-86-86 86"/><rect class="drawing-part" x="465" y="88" width="20" height="65"/><rect class="drawing-part" x="527" y="88" width="42" height="65"/><circle class="drawing-part" cx="639" cy="120" r="38"/><g class="svg-number"><circle cx="145" cy="67" r="18"/><text x="135" y="73">37</text><circle cx="204" cy="58" r="18"/><text x="194" y="64">38</text><circle cx="344" cy="30" r="18"/><text x="334" y="36">36</text><circle cx="476" cy="61" r="18"/><text x="466" y="67">40</text><circle cx="548" cy="61" r="18"/><text x="538" y="67">39</text><circle cx="639" cy="55" r="18"/><text x="629" y="61">41</text></g><text class="drawing-small" x="180" y="210">AXIAL GAP AT FOUR QUADRANTS: INSTALL 0.30–0.60 mm · SERVICE MAX 0.80 mm</text></svg><figcaption>Figure 10-6. Impeller group. Balloons <a href="#part-36">36</a>–<a href="#part-41">41</a> refer to Table 10-1.</figcaption></figure>
+        </section>
+
+        <section id="changes" class="manual-section" data-topic-type="reference" aria-labelledby="changes-title">
+          <p class="topic-id">REF-CHANGE-001</p><h2 id="changes-title">11. Service information and change control</h2>
+          <div class="table-scroll"><table class="manual-table" id="tbl-11-1"><caption>Table 11-1. Service bulletin and temporary revision register</caption><thead><tr><th scope="col">Reference</th><th scope="col">Subject</th><th scope="col">Effectivity</th><th scope="col">Rev C disposition</th></tr></thead><tbody>
+            <tr><th scope="row">SB-VSH450-001</th><td>Enhanced seal package selection and gland inspection</td><td>Models B/C, serial 2000–3999</td><td>Incorporated in Sections 1.1, 7.2, 8.2, and 10.</td></tr>
+            <tr><th scope="row">TR-VSH450-001</th><td>Condition-monitor point identification</td><td>Model C, serial 3000–3999</td><td>Incorporated in Sections 3.3, 7, and 10.</td></tr>
+          </tbody></table></div>
+          <h3>11.1 Compliance and effectivity notes</h3><ul><li>For model A, fit standard seal item 08. For models B/C, fit enhanced seal item 09. Do not interchange cartridges across the serial-number boundary.</li><li>For model C, inspect sensor points P1/P2 and cable item 47 during monthly trending. The vibration limits in Table 4-2 apply to all models.</li><li>Rev C incorporates the two references in Table 11-1. No open temporary revision changes a task in this issue.</li><li>Record a deviation, part substitution, or out-of-limit result in Form 12-4 before release.</li></ul>
+          <h3>11.2 Controlled publication method</h3><p>Content is organised by concept, task, and reference topic. Each task has a stable topic identifier, effectivity, prerequisites, tools, steps, and acceptance criteria. The common isolation task, TASK-SAFE-001, is referenced by each removal package instead of repeated. Model-specific conditions are stated at the point of use and in Table 1-2. Figure and table numbers remain stable within this revision.</p>
+        </section>
+
+        <section id="records" class="manual-section" data-topic-type="reference" aria-labelledby="records-title">
+          <p class="topic-id">REF-REC-001</p><h2 id="records-title">12. Maintenance records</h2><p>Enter measured values, not only pass/fail. Attach instrument calibration information and the work-order reference. Keep the completed sheets with the equipment history.</p>
+          <h3 id="form-12-1">Form 12-1. Maintenance and return-to-service record</h3><div class="table-scroll"><table class="manual-table form-table"><tbody><tr><th scope="row">Model / serial</th><td>________________________</td><th scope="row">Work order</th><td>________________________</td></tr><tr><th scope="row">Date / hour meter</th><td>________________________</td><th scope="row">Work package</th><td>________________________</td></tr><tr><th scope="row">Parts removed / fitted</th><td colspan="3">____________________________________________________________</td></tr><tr><th scope="row">As-found condition</th><td colspan="3">____________________________________________________________</td></tr><tr><th scope="row">As-left alignment</th><td>Offset ______ mm; angle ______ mm/100 mm</td><th scope="row">Torque reference</th><td>Table 4-3 / ______</td></tr><tr><th scope="row">20-minute test</th><td colspan="3">P1 ______ mm/s · P2 ______ mm/s · bearing ______ °C · motor ______ °C · casing ______ °C</td></tr><tr><th scope="row">Leak / noise check</th><td colspan="3">____________________________________________________________</td></tr><tr><th scope="row">Technician / release</th><td colspan="3">____________________________ / ____________________________</td></tr></tbody></table></div>
+          <h3 id="form-12-2">Form 12-2. Inspection measurement sheet</h3><div class="table-scroll"><table class="manual-table form-table"><thead><tr><th scope="col">Point / component</th><th scope="col">Instrument ID</th><th scope="col">Measured</th><th scope="col">Limit</th><th scope="col">Disposition</th></tr></thead><tbody><tr><th scope="row">P1 vibration</th><td>________</td><td>________ mm/s</td><td>Table 4-2</td><td>________</td></tr><tr><th scope="row">P2 vibration</th><td>________</td><td>________ mm/s</td><td>Table 4-2</td><td>________</td></tr><tr><th scope="row">Shaft runout</th><td>________</td><td>________ mm TIR</td><td>0.05 mm</td><td>________</td></tr><tr><th scope="row">Bearing play</th><td>________</td><td>________ mm</td><td>0.10 mm</td><td>________</td></tr><tr><th scope="row">Impeller gap</th><td>________</td><td>________ mm</td><td>0.80 mm</td><td>________</td></tr></tbody></table></div><p>Model / serial __________ · Work order __________ · Date __________ · Operating state __________ · Inspector __________</p>
+          <h3 id="form-12-3">Form 12-3. Service log</h3><div class="table-scroll"><table class="manual-table form-table"><thead><tr><th scope="col">Date</th><th scope="col">Hour meter</th><th scope="col">Task ID</th><th scope="col">Finding / part</th><th scope="col">Released by</th></tr></thead><tbody><tr><td>________</td><td>________</td><td>________</td><td>____________________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>____________________</td><td>________</td></tr><tr><td>________</td><td>________</td><td>________</td><td>____________________</td><td>________</td></tr></tbody></table></div>
+          <h3 id="form-12-4">Form 12-4. Failure and root-cause report</h3><div class="table-scroll"><table class="manual-table form-table"><tbody><tr><th scope="row">Model / serial / hour meter</th><td>________________________________________________</td></tr><tr><th scope="row">Symptom and first event</th><td>________________________________________________</td></tr><tr><th scope="row">Measured evidence / instrument</th><td>________________________________________________</td></tr><tr><th scope="row">Failed item / part number</th><td>________________________________________________</td></tr><tr><th scope="row">Immediate correction</th><td>________________________________________________</td></tr><tr><th scope="row">Systemic cause and verification</th><td>________________________________________________</td></tr><tr><th scope="row">Change request / bulletin</th><td>________________________________________________</td></tr><tr><th scope="row">Author / reviewer / date</th><td>________________________________________________</td></tr></tbody></table></div>
+        </section>
+
+        <section id="glossary" class="manual-section" data-topic-type="reference" aria-labelledby="glossary-title">
+          <p class="topic-id">REF-TERM-001</p><h2 id="glossary-title">13. Glossary</h2><dl class="manual-glossary">
+            <dt>Acceptance criterion</dt><dd>A stated value or condition used to accept an inspection result.</dd>
+            <dt>Alarm threshold</dt><dd>A measured level that starts investigation while the pump remains under controlled operation.</dd>
+            <dt>Alignment</dt><dd>The position of motor and pump shafts relative to each other.</dd>
+            <dt>Angular difference</dt><dd>The change in coupling-face separation across a stated span.</dd>
+            <dt>Axial gap</dt><dd>The clearance measured along the shaft axis between the impeller and casing.</dd>
+            <dt>Baseplate</dt><dd>The common support for motor and pump assemblies.</dd>
+            <dt>Bearing carrier</dt><dd>The housing that supports and lubricates the pump-shaft bearings.</dd>
+            <dt>Bearing radial play</dt><dd>Movement of a supported shaft across its axis under the specified check.</dd>
+            <dt>Blade</dt><dd>A shaped part of the impeller that transfers energy to air.</dd>
+            <dt>Casing</dt><dd>The fixed housing that contains the process-air channel.</dd>
+            <dt>Configuration</dt><dd>The model, serial range, and installed option set that determine service content.</dd>
+            <dt>Coupling</dt><dd>The assembly that transfers rotation from the motor shaft to the pump shaft.</dd>
+            <dt>Cover gasket</dt><dd>The replaceable seal between the casing and its cover.</dd>
+            <dt>Depot maintenance</dt><dd>Bench work that requires controlled disassembly and dimensional rebuild.</dd>
+            <dt>Discharge</dt><dd>The connection through which air leaves the pump.</dd>
+            <dt>Effectivity</dt><dd>The model and serial numbers to which an instruction or part applies.</dd>
+            <dt>Elastomer insert</dt><dd>The flexible element between the two coupling hubs.</dd>
+            <dt>Fault isolation</dt><dd>A sequence of checks used to narrow a symptom to a cause.</dd>
+            <dt>Field maintenance</dt><dd>Work on an installed unit after controlled isolation.</dd>
+            <dt>Free flow</dt><dd>Air capacity with no inlet pressure restriction.</dd>
+            <dt>Gland</dt><dd>The component that retains the seal cartridge at the casing boundary.</dd>
+            <dt>Hour meter</dt><dd>The counter used to record accumulated running time.</dd>
+            <dt>Impeller</dt><dd>The rotating part that moves air through the side channel.</dd>
+            <dt>Inlet vacuum</dt><dd>Inlet pressure below ambient pressure, shown as a negative gauge value.</dd>
+            <dt>Inspection point</dt><dd>A defined location for a repeatable measurement.</dd>
+            <dt>Installation limit</dt><dd>The permitted measurement range after assembly or adjustment.</dd>
+            <dt>Isolation</dt><dd>Controlled separation of the pump from energy and process sources.</dd>
+            <dt>Leakage</dt><dd>Unintended air or fluid transfer across a joint or seal boundary.</dd>
+            <dt>Lockout/tagout</dt><dd>The site method for controlling an isolation point and its status.</dd>
+            <dt>Maintenance interval</dt><dd>The maximum elapsed time or operating hours between scheduled tasks.</dd>
+            <dt>Model</dt><dd>A product variant identified by its letter suffix.</dd>
+            <dt>O-ring</dt><dd>A circular elastomer seal fitted in a groove.</dd>
+            <dt>Oil bath</dt><dd>The lubricant reservoir inside the bearing carrier.</dd>
+            <dt>Operating point</dt><dd>The combination of load, flow, vacuum, speed, and process condition during measurement.</dd>
+            <dt>Outboard bearing</dt><dd>The bearing farthest from the coupling side of the carrier.</dd>
+            <dt>Overhaul</dt><dd>Planned strip, inspection, renewal, and rebuild of an assembly.</dd>
+            <dt>Parallel offset</dt><dd>The lateral distance between two shaft centre lines.</dd>
+            <dt>Part number</dt><dd>The controlled identifier used to select a replacement item.</dd>
+            <dt>Process air</dt><dd>The dry air handled by the pump through inlet and discharge.</dd>
+            <dt>Publication revision</dt><dd>The controlled issue state of this manual.</dd>
+            <dt>Radial runout</dt><dd>The total indicator movement measured as a shaft rotates.</dd>
+            <dt>Rated load</dt><dd>The stated electrical or mechanical load at a specified condition.</dd>
+            <dt>Return to service</dt><dd>The documented release after inspection and functional test.</dd>
+            <dt>Root cause</dt><dd>The underlying condition that allowed a failure to occur.</dd>
+            <dt>Seal cartridge</dt><dd>A replaceable unit that seals the shaft at the casing boundary.</dd>
+            <dt>Serial number</dt><dd>The unique unit identifier used for effectivity.</dd>
+            <dt>Service bulletin</dt><dd>A controlled instruction that communicates a product service change.</dd>
+            <dt>Service limit</dt><dd>The measured value at which a component must be removed from service.</dd>
+            <dt>Shaft sleeve</dt><dd>The replaceable surface between the shaft and seal.</dd>
+            <dt>Side channel</dt><dd>The annular path in which the rotating impeller transfers energy to air.</dd>
+            <dt>Sight glass</dt><dd>The window used to check static oil level.</dd>
+            <dt>Temporary revision</dt><dd>A controlled change issued between full manual revisions.</dd>
+            <dt>Torque</dt><dd>A specified turning moment applied to a fastener.</dd>
+            <dt>Traceability</dt><dd>The recorded link between a unit, installed part, work order, and result.</dd>
+            <dt>Vibration velocity</dt><dd>The root-mean-square speed of vibration measured at a stated point.</dd>
+            <dt>Wear ring</dt><dd>A replaceable interface that helps maintain the impeller-to-casing gap.</dd>
+            <dt>Work order</dt><dd>The authorised record that defines and tracks maintenance work.</dd>
+            <dt>Work package</dt><dd>A complete task unit with preparation, steps, acceptance, and records.</dd>
+            <dt>Zero energy</dt><dd>The verified condition after isolation, venting, and shaft stop.</dd>
+          </dl></section>
+
+        <section id="acronyms" class="manual-section" data-topic-type="reference" aria-labelledby="acronyms-title">
+          <p class="topic-id">REF-ACR-001</p><h2 id="acronyms-title">14. Acronyms and abbreviations</h2>
+          <div class="table-scroll"><table class="manual-table acronym-table"><thead><tr><th scope="col">Term</th><th scope="col">Meaning</th><th scope="col">Term</th><th scope="col">Meaning</th></tr></thead><tbody>
+            <tr><th scope="row">AC</th><td>Alternating current</td><th scope="row">BOM</th><td>Bill of materials</td></tr>
+            <tr><th scope="row">CG</th><td>Centre of gravity</td><th scope="row">CMM</th><td>Component maintenance manual</td></tr>
+            <tr><th scope="row">DITA</th><td>Darwin Information Typing Architecture</td><th scope="row">ESD</th><td>Electrostatic discharge</td></tr>
+            <tr><th scope="row">FAT</th><td>Factory acceptance test</td><th scope="row">FMEA</th><td>Failure mode and effects analysis</td></tr>
+            <tr><th scope="row">HMI</th><td>Human–machine interface</td><th scope="row">IEC</th><td>International Electrotechnical Commission</td></tr>
+            <tr><th scope="row">IPL</th><td>Illustrated parts list</td><th scope="row">ISO</th><td>International Organization for Standardization</td></tr>
+            <tr><th scope="row">LOTO</th><td>Lockout/tagout</td><th scope="row">MCC</th><td>Motor control centre</td></tr>
+            <tr><th scope="row">MOC</th><td>Management of change</td><th scope="row">NDE</th><td>Non-destructive examination</td></tr>
+            <tr><th scope="row">OEM</th><td>Original equipment manufacturer</td><th scope="row">PAO</th><td>Polyalphaolefin</td></tr>
+            <tr><th scope="row">P&amp;ID</th><td>Piping and instrumentation diagram</td><th scope="row">PPE</th><td>Personal protective equipment</td></tr>
+            <tr><th scope="row">QA</th><td>Quality assurance</td><th scope="row">RCA</th><td>Root-cause analysis</td></tr>
+            <tr><th scope="row">RMS</th><td>Root mean square</td><th scope="row">RPM</th><td>Revolutions per minute</td></tr>
+            <tr><th scope="row">SB</th><td>Service bulletin</td><th scope="row">SME</th><td>Subject-matter expert</td></tr>
+            <tr><th scope="row">TIR</th><td>Total indicator reading</td><th scope="row">TR</th><td>Temporary revision</td></tr>
+            <tr><th scope="row">VG</th><td>Viscosity grade</td><th scope="row">WP</th><td>Work package</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section id="index" class="manual-section" data-topic-type="reference" aria-labelledby="index-title">
+          <p class="topic-id">REF-IDX-001</p><h2 id="index-title">15. Index</h2><div class="index-grid"><div><h3>A–H</h3><ul><li>Alignment: <a href="#alignment-inspection">7.6</a>, <a href="#tbl-4-4">Table 4-4</a></li><li>Approvals: <a href="#tbl-1-3">Table 1-3</a></li><li>Bearings: <a href="#bearing-inspection">7.1</a>, <a href="#wp-bearing">8.3</a>, <a href="#fig-10-4">Figure 10-4</a></li><li>Change control: <a href="#changes">11</a></li><li>Coupling: <a href="#coupling-inspection">7.4</a>, <a href="#wp-coupling">8.5</a></li><li>Effectivity: <a href="#tbl-1-2">Table 1-2</a></li><li>Fault isolation: <a href="#troubleshooting">9</a></li><li>Fastener torque: <a href="#tbl-4-3">Table 4-3</a></li><li>Forms: <a href="#records">12</a></li><li>Glossary: <a href="#glossary">13</a></li></ul></div><div><h3>I–Z</h3><ul><li>Impeller: <a href="#impeller-inspection">7.5</a>, <a href="#wp-impeller">8.6</a></li><li>Inspection points: <a href="#fig-7-1">Figure 7-1</a></li><li>Isolation: <a href="#safe-task">2.1</a></li><li>Lubrication: <a href="#tbl-4-5">Table 4-5</a>, <a href="#fig-3-4">Figure 3-4</a></li><li>Maintenance intervals: <a href="#tbl-5-1">Table 5-1</a></li><li>Motor: <a href="#motor-inspection">7.3</a>, <a href="#wp-motor">8.4</a></li><li>Parts: <a href="#tbl-10-1">Table 10-1</a></li><li>Seal: <a href="#seal-inspection">7.2</a>, <a href="#wp-seal">8.2</a></li><li>Specifications: <a href="#specifications">4</a></li><li>Vibration: <a href="#tbl-4-2">Table 4-2</a>, <a href="#fig-7-1">Figure 7-1</a></li></ul></div></div>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer screen-only"><div class="wrap"><p>© 2026 Nilesh Gunjal · <a href="https://github.com/Nilesh21-gunjal/Technical-Writing-Portfolio">Portfolio repository</a></p></div></footer>
+</body>
+</html>

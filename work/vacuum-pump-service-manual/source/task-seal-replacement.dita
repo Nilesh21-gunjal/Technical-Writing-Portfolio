@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task-rem-002">
+  <title>Replace the mechanical seal</title>
+  <taskbody>
+    <prereq><p conref="shared-prerequisites.dita#shared-prereq/isolation"/><p>Select the seal cartridge by model and serial number.</p></prereq>
+    <steps>
+      <step><cmd>Record the installed seal part number and leakage position.</cmd></step>
+      <step><cmd>Remove the guard and access cover.</cmd></step>
+      <step><cmd>Loosen the retainer screws in an alternating sequence.</cmd></step>
+      <step><cmd>Withdraw the cartridge along the shaft without scoring the sleeve.</cmd></step>
+      <step props="VSH-450A"><cmd>Fit standard seal cartridge item 08.</cmd></step>
+      <step props="VSH-450B VSH-450C"><cmd>Fit enhanced seal cartridge item 09.</cmd></step>
+      <step><cmd>Torque the retainer screws alternately to 15 N·m.</cmd></step>
+      <step><cmd>Restore the cover and guard. Complete the functional test.</cmd></step>
+    </steps>
+  </taskbody>
+</task>

@@ -17,6 +17,7 @@
     "test:responsive": "node scripts/check-responsive.mjs",
     "build:api-docs": "node scripts/build-api-docs.mjs",
     "build:docs-guide": "node scripts/build-docs-as-code-guide.mjs",
+    "build:manual": "node scripts/build-vsh450-standalone.mjs",
     "build:site": "node scripts/build-pages.mjs"
   },
   "devDependencies": {

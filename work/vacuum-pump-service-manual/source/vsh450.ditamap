@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map id="vsh450-rev-c">
+  <title>VSH-450 Service and Maintenance Manual, Rev C: topic prototype</title>
+  <topicref href="concept-operating-principle.dita" navtitle="Operating principle"/>
+  <topicref href="task-safe-maintenance.dita" navtitle="Make the pump safe"/>
+  <topicref href="ref-effectivity.dita" navtitle="Configuration effectivity"/>
+  <topicref href="task-seal-replacement.dita" navtitle="Replace the seal"/>
+  <topicref href="task-bearing-replacement.dita" navtitle="Replace the bearing set"/>
+  <topicref href="shared-prerequisites.dita" processing-role="resource-only"/>
+</map>

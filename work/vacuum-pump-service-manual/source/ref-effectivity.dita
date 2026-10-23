@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref-pub-001">
+  <title>Configuration effectivity</title>
+  <refbody>
+    <section><title>Models and serial numbers</title>
+      <simpletable>
+        <sthead><stentry>Model</stentry><stentry>Serial number</stentry><stentry>Seal</stentry></sthead>
+        <strow props="VSH-450A"><stentry>VSH-450A</stentry><stentry>1000–1999</stentry><stentry>Standard cartridge, item 08</stentry></strow>
+        <strow props="VSH-450B"><stentry>VSH-450B</stentry><stentry>2000–2999</stentry><stentry>Enhanced cartridge, item 09</stentry></strow>
+        <strow props="VSH-450C"><stentry>VSH-450C</stentry><stentry>3000–3999</stentry><stentry>Enhanced cartridge and condition monitor</stentry></strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

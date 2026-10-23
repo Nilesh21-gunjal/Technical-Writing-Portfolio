@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="concept-001">
+  <title>Operating principle</title>
+  <shortdesc>The motor turns a single side-channel impeller through a flexible coupling.</shortdesc>
+  <conbody>
+    <p>The rotating blades transfer energy to dry air inside the annular casing. The inlet pressure falls below ambient pressure and air leaves through the discharge. The impeller does not contact the casing in normal operation.</p>
+    <p>The bearing carrier supports the shaft. The shaft seal limits leakage at the casing boundary.</p>
+  </conbody>
+</concept>

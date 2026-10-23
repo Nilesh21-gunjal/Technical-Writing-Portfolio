@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task-safe-001">
+  <title>Make the pump safe for maintenance</title>
+  <taskbody>
+    <prereq><p>Have the work order, model and serial number, isolation diagram, process-material assessment, and qualified personnel available.</p></prereq>
+    <steps>
+      <step><cmd>Record the model, serial number, configuration, and work order.</cmd></step>
+      <step><cmd>Stop the pump by the site operating sequence. Wait until the shaft stops.</cmd></step>
+      <step><cmd>Isolate and lock out every electrical source. Have a qualified electrician verify absence of voltage.</cmd></step>
+      <step><cmd>Close the process isolation valves. Vent through the designated connection and verify zero gauge differential.</cmd></step>
+      <step><cmd>Check the surface temperature. Continue only when exposed parts are below 45 °C.</cmd></step>
+      <step><cmd>Attach the isolation record to the work order. Keep the keys under site control.</cmd></step>
+    </steps>
+    <result><p>Isolation record complete; zero voltage and zero gauge differential recorded; shaft stationary.</p></result>
+  </taskbody>
+</task>

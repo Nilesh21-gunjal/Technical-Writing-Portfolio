@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic id="shared-prereq">
+  <title>Shared maintenance prerequisites</title>
+  <body>
+    <p id="isolation">Complete TASK-SAFE-001 and record zero voltage, zero gauge differential, and zero shaft rotation before disassembly.</p>
+  </body>
+</topic>

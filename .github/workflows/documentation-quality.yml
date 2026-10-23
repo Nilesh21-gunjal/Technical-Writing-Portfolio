@@ -57,11 +57,20 @@ jobs:
       - name: Build Docs-as-Code user guide
         run: pnpm build:docs-guide
 
+      - name: Build standalone VSH-450 manual
+        run: pnpm build:manual
+
+      - name: Check standalone manual is current
+        run: git diff --exit-code -- output/html/VSH450_Service_and_Maintenance_Manual_Rev_C.html
+
       - name: Test API contract and code examples
         run: pnpm test:api
 
       - name: Build GitHub Pages output
         run: pnpm build:site
+
+      - name: Check VSH-450 publication inventory and cross-references
+        run: python scripts/check_vsh450_manual.py
 
       - name: Check source HTML accessibility essentials
         run: node .github/scripts/check-accessibility.mjs

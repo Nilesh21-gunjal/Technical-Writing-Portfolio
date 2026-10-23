@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task id="task-rem-003">
+  <title>Replace the bearing set</title>
+  <taskbody>
+    <prereq><p conref="shared-prerequisites.dita#shared-prereq/isolation"/><p>Support the rotor before releasing bearing retainers.</p></prereq>
+    <steps>
+      <step><cmd>Record the as-found radial play and bearing identification.</cmd></step>
+      <step><cmd>Drain the carrier and withdraw the supported rotor.</cmd></step>
+      <step><cmd>Remove both bearings with a puller.</cmd></step>
+      <step><cmd>Fit new bearings and spacer in the order shown in Figure 10-4.</cmd></step>
+      <step><cmd>Fill the carrier with 0.75 L ISO VG 68 PAO oil.</cmd></step>
+      <step><cmd>Measure installed radial play and complete the functional test.</cmd></step>
+    </steps>
+  </taskbody>
+</task>

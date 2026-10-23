@@ -56,6 +56,9 @@ jobs:
       - name: Build Docs-as-Code user guide
         run: pnpm build:docs-guide
 
+      - name: Build standalone VSH-450 manual
+        run: pnpm build:manual
+
       - name: Build GitHub Pages output
         run: pnpm build:site
 
